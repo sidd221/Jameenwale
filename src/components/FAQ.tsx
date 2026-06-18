@@ -17,6 +17,18 @@ const faqData = [
   {
     question: "Do you arrange home loans for plot purchases?",
     answer: "Yes, we partner with leading national and private banks to help you secure easy financing and plot loans at competitive interest rates."
+  },
+  {
+    question: "What are the location advantages of buying plots in Danapur?",
+    answer: "Danapur is one of the fastest-growing areas in Patna. Buying a plot here means you are closer to AIIMS Patna, Danapur Railway Station, and emerging commercial hubs, ensuring high connectivity and great future appreciation."
+  },
+  {
+    question: "Do you offer EMI or installment plans for plots?",
+    answer: "Yes, we understand our customers' needs. For selected trusted gated communities, we provide easy installment (EMI) facilities to make your land investment smoother and more affordable."
+  },
+  {
+    question: "Is there proper boundary and security in your gated societies?",
+    answer: "Absolutely. Our gated communities come with well-planned infrastructure including strong boundary walls, secure entry gates, internal roads, electricity availability, and drainage facilities to ensure a safe environment."
   }
 ];
 

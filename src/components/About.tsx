@@ -81,10 +81,10 @@ export default function About() {
               Crafting Legacy Through <br/> <span className="italic opacity-80">Exceptional Homes</span>
             </h2>
             <p className="text-white/80 mb-6 leading-relaxed">
-              For over 15 years, Jameenwale has been redefining luxury real estate across prime locations. We don't just build homes; we craft bespoke properties and the most sought-after investment land in Bihar, including plots in Bihta Patna and residential land in Naubatpur tailored for the most discerning individuals.
+              For over 15 years, Jameenwale has been redefining real estate across prime locations. We don't just sell property; we secure your future with the most sought-after investment land in Bihar. From DTCP-approved plots ready to registry to premium plots in Bihta Patna and residential land in Naubatpur, we ensure complete transparency and peace of mind.
             </p>
             <p className="text-white/80 mb-10 leading-relaxed">
-              Our commitment to architectural brilliance, sustainable luxury, and unmatched amenities ensures that every property we develop stands as a landmark of prestige and comfort.
+              Looking for RERA-approved plots in Patna or highway-facing land for sale in Danapur? Our projects near AIIMS Patna offer unparalleled connectivity, robust security, and the foundation for your dream home or commercial venture.
             </p>
 
             {/* Stats Row */}

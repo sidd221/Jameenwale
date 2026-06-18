@@ -20,7 +20,15 @@ export default defineConfig(({mode}) => {
     build: {
       target: 'esnext',
       minify: 'esbuild',
-      cssMinify: true
+      cssMinify: true,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: ['react', 'react-dom', 'react-router-dom'],
+            motion: ['motion']
+          }
+        }
+      }
     },
     server: {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.

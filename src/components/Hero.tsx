@@ -64,6 +64,7 @@ export default function Hero() {
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0 bg-[#0F172A]">
         <img
+          fetchPriority="high"
           src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format,compress&fit=crop&q=60&w=1280&fm=webp"
           srcSet="
             https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format,compress&fit=crop&q=60&w=640&fm=webp 640w,
