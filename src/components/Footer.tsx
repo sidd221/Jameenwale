@@ -66,7 +66,7 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <a href="https://www.facebook.com/share/18kmh97qDS/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-sm bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold hover:border-gold hover:text-black transition-colors"><Facebook className="w-4 h-4" /></a>
-              <a href="https://www.instagram.com/jamee_nwale18/?utm_source=qr&r=nametag" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-sm bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold hover:border-gold hover:text-black transition-colors"><Instagram className="w-4 h-4" /></a>
+              <a href="https://www.instagram.com/jameenwlae_?igsh=MTBtenllNGFkc2RuZQ==" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-sm bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold hover:border-gold hover:text-black transition-colors"><Instagram className="w-4 h-4" /></a>
               <a href="https://wa.me/916287220163" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-sm bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold hover:border-gold hover:text-black transition-colors"><WhatsAppIcon className="w-4 h-4" /></a>
               <a href="https://pin.it/3un7n9UNy" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-sm bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold hover:border-gold hover:text-black transition-colors"><PinterestIcon className="w-4 h-4" /></a>
             </div>
