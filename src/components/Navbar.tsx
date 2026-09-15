@@ -160,12 +160,12 @@ export default function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-6">
-            <a href="tel:+917979098902" className="text-sm flex items-center font-bold text-white">
+            <a href="tel:+916287220163" className="text-sm flex items-center font-bold text-white">
               <Phone className="w-4 h-4 mr-2 accent-gold" />
-              +91 7979098902
+              +91 6287220163
             </a>
             <a
-              href="tel:+917979098902"
+              href="tel:+916287220163"
               className="bg-gold hover:opacity-90 text-black px-6 py-2 rounded-sm text-xs font-bold tracking-wider uppercase transition-colors"
             >
               Book Site Visit
@@ -212,7 +212,7 @@ export default function Navbar() {
                 </a>
               ))}
               <a
-                href="tel:+917979098902"
+                href="tel:+916287220163"
                 className="mt-4 bg-gold hover:opacity-90 text-black text-center py-3 rounded-sm font-bold tracking-widest uppercase text-xs"
                 onClick={() => setMobileMenuOpen(false)}
               >
