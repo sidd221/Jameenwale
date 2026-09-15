@@ -53,7 +53,7 @@ export default function FloatingCTAs() {
       
       {/* Call Button */}
       <a 
-        href="tel:+916287220163" 
+        href="tel:+917979098902" 
         className={`w-14 h-14 bg-blue-500 hover:bg-blue-600 outline outline-4 outline-blue-500/30 text-white rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 group relative ${
           isWhatsAppVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-90 pointer-events-none'
         } hover:scale-110`}
@@ -67,7 +67,7 @@ export default function FloatingCTAs() {
 
       {/* WhatsApp Button */}
       <a 
-        href="https://wa.me/916287220163" 
+        href="https://wa.me/917979098902" 
         target="_blank" 
         rel="noopener noreferrer"
         className={`w-14 h-14 bg-green-500 hover:bg-green-600 outline outline-4 outline-green-500/30 text-white rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 group relative ${

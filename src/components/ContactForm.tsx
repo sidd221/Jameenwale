@@ -8,7 +8,7 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formRef.current) return;
-    
+
     setStatus('submitting');
     setErrorMessage('');
     const formData = new FormData(formRef.current);
@@ -23,9 +23,9 @@ export default function ContactForm() {
     try {
       const response = await fetch("https://formsubmit.co/ajax/anish248patel@gmail.com", {
         method: "POST",
-        headers: { 
-            "Content-Type": "application/json",
-            "Accept": "application/json"
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
         },
         body: JSON.stringify(requestData)
       });
@@ -41,7 +41,7 @@ export default function ContactForm() {
         if (data && data.message && typeof data.message === 'string') {
           setErrorMessage("Error: " + data.message);
         } else {
-           setErrorMessage("Submission failed. Status: " + response.status + ".");
+          setErrorMessage("Submission failed. Status: " + response.status + ".");
         }
         setStatus('error');
         setTimeout(() => setStatus('idle'), 8000);
@@ -79,6 +79,8 @@ export default function ContactForm() {
                 type="text"
                 id="name"
                 name="name"
+                autoComplete="name"
+                aria-required="true"
                 required
                 className="peer w-full bg-white/5 border border-white/10 rounded-sm px-4 pt-6 pb-2 text-white placeholder-transparent focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
                 placeholder="Full Name"
@@ -87,13 +89,15 @@ export default function ContactForm() {
                 Full Name
               </label>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="relative">
                 <input
                   type="email"
                   id="email"
                   name="email"
+                  autoComplete="email"
+                  aria-required="true"
                   required
                   pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
                   title="Please enter a valid email address (e.g. user@example.com)"
@@ -104,12 +108,14 @@ export default function ContactForm() {
                   Email Address
                 </label>
               </div>
-              
+
               <div className="relative">
                 <input
                   type="tel"
                   id="mobile"
                   name="mobile"
+                  autoComplete="tel"
+                  aria-required="true"
                   required
                   pattern="[0-9]{10}"
                   maxLength={10}

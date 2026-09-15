@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+        http://www.google.com/schemas/sitemap-image/1.1
+        http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
 
-
-<url>
-  <loc>https://jameenwale.vercel.app/</loc>
-  <lastmod>2026-06-11T08:41:55+00:00</lastmod>
-</url>
-
+  <url>
+    <loc>https://jameenwale.vercel.app/</loc>
+    <lastmod>2026-09-15T10:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://jameenwale.vercel.app/embassy.jpeg</image:loc>
+      <image:title>Embassy Capital Gated Community Plots in Patna Shivala More</image:title>
+      <image:caption>RERA-approved gated township residential plots with boundary wall at Shivala More Patna.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://jameenwale.vercel.app/it.jpeg</image:loc>
+      <image:title>IT Park Gated Community Plots in Bihta Patna</image:title>
+      <image:caption>Verified residential and commercial land opposite NIT Bihta corridor Patna.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://jameenwale.vercel.app/rajgir.jpeg</image:loc>
+      <image:title>Seven Crown Residential Plots in Rajgir Bihar</image:title>
+      <image:caption>Scenic gated society plots for sale in Silao Rajgir Nalanda tourism corridor.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://jameenwale.vercel.app/og-image.jpg</image:loc>
+      <image:title>JameenWale Gated Township Real Estate Patna</image:title>
+      <image:caption>Verified RERA-approved plots in Patna, Bihta, and Rajgir Bihar.</image:caption>
+    </image:image>
+  </url>
 
 </urlset>

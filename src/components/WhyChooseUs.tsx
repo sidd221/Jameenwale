@@ -1,34 +1,32 @@
 import { Shield, Sparkles, TrendingUp, Handshake } from 'lucide-react';
 import { motion } from 'motion/react';
-import { useState } from 'react';
 
 export default function WhyChooseUs() {
-  const [isLoaded, setIsLoaded] = useState(false);
   const reasons = [
     {
-      title: 'Trusted Developer',
-      description: 'Over 15 years of excellence with a proven track record of delivering premium properties on time.',
+      title: 'RERA-Approved & Clear Titles',
+      description: '100% legally verified freehold land with immediate registration, clear Khatiyan records, and complete mutation support.',
       icon: Shield
     },
     {
-      title: 'Modern Architecture',
-      description: 'Award-winning design philosophy blending aesthetics, functionality, and sustainable building practices.',
+      title: 'Gated Township Infrastructure',
+      description: 'Secured gated communities featuring solid perimeter walls, 30–40ft wide roads, underground drainage, and 24/7 CCTV security.',
       icon: Sparkles
     },
     {
-      title: 'High ROI Potential',
-      description: 'Strategically located projects ensuring high capital appreciation and rental yields for investors.',
+      title: 'High Capital Appreciation',
+      description: 'Strategically situated near expressways, educational hubs, and airport corridors for maximum return on investment.',
       icon: TrendingUp
     },
     {
-      title: 'Hassle-Free Financing',
-      description: 'Exclusive partnerships with top banks ensuring seamless, quick, and easy home loan process.',
+      title: 'Hassle-Free Bank Loans & EMI',
+      description: 'Direct tie-ups with leading banks (SBI, HDFC, ICICI) offering smooth loan approvals and flexible installment plans.',
       icon: Handshake
     }
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section id="why-us" className="py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 p-12 glass">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
@@ -38,7 +36,7 @@ export default function WhyChooseUs() {
               Why Choose <br/> <span className="italic opacity-80">jameenwale?</span>
             </h2>
             <p className="text-white/80 mb-8 leading-relaxed max-w-lg font-light">
-              We define urban luxury. More than just buildings, our developments are statements of success. Whether you are looking for an ideal land investment in patna, residential land in Danapur, or premium plots near patna, jameenwale secures your legacy.
+              We combine legal security, master-planned infrastructure, and strategic locations. Every Jameenwale project is designed with clear freehold titles, perimeter boundary walls, and modern amenities to protect and grow your wealth.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -69,24 +67,16 @@ export default function WhyChooseUs() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative h-[600px] rounded-sm overflow-hidden shadow-2xl border border-white/10"
+            className="relative h-[600px] rounded-sm overflow-hidden shadow-2xl border border-white/10 bg-slate-800/80"
           >
-            {!isLoaded && (
-               <div className="absolute inset-0 bg-white/10 animate-pulse z-10 flex items-center justify-center">
-                 <div className="w-8 h-8 border-4 border-white/20 border-t-white/60 rounded-full animate-spin"></div>
-               </div>
-            )}
             <img 
               src="/t.jpeg" 
-              alt="Office View" 
+              alt="JameenWale Gated Township Real Estate Corporate Office in Patna Bihar" 
               width="600"
               height="600"
               loading="lazy"
               decoding="async"
-              onLoad={() => setIsLoaded(true)}
-              className={`w-full h-full object-cover transition-all duration-700 ease-in-out ${
-                isLoaded ? 'opacity-100 blur-0' : 'opacity-0 blur-sm'
-              }`}
+              className="w-full h-full object-cover"
             />
             {/* Overlay Gradient card */}
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/80 to-transparent p-8 pt-32">

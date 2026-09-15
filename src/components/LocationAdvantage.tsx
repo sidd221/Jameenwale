@@ -1,4 +1,4 @@
-import { Map as MapIcon, Plane, ShoppingBag, GraduationCap, Building2, Fuel } from 'lucide-react';
+import { Map as MapIcon, Plane, ShoppingBag, GraduationCap, Building2, Fuel, FileText, MapPin } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export default function LocationAdvantage() {
@@ -12,9 +12,12 @@ export default function LocationAdvantage() {
   ];
 
   return (
-    <section className="py-24 relative">
+    <section id="location" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-gold/15 text-gold border border-gold/30 mb-3">
+            <FileText className="w-3.5 h-3.5" /> Govt. Approved Master Plan
+          </div>
           <h4 className="accent-gold font-bold uppercase tracking-widest text-sm mb-3">Connectivity</h4>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight tracking-tight">
             Prime <span className="italic opacity-80">Location Advantage</span>
@@ -26,29 +29,41 @@ export default function LocationAdvantage() {
 
         <div className="flex flex-col lg:flex-row gap-0 glass max-w-5xl mx-auto overflow-hidden rounded-xl">
           
-          <div className="w-full lg:w-1/2 bg-[#0f172a] min-h-[400px] lg:min-h-full relative overflow-hidden border-r border-white/10 p-0 group">
+          <div className="w-full lg:w-1/2 bg-[#0f172a] min-h-[360px] lg:min-h-full relative overflow-hidden border-r border-white/10 p-0 group">
             <a href="https://maps.app.goo.gl/tWUKtzzQ6LW5C6a18" target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-20" aria-label="Open Map in new tab"></a>
-            {/* Google Map */}
+            
+            {/* Google Map with optimized lazy rendering */}
             <div className="absolute inset-0 pointer-events-none group-hover:scale-105 transition-transform duration-700 ease-in-out">
               <iframe 
+                title="JameenWale Property Location Map Shivala More Patna Bihar"
                 src="https://maps.google.com/maps?q=25.6090559,85.0620633&t=&z=15&ie=UTF8&iwloc=&output=embed" 
                 width="100%" 
                 height="100%" 
-                style={{ border: 0, minHeight: '100%', filter: 'invert(90%) hue-rotate(180deg) brightness(85%) contrast(85%)' }} 
+                style={{ border: 0, minHeight: '100%' }} 
                 allowFullScreen 
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover opacity-80"
               ></iframe>
             </div>
             {/* Pointer overlay */}
-            <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_40px_rgba(15,23,42,0.8)] z-10"></div>
+            <div className="absolute inset-0 pointer-events-none bg-[#0f172a]/20 shadow-[inset_0_0_40px_rgba(15,23,42,0.8)] z-10"></div>
           </div>
 
           <div className="w-full lg:w-1/2 p-8 md:p-12">
-            <h3 className="text-2xl font-bold text-white mb-8 border-b border-white/10 pb-4 tracking-tight">
-              Close to Everything
-            </h3>
+            <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-8">
+              <h3 className="text-2xl font-bold text-white tracking-tight">
+                Close to Everything
+              </h3>
+              <a
+                href="/govt.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:inline-flex items-center gap-1.5 text-xs text-gold font-bold hover:underline"
+              >
+                <FileText className="w-3.5 h-3.5" /> View Govt. Map
+              </a>
+            </div>
             <div className="space-y-6">
               {points.map((point, idx) => {
                 const Icon = point.icon;
@@ -75,18 +90,33 @@ export default function LocationAdvantage() {
               })}
             </div>
             
-            <motion.a 
-              href="https://maps.app.goo.gl/tWUKtzzQ6LW5C6a18" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.5 }}
-              className="mt-10 block w-full text-center py-4 bg-white/5 border border-white/10 text-white rounded-sm hover:bg-white hover:text-black transition-colors uppercase tracking-widest text-xs font-bold"
-            >
-              Get Direction
-            </motion.a>
+            <div className="mt-10 flex flex-col sm:flex-row gap-3">
+              <motion.a 
+                href="https://maps.app.goo.gl/tWUKtzzQ6LW5C6a18" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.5 }}
+                className="flex-1 text-center py-3.5 px-4 bg-white/5 border border-white/10 text-white rounded-sm hover:bg-white hover:text-black transition-colors uppercase tracking-widest text-xs font-bold flex items-center justify-center gap-2"
+              >
+                <MapPin className="w-4 h-4" /> Get Direction
+              </motion.a>
+
+              <motion.a 
+                href="/govt.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.6 }}
+                className="flex-1 text-center py-3.5 px-4 bg-gold/15 border border-gold/40 text-gold rounded-sm hover:bg-gold hover:text-black transition-colors uppercase tracking-widest text-xs font-bold flex items-center justify-center gap-2 shadow-lg shadow-gold/10"
+              >
+                <FileText className="w-4 h-4" /> Govt. Master Map (PDF)
+              </motion.a>
+            </div>
           </div>
 
         </div>

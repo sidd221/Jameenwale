@@ -2,74 +2,43 @@ import { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import About from './components/About';
+import FeaturedProperties from './components/FeaturedProperties';
+import Amenities from './components/Amenities';
+import WhyChooseUs from './components/WhyChooseUs';
+import LocationAdvantage from './components/LocationAdvantage';
+import Testimonials from './components/Testimonials';
+import Gallery from './components/Gallery';
+import FAQ from './components/FAQ';
+import ContactForm from './components/ContactForm';
+import Footer from './components/Footer';
+import FloatingCTAs from './components/FloatingCTAs';
+import AmenitiesPopup from './components/AmenitiesPopup';
+import LLM from './components/llm';
 
-const About = lazy(() => import('./components/About'));
-const FeaturedProperties = lazy(() => import('./components/FeaturedProperties'));
-const Amenities = lazy(() => import('./components/Amenities'));
-const WhyChooseUs = lazy(() => import('./components/WhyChooseUs'));
-const LocationAdvantage = lazy(() => import('./components/LocationAdvantage'));
-const Testimonials = lazy(() => import('./components/Testimonials'));
-const Gallery = lazy(() => import('./components/Gallery'));
-const Footer = lazy(() => import('./components/Footer'));
-const FloatingCTAs = lazy(() => import('./components/FloatingCTAs'));
-const ContactForm = lazy(() => import('./components/ContactForm'));
-const FAQ = lazy(() => import('./components/FAQ'));
 const NotFound = lazy(() => import('./components/NotFound'));
-
-const SectionFallback = () => (
-  <div className="h-48 flex items-center justify-center">
-    <div className="w-8 h-8 rounded-full border-2 border-gold border-t-transparent animate-spin"></div>
-  </div>
-);
 
 function Home() {
   return (
-    <div className="font-sans antialiased text-white select-none">
+    <div className="font-sans antialiased text-white select-none overflow-x-hidden w-full max-w-full relative min-h-screen">
+      <LLM />
       <Navbar />
-      <main>
+      <main className="overflow-x-hidden w-full max-w-full">
         <Hero />
-        
-        <Suspense fallback={<SectionFallback />}>
-          <About />
-        </Suspense>
-
-        <Suspense fallback={<SectionFallback />}>
-          <FeaturedProperties />
-        </Suspense>
-        
-        <Suspense fallback={<SectionFallback />}>
-          <WhyChooseUs />
-        </Suspense>
-        
-        <Suspense fallback={<SectionFallback />}>
-          <Amenities />
-        </Suspense>
-        
-        <Suspense fallback={<SectionFallback />}>
-          <LocationAdvantage />
-        </Suspense>
-        
-        <Suspense fallback={<SectionFallback />}>
-          <Gallery />
-        </Suspense>
-        
-        <Suspense fallback={<SectionFallback />}>
-          <Testimonials />
-        </Suspense>
-
-        <Suspense fallback={<SectionFallback />}>
-          <FAQ />
-        </Suspense>
-        
-        <Suspense fallback={<SectionFallback />}>
-          <ContactForm />
-        </Suspense>
+        <About />
+        <FeaturedProperties />
+        <WhyChooseUs />
+        <Amenities />
+        <LocationAdvantage />
+        <Gallery />
+        <Testimonials />
+        <FAQ />
+        <ContactForm />
       </main>
       
-      <Suspense fallback={null}>
-        <Footer />
-        <FloatingCTAs />
-      </Suspense>
+      <Footer />
+      <FloatingCTAs />
+      <AmenitiesPopup />
       
       <div className="fixed inset-0 bg-[#0f172a] -z-10 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-slate-900 via-[#0f172a] to-[#0f172a]"></div>
     </div>

@@ -13,6 +13,7 @@ export default function Navbar() {
     { name: 'Properties', href: '#properties' },
     { name: 'Amenities', href: '#amenities' },
     { name: 'Gallery', href: '#gallery' },
+    { name: 'FAQ', href: '#faq' },
     { name: 'Get in Touch', href: '#contact' },
   ];
 
@@ -23,56 +24,104 @@ export default function Navbar() {
     // Check if the link is a hash link
     if (href.startsWith('#')) {
       const targetId = href.substring(1);
-      const elem = document.getElementById(targetId);
-      
-      if (elem) {
-        // Find the navbar height to offset
-        const navHeight = 80;
-        const targetPosition = elem.getBoundingClientRect().top + window.scrollY - navHeight;
+      if (targetId) {
+        setActiveSection(targetId);
+        const elem = document.getElementById(targetId);
         
+        if (elem) {
+          const navHeight = 75;
+          const targetPosition = elem.getBoundingClientRect().top + window.scrollY - navHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      } else {
+        setActiveSection('home');
         window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-      } else if (targetId === '') {
-        // If it's just '#' then scroll to top
-         window.scrollTo({
           top: 0,
           behavior: 'smooth'
         });
       }
     } else {
-      // For external links, let default behavior happen
       window.location.href = href;
     }
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+    let ticking = false;
 
-      const sections = navLinks.map(link => link.href.substring(1));
-      let current = '';
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 200) {
-            current = section;
+    const navMap: Record<string, string> = {
+      home: 'home',
+      about: 'about',
+      properties: 'properties',
+      'why-us': 'properties',
+      amenities: 'amenities',
+      location: 'amenities',
+      gallery: 'gallery',
+      testimonials: 'gallery',
+      faq: 'faq',
+      contact: 'contact',
+    };
+
+    const sectionIds = [
+      'contact',
+      'faq',
+      'testimonials',
+      'gallery',
+      'location',
+      'amenities',
+      'why-us',
+      'properties',
+      'about',
+      'home'
+    ];
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 20);
+
+          const scrollY = window.scrollY;
+          const windowHeight = window.innerHeight;
+          const docHeight = document.documentElement.scrollHeight;
+
+          let currentNav = '';
+
+          // If scrolled to top
+          if (scrollY < 120) {
+            currentNav = 'home';
+          } else if (windowHeight + scrollY >= docHeight - 80) {
+            // If scrolled to the bottom of the page
+            currentNav = 'contact';
+          } else {
+            // Check from bottom to top which section is currently in the focal viewport zone
+            for (const id of sectionIds) {
+              const el = document.getElementById(id);
+              if (el) {
+                const rect = el.getBoundingClientRect();
+                if (rect.top <= windowHeight * 0.5 && rect.bottom >= 70) {
+                  currentNav = navMap[id] || id;
+                  break;
+                }
+              }
+            }
           }
-        }
-      }
-      // Only set if we found a section, otherwise keep '' if at very top maybe?
-      // Actually, if we're at the top, #home should be active
-      if (current) {
-        setActiveSection(current);
+
+          if (currentNav) {
+            setActiveSection(currentNav);
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
     
     // Initial check
     handleScroll();
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -111,12 +160,12 @@ export default function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-6">
-            <a href="tel:+916287220163" className="text-sm flex items-center font-bold text-white">
+            <a href="tel:+917979098902" className="text-sm flex items-center font-bold text-white">
               <Phone className="w-4 h-4 mr-2 accent-gold" />
-              +91 6287220163
+              +91 7979098902
             </a>
             <a
-              href="tel:+916287220163"
+              href="tel:+917979098902"
               className="bg-gold hover:opacity-90 text-black px-6 py-2 rounded-sm text-xs font-bold tracking-wider uppercase transition-colors"
             >
               Book Site Visit
@@ -163,7 +212,7 @@ export default function Navbar() {
                 </a>
               ))}
               <a
-                href="tel:+916287220163"
+                href="tel:+917979098902"
                 className="mt-4 bg-gold hover:opacity-90 text-black text-center py-3 rounded-sm font-bold tracking-widest uppercase text-xs"
                 onClick={() => setMobileMenuOpen(false)}
               >

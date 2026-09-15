@@ -62,12 +62,12 @@ export default function Footer() {
               </span>
             </a>
             <p className="text-sm text-white/60 leading-relaxed font-light">
-              Curating exceptional living spaces, residential land in Danapur, and the finest plots in patna bihar for those who demand the zenith of luxury, comfort, and architectural brilliance.
+              Curating verified gated township plots across Patna, Bihta, and Rajgir for families and investors seeking legal transparency, perimeter security, and sustained capital appreciation.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.facebook.com/share/18kmh97qDS/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-sm bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold hover:border-gold hover:text-black transition-colors"><Facebook className="w-4 h-4" /></a>
               <a href="https://www.instagram.com/jameenwlae_?igsh=MTBtenllNGFkc2RuZQ==" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-sm bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold hover:border-gold hover:text-black transition-colors"><Instagram className="w-4 h-4" /></a>
-              <a href="https://wa.me/916287220163" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-sm bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold hover:border-gold hover:text-black transition-colors"><WhatsAppIcon className="w-4 h-4" /></a>
+              <a href="https://wa.me/917979098902" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-sm bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold hover:border-gold hover:text-black transition-colors"><WhatsAppIcon className="w-4 h-4" /></a>
               <a href="https://pin.it/3un7n9UNy" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-sm bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold hover:border-gold hover:text-black transition-colors"><PinterestIcon className="w-4 h-4" /></a>
             </div>
           </div>
@@ -80,8 +80,9 @@ export default function Footer() {
               <li><a href="#properties" onClick={(e) => handleNavClick(e, '#properties')} className="text-white/60 hover:text-white hover:accent-gold transition-colors">Featured Projects</a></li>
               <li><a href="#amenities" onClick={(e) => handleNavClick(e, '#amenities')} className="text-white/60 hover:text-white hover:accent-gold transition-colors">Luxury Amenities</a></li>
               <li><a href="#gallery" onClick={(e) => handleNavClick(e, '#gallery')} className="text-white/60 hover:text-white hover:accent-gold transition-colors">Digital Gallery</a></li>
+              <li><a href="#faq" onClick={(e) => handleNavClick(e, '#faq')} className="text-white/60 hover:text-white hover:accent-gold transition-colors">Frequently Asked Questions</a></li>
+              <li><a href="/govt.pdf" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white hover:accent-gold transition-colors">Govt. Master Map (PDF)</a></li>
               <li><a href="https://assets99homes.com/" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white hover:accent-gold transition-colors">Assets99</a></li>
-              <li><a href="sitemap.html" className="text-white/60 hover:text-white hover:accent-gold transition-colors">Sitemap</a></li>
             </ul>
           </div>
 
@@ -95,7 +96,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center">
                 <Phone className="w-4 h-4 accent-gold mr-3 shrink-0" />
-                <span>+91 6287220163</span>
+                <a href="tel:+917979098902" className="hover:text-gold transition-colors">+91 7979098902</a>
               </li>
               <li className="flex items-center">
                 <Mail className="w-4 h-4 accent-gold mr-3 shrink-0" />
@@ -104,7 +105,21 @@ export default function Footer() {
             </ul>
           </div>
 
+        </div>
 
+        {/* Target Keyword Tags Grid */}
+        <div className="border-t border-white/10 pt-8 pb-4">
+          <h5 className="text-xs uppercase tracking-widest text-gold font-bold mb-4">Popular Locations & Growth Corridors</h5>
+          <div className="flex flex-wrap gap-2 text-[11px] text-white/60">
+            <span className="px-2.5 py-1 rounded bg-white/5 border border-white/5 hover:border-gold/30 transition-colors">Gated Community Plots in Patna</span>
+            <span className="px-2.5 py-1 rounded bg-white/5 border border-white/5 hover:border-gold/30 transition-colors">RERA Approved Plots in Bihta</span>
+            <span className="px-2.5 py-1 rounded bg-white/5 border border-white/5 hover:border-gold/30 transition-colors">Residential Plots in Rajgir Bihar</span>
+            <span className="px-2.5 py-1 rounded bg-white/5 border border-white/5 hover:border-gold/30 transition-colors">Plots for Sale in Rajgir</span>
+            <span className="px-2.5 py-1 rounded bg-white/5 border border-white/5 hover:border-gold/30 transition-colors">Shivala More Gated Plots</span>
+            <span className="px-2.5 py-1 rounded bg-white/5 border border-white/5 hover:border-gold/30 transition-colors">AIIMS Patna Corridor Land</span>
+            <span className="px-2.5 py-1 rounded bg-white/5 border border-white/5 hover:border-gold/30 transition-colors">Residential Plots with Boundary Wall</span>
+            <span className="px-2.5 py-1 rounded bg-white/5 border border-white/5 hover:border-gold/30 transition-colors">Freehold Gated Townships</span>
+          </div>
         </div>
 
         {/* Bottom Bar */}
@@ -117,7 +132,6 @@ export default function Footer() {
           <div className="flex space-x-6">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <a href="sitemap.html" className="hover:text-white transition-colors">Sitemap</a>
           </div>
         </div>
       </div>

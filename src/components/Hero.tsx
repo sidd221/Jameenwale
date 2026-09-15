@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Phone, CheckCircle2, ShieldCheck, Lock, FileCheck } from 'lucide-react';
 
 export default function Hero() {
   const [formData, setFormData] = useState({
@@ -62,9 +62,8 @@ export default function Hero() {
   return (
     <section id="home" className="relative min-h-[100vh] flex items-center justify-center pt-20">
       {/* Background Image & Overlay */}
-      <div className="absolute inset-0 z-0 bg-[#0F172A]">
+      <div className="absolute inset-0 z-0 bg-[#0F172A] overflow-hidden">
         <img
-          fetchPriority="high"
           src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format,compress&fit=crop&q=60&w=1280&fm=webp"
           srcSet="
             https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format,compress&fit=crop&q=60&w=640&fm=webp 640w,
@@ -72,14 +71,14 @@ export default function Hero() {
             https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format,compress&fit=crop&q=60&w=1920&fm=webp 1920w
           "
           sizes="100vw"
-          alt="Luxury Mansion Exterior"
+          alt="RERA Approved Gated Community Plots in Patna and Rajgir Bihar - JameenWale"
           width="1280"
           height="853"
           fetchPriority="high"
-          decoding="sync"
-          className="w-full h-full object-cover object-center opacity-40 mix-blend-overlay"
+          decoding="async"
+          className="w-full h-full object-cover object-center opacity-30"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-[#0F172A]/40 to-transparent"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col md:flex-row items-center justify-between gap-12 pt-12 pb-24">
@@ -89,50 +88,80 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="w-full md:w-3/5 text-white"
+          className="w-full md:w-3/5 text-white overflow-visible"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 glass rounded-full text-xs font-semibold mb-6">
             <span className="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
             EXCLUSIVE LAUNCH
           </div>
-          <h1 className="sr-only">Buy Land in Patna | Best Property Dealers in Patna for Residential & Commercial Plots in Bihar</h1>
-          <h2 className="text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6">
-            The Pinnacle of <br/> <span className="accent-gold italic font-medium">Urban Luxury.</span>
-          </h2>
-          <p className="text-lg text-white/80 mb-8 max-w-lg font-light leading-relaxed">
-            Experience unparalleled luxury and exclusive amenities. Discover the finest gated society plots in Patna, residential land in Danapur, and premium highway-facing plots in Patna built for your prestige and comfort.
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.15] mb-6 overflow-visible flex flex-col gap-1 sm:gap-2">
+            <span className="block text-white">Gated Community Plots</span>
+            <span className="block accent-gold italic font-medium">in Patna &amp; Rajgir</span>
+          </h1>
+          <p className="text-base sm:text-lg text-white/80 mb-8 max-w-lg font-light leading-relaxed">
+            Secure, freehold residential plots with perimeter boundary walls, wide concrete roads, and clear legal titles across Patna’s top growth corridors.
           </p>
 
           {/* Highlights Badges */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-10 text-white">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-6 gap-x-4 sm:gap-x-6 mb-10 text-white">
             <div className="space-y-1">
               <div className="text-xl sm:text-2xl font-bold tracking-tight">₹21L</div>
               <div className="text-[10px] uppercase tracking-[1px] opacity-60">800 sq ft Starting</div>
             </div>
-            <div className="space-y-1">
+            <div className="space-y-1 border-l border-white/20 pl-4 sm:pl-6">
               <div className="text-2xl font-bold tracking-tight">350+</div>
               <div className="text-[10px] uppercase tracking-[1px] opacity-60">Happy Customers</div>
             </div>
-            <div className="space-y-1">
+            <div className="space-y-1 border-l-0 lg:border-l border-white/20 pl-0 lg:pl-6">
               <div className="text-xl sm:text-2xl font-bold tracking-tight">Patna, Bihar</div>
               <div className="text-[10px] uppercase tracking-[1px] opacity-60">Location</div>
             </div>
-            <div className="space-y-1 flex items-center justify-start border-l-0 lg:border-l border-white/20 pl-0 lg:pl-6 mt-4 lg:mt-0">
+            <div className="space-y-1 flex items-center justify-start border-l border-white/20 pl-4 sm:pl-6">
               <div className="text-sm sm:text-base font-medium italic opacity-90 leading-tight">
                 "Own today, <br className="hidden lg:block"/> build tomorrow."
               </div>
             </div>
           </div>
 
-          <div className="flex space-x-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
             <a 
               href="brochure.pdf" 
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 bg-gold text-black font-bold flex items-center justify-center rounded-sm text-sm tracking-widest uppercase shadow-lg hover:opacity-90 transition-opacity"
+              className="px-8 py-4 bg-gold text-black font-bold flex items-center justify-center rounded-sm text-sm tracking-widest uppercase shadow-lg hover:opacity-90 transition-all active:scale-95"
             >
               Get Brochure <ArrowRight className="ml-2 w-5 h-5" />
             </a>
+            
+            <a 
+              href="tel:+917979098902"
+              className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-bold flex items-center justify-center rounded-sm text-sm tracking-widest uppercase border border-white/20 backdrop-blur-md shadow-lg transition-all active:scale-95 gap-2"
+            >
+              <Phone className="w-4 h-4 text-gold" /> Book Site Visit
+            </a>
+          </div>
+
+          {/* Trust Badges Row */}
+          <div className="pt-6 mt-8 border-t border-white/10 flex flex-wrap items-center gap-y-2.5 gap-x-3 text-xs sm:text-sm text-white/90">
+            <span className="flex items-center gap-1.5 font-medium">
+              <CheckCircle2 className="w-4 h-4 text-gold shrink-0" />
+              100% Mutation Ready
+            </span>
+            <span className="text-gold/60 font-bold hidden sm:inline">•</span>
+            <span className="flex items-center gap-1.5 font-medium">
+              <ShieldCheck className="w-4 h-4 text-gold shrink-0" />
+              Immediate Registry
+            </span>
+            <span className="text-gold/60 font-bold hidden sm:inline">•</span>
+            <span className="flex items-center gap-1.5 font-medium">
+              <Lock className="w-4 h-4 text-gold shrink-0" />
+              24/7 Gated Security
+            </span>
+            <span className="text-gold/60 font-bold hidden sm:inline">•</span>
+            <span className="flex items-center gap-1.5 font-medium">
+              <FileCheck className="w-4 h-4 text-gold shrink-0" />
+              Zero Legal Disputes
+            </span>
           </div>
         </motion.div>
 

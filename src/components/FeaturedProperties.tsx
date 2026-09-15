@@ -5,35 +5,38 @@ const properties = [
   {
     id: 2,
     name: 'IT Park',
-    location: 'Opposite to NIT',
+    subtitle: 'Premium Gated Plots • Bihta Corridor',
+    location: 'Opposite to NIT, Bihta Patna',
     price: '₹28 L onwards | 1000 sq ft',
-    bhk: '3 & 4 BHK Residences',
+    bhk: 'Residential & Commercial Plots',
     area: '3,200 sq.ft',
     image: '/it.jpeg',
-    tags: ['Sea View', 'Under Construction'],
+    tags: ['IT Corridor', 'RERA Approved'],
     pdf: 'it.pdf'
   },
   {
     id: 1,
     name: 'Embassy Capital',
-    location: 'Shivala more Bodhgawa',
+    subtitle: 'Luxury Gated Society • Shivala More',
+    location: 'Shivala more Bodhgawa, Patna',
     price: '₹21 L onwards | 800 sq ft',
-    bhk: '4 BHK Ultra Luxury',
+    bhk: 'Ultra Luxury Gated Society',
     area: '4,500 sq.ft',
     image: '/embassy.jpeg',
-    tags: ['Ready to Move', 'Penthouse'],
+    tags: ['7 Min to Saguna More', 'Boundary Wall'],
     pdf: 'shivala.pdf'
   },
   {
     id: 3,
-    name: 'Marine Park',
-    location: 'Anandpur',
-    price: '₹13 L onwards | 1000 sq ft',
-    bhk: '3 BHK Premium',
+    name: 'Seven Crown',
+    subtitle: 'Eco-Living Residential Plots • Rajgir',
+    location: 'Silao, Rajgir, Nalanda',
+    price: '₹22 L onwards | 900 sq ft',
+    bhk: 'Gated Society Plots in Rajgir',
     area: '2,800 sq.ft',
-    image: '/marine.jpeg',
-    tags: ['Green Living', 'New Launch'],
-    pdf: 'marine.pdf'
+    image: '/rajgir.jpeg',
+    tags: ['Nalanda Tourism Corridor', 'Green Living'],
+    pdf: 'rajgir_brosher.pdf'
   }
 ];
 
@@ -41,7 +44,7 @@ export default function FeaturedProperties() {
   return (
     <section id="properties" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-16">
           <div className="max-w-2xl">
@@ -49,7 +52,9 @@ export default function FeaturedProperties() {
             <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight tracking-tight">
               Featured <span className="italic opacity-80">Residences</span>
             </h2>
-            <p className="mt-4 text-white/70 leading-relaxed font-light">Explore our exclusive selection of premium properties, including DTCP-approved plots Patna, cheap plots in Patna Bihar, residential plots in Patna, and commercial land in Patna to find your perfect piece of real estate.</p>
+            <p className="mt-4 text-white/70 leading-relaxed font-light">
+              Explore our verified portfolio of premier gated township developments across Patna, Bihta, and Rajgir, crafted for secure family living and maximum capital growth.
+            </p>
           </div>
         </div>
 
@@ -66,9 +71,9 @@ export default function FeaturedProperties() {
             >
               {/* Image Box */}
               <div className="relative h-64 overflow-hidden w-full m-1 border border-white/5 rounded-t-lg">
-                <img 
-                  src={prop.image} 
-                  alt={prop.name} 
+                <img
+                  src={prop.image}
+                  alt={`${prop.name} - ${prop.subtitle} in ${prop.location} - JameenWale`}
                   width="800"
                   height="600"
                   loading="lazy"
@@ -81,21 +86,25 @@ export default function FeaturedProperties() {
               {/* Content */}
               <div className="p-6 flex-1 flex flex-col justify-between z-10 w-full">
                 <div>
-                  <div className="flex items-center text-white/60 text-xs mb-3 font-semibold uppercase tracking-widest">
+                  <div className="flex items-center text-white/60 text-xs mb-2 font-semibold uppercase tracking-widest">
                     <MapPin className="w-3 h-3 mr-1 accent-gold" />
                     {prop.location}
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:accent-gold transition-colors tracking-tight">
+                  <h3 className="text-2xl font-bold text-white mb-1 group-hover:accent-gold transition-colors tracking-tight">
                     {prop.name}
                   </h3>
+                  <p className="text-xs text-gold/90 font-medium mb-3">
+                    {prop.subtitle}
+                  </p>
                   <p className="text-xl font-bold text-white mb-5 pb-5 border-b border-white/10">
                     {prop.price}
                   </p>
 
-                  <a 
-                    href={prop.pdf} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                  <a
+                    href={prop.pdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View and download brochure for ${prop.name} in ${prop.location}`}
                     className="block text-center w-full py-3 px-4 bg-gold/10 hover:bg-gold/20 text-gold border border-gold/30 rounded-sm font-bold uppercase tracking-widest text-xs transition-colors mt-auto"
                   >
                     Get Details
