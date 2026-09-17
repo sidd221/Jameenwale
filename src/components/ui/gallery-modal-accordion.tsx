@@ -325,12 +325,12 @@ export default function GalleryModalAccordion({
                     transition={{ duration: 0.4 }}
                     className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden"
                   >
-                    {/* Ambient Blur Layer for Vertical Images or Consistent Depth */}
+                    {/* Ambient Layer for Consistent Depth */}
                     <img
                       src={filteredItems[activeSliderIndex].url}
                       alt=""
                       aria-hidden="true"
-                      className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-125 pointer-events-none"
+                      className="absolute inset-0 w-full h-full object-cover blur-md opacity-20 scale-105 pointer-events-none transform-gpu"
                     />
 
                     {/* Crisp Foreground Image */}
@@ -529,12 +529,12 @@ export default function GalleryModalAccordion({
 
               {/* Main Image Display Box */}
               <div className="relative w-full md:w-3/5 h-72 sm:h-96 md:h-auto min-h-[320px] bg-black flex items-center justify-center overflow-hidden">
-                {/* Ambient Blurred Backdrop */}
+                {/* Ambient Backdrop */}
                 <img
                   src={currentModalItem.url}
                   alt=""
                   aria-hidden="true"
-                  className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-125 pointer-events-none"
+                  className="absolute inset-0 w-full h-full object-cover blur-md opacity-20 scale-105 pointer-events-none transform-gpu"
                 />
 
                 {/* Foreground Image fitted without cropping or distortion */}

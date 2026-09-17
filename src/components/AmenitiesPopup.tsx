@@ -11,33 +11,28 @@ export default function AmenitiesPopup() {
   const popupRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let ticking = false;
+    if (hasTriggered) return;
 
-    const handleScroll = () => {
-      if (hasTriggered) return;
+    const amenitiesElem = document.getElementById('amenities');
+    if (!amenitiesElem) return;
 
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const amenitiesElem = document.getElementById('amenities');
-          if (amenitiesElem) {
-            const rect = amenitiesElem.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
-            // Trigger when user scrolls past the amenities section
-            if (rect.bottom <= windowHeight * 0.65 || rect.top <= -50) {
-              setIsOpen(true);
-              setHasTriggered(true);
-            }
-          }
-          ticking = false;
-        });
-        ticking = true;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          setIsOpen(true);
+          setHasTriggered(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.3
       }
-    };
+    );
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
+    observer.observe(amenitiesElem);
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => observer.disconnect();
   }, [hasTriggered]);
 
   // Handle ESC key and scroll locking
@@ -75,10 +70,11 @@ export default function AmenitiesPopup() {
         name: formData.name,
         phone: formData.phone,
         _subject: "New Lead from Amenities Section - Jameenwale",
+        _cc: "sumitibc333@gmail.com",
         _captcha: false
       };
 
-      const response = await fetch("https://formsubmit.co/ajax/siddhantsinha989@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/anish248patel@gmail.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

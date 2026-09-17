@@ -50,8 +50,21 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    let ticking = false;
+    // 1. Smooth, low-overhead scroll detection for sticky navbar style
+    let rafId: number | null = null;
+    const handleScroll = () => {
+      if (rafId !== null) return;
+      rafId = window.requestAnimationFrame(() => {
+        const scrolled = window.scrollY > 20;
+        setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
+        rafId = null;
+      });
+    };
 
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // 2. High-performance IntersectionObserver for Active Section indicator (0 layout reflows on scroll)
     const navMap: Record<string, string> = {
       home: 'home',
       about: 'about',
@@ -66,63 +79,44 @@ export default function Navbar() {
     };
 
     const sectionIds = [
-      'contact',
-      'faq',
-      'testimonials',
-      'gallery',
-      'location',
-      'amenities',
-      'why-us',
-      'properties',
+      'home',
       'about',
-      'home'
+      'properties',
+      'why-us',
+      'amenities',
+      'location',
+      'gallery',
+      'testimonials',
+      'faq',
+      'contact'
     ];
 
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 20);
-
-          const scrollY = window.scrollY;
-          const windowHeight = window.innerHeight;
-          const docHeight = document.documentElement.scrollHeight;
-
-          let currentNav = '';
-
-          // If scrolled to top
-          if (scrollY < 120) {
-            currentNav = 'home';
-          } else if (windowHeight + scrollY >= docHeight - 80) {
-            // If scrolled to the bottom of the page
-            currentNav = 'contact';
-          } else {
-            // Check from bottom to top which section is currently in the focal viewport zone
-            for (const id of sectionIds) {
-              const el = document.getElementById(id);
-              if (el) {
-                const rect = el.getBoundingClientRect();
-                if (rect.top <= windowHeight * 0.5 && rect.bottom >= 70) {
-                  currentNav = navMap[id] || id;
-                  break;
-                }
-              }
-            }
-          }
-
-          if (currentNav) {
-            setActiveSection(currentNav);
-          }
-          ticking = false;
-        });
-        ticking = true;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Find the visible section with highest intersection ratio or top priority
+        const visibleEntry = entries.find((entry) => entry.isIntersecting);
+        if (visibleEntry) {
+          const id = visibleEntry.target.id;
+          const mapped = navMap[id] || id;
+          setActiveSection((prev) => (prev !== mapped ? mapped : prev));
+        }
+      },
+      {
+        rootMargin: '-20% 0px -50% 0px',
+        threshold: [0, 0.25, 0.5]
       }
-    };
-    
-    // Initial check
-    handleScroll();
+    );
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   return (
@@ -213,7 +207,15 @@ export default function Navbar() {
               ))}
               <a
                 href="tel:+916287220163"
-                className="mt-4 bg-gold hover:opacity-90 text-black text-center py-3 rounded-sm font-bold tracking-widest uppercase text-xs"
+                className="flex items-center justify-center gap-2 text-white font-bold text-sm py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <Phone className="w-4 h-4 accent-gold" />
+                +91 6287220163
+              </a>
+              <a
+                href="tel:+916287220163"
+                className="mt-2 bg-gold hover:opacity-90 text-black text-center py-3 rounded-sm font-bold tracking-widest uppercase text-xs"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Book Site Visit

@@ -12,33 +12,32 @@ export default function FloatingCTAs() {
   const [isWhatsAppVisible, setIsWhatsAppVisible] = useState(false);
 
   useEffect(() => {
+    let rafId: number | null = null;
+
     const toggleVisibility = () => {
-      const scrollHeight = document.documentElement.scrollHeight;
-      const windowHeight = window.innerHeight;
-      const scrollPosition = window.scrollY;
-      
-      // Calculate 80% of the total scrollable height for Scroll to Top
-      const threshold = (scrollHeight - windowHeight) * 0.8;
+      if (rafId !== null) return;
+      rafId = window.requestAnimationFrame(() => {
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const scrollHeight = document.documentElement.scrollHeight;
+        const threshold = (scrollHeight - windowHeight) * 0.8;
 
-      if (scrollPosition > threshold) {
-        setIsScrollTopVisible(true);
-      } else {
-        setIsScrollTopVisible(false);
-      }
+        const showTop = scrollPosition > threshold;
+        const showWhatsApp = scrollPosition > windowHeight * 0.5;
 
-      // Show WhatsApp button when scrolled past hero section (approx 50% of viewport height)
-      if (scrollPosition > windowHeight * 0.5) {
-        setIsWhatsAppVisible(true);
-      } else {
-        setIsWhatsAppVisible(false);
-      }
+        setIsScrollTopVisible((prev) => (prev !== showTop ? showTop : prev));
+        setIsWhatsAppVisible((prev) => (prev !== showWhatsApp ? showWhatsApp : prev));
+        rafId = null;
+      });
     };
 
     window.addEventListener('scroll', toggleVisibility, { passive: true });
-    // Initial check
     toggleVisibility();
-    
-    return () => window.removeEventListener('scroll', toggleVisibility);
+
+    return () => {
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      window.removeEventListener('scroll', toggleVisibility);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -50,7 +49,7 @@ export default function FloatingCTAs() {
 
   return (
     <div className="fixed bottom-6 right-6 flex flex-col gap-4 z-50">
-      
+
       {/* Call Button */}
       <a 
         href="tel:+917979098902" 

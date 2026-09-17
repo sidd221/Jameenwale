@@ -33,13 +33,13 @@ export default function LocationAdvantage() {
             <a href="https://maps.app.goo.gl/tWUKtzzQ6LW5C6a18" target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-20" aria-label="Open Map in new tab"></a>
             
             {/* Google Map with optimized lazy rendering */}
-            <div className="absolute inset-0 pointer-events-none group-hover:scale-105 transition-transform duration-700 ease-in-out">
+            <div className="absolute inset-0 pointer-events-none group-hover:scale-105 transition-transform duration-700 ease-in-out transform-gpu">
               <iframe 
                 title="JameenWale Property Location Map Shivala More Patna Bihar"
                 src="https://maps.google.com/maps?q=25.6090559,85.0620633&t=&z=15&ie=UTF8&iwloc=&output=embed" 
                 width="100%" 
                 height="100%" 
-                style={{ border: 0, minHeight: '100%' }} 
+                style={{ border: 0, minHeight: '100%', contain: 'strict' }} 
                 allowFullScreen 
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
