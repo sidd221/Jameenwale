@@ -134,7 +134,7 @@ export default function Hero() {
             </a>
             
             <a 
-              href="tel:+917979098902"
+              href="tel:+916287220163"
               className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-bold flex items-center justify-center rounded-sm text-sm tracking-widest uppercase border border-white/20 backdrop-blur-md shadow-lg transition-all active:scale-95 gap-2"
             >
               <Phone className="w-4 h-4 text-gold" /> Book Site Visit

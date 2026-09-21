@@ -74,7 +74,7 @@ const faqData: FAQItem[] = [
     id: 10,
     category: 'investment',
     question: "How do I book a free site visit to inspect the plots in Patna?",
-    answer: "We offer complimentary, guided physical site visits 7 days a week with pick-and-drop vehicle assistance. Click 'Book Site Visit', submit the quick inquiry form, or call our direct helpline at +91 7979098902 to schedule your visit."
+    answer: "We offer complimentary, guided physical site visits 7 days a week with pick-and-drop vehicle assistance. Click 'Book Site Visit', submit the quick inquiry form, or call our direct helpline at +91 6287220163 to schedule your visit."
   }
 ];
 
@@ -235,7 +235,7 @@ export default function FAQ() {
 
           <div className="flex items-center gap-3 shrink-0 w-full sm:w-auto justify-center">
             <a
-              href="tel:+917979098902"
+              href="tel:+916287220163"
               className="px-6 py-3.5 rounded-lg bg-gold hover:opacity-90 text-black font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-lg shadow-gold/20"
             >
               <PhoneCall className="w-4 h-4" /> Call Advisor

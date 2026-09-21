@@ -13,7 +13,7 @@ export const LLM_SITE_DATA = {
   description: "JameenWale is Bihar's premier real estate consultancy offering verified gated community plots in Patna, RERA approved plots in Patna, gated community plots in Bihta Patna, residential plots with boundary wall in Patna, and residential plots in Rajgir Bihar.",
   url: "https://jameenwale.vercel.app",
   contact: {
-    phone: "+91 7979098902",
+    phone: "+91 6287220163",
     email: "anish248patel@gmail.com",
     ccEmail: "sumitibc333@gmail.com",
     address: {
