@@ -22,7 +22,7 @@ export default function Hero() {
         phone: formData.phone,
         email: formData.email,
         _subject: "New Hero Form Submission",
-        _cc: "sumitibc333@gmail.com",
+        _cc: "siddhantsinha999@gmail.com",
         _captcha: false,
       };
 

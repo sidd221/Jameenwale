@@ -15,7 +15,7 @@ export const LLM_SITE_DATA = {
   contact: {
     phone: "+91 6287220163",
     email: "anish248patel@gmail.com",
-    ccEmail: "sumitibc333@gmail.com",
+    ccEmail: "siddhantsinha999@gmail.com",
     address: {
       street: "5th floor Leads Tower, Rupaspur, Digha Danapur Nahar Road",
       city: "Patna",
@@ -34,7 +34,8 @@ export const LLM_SITE_DATA = {
     "gated township plots in patna",
     "residential plots with boundary wall in patna",
     "gated society plots in rajgir",
-    "buy plot in gated community patna"
+    "buy plot in gated community patna",
+    "plot for sale in patna bypass ramkrishna nagar"
   ],
   keyLocations: [
     {

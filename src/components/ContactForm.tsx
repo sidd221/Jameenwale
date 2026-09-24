@@ -12,11 +12,19 @@ export default function ContactForm() {
     setStatus('submitting');
     setErrorMessage('');
     const formData = new FormData(formRef.current);
+
+    // Validate government-mandated consent checkbox
+    if (!formData.get('consent')) {
+      setErrorMessage('Please tick the consent checkbox to authorize contact before submitting.');
+      setStatus('error');
+      return;
+    }
+
     const dataObj = Object.fromEntries(formData.entries());
     const requestData = {
       ...dataObj,
       _subject: "New Contact Form Submission",
-      _cc: "sumitibc333@gmail.com",
+      _cc: "siddhantsinha999@gmail.com",
       _captcha: false,
     };
 
@@ -57,6 +65,7 @@ export default function ContactForm() {
   const handleReset = () => {
     formRef.current?.reset();
     setStatus('idle');
+    setErrorMessage('');
   };
 
   return (
@@ -144,6 +153,32 @@ export default function ContactForm() {
               </label>
             </div>
 
+            {/* Government Mandated DPDP Act & TRAI Consent Checkbox */}
+            <div className="pt-2">
+              <label
+                htmlFor="consent"
+                className="flex items-start gap-3.5 p-4 rounded-lg bg-white/[0.03] border border-white/10 hover:border-gold/30 transition-all duration-200 cursor-pointer group"
+              >
+                <input
+                  type="checkbox"
+                  id="consent"
+                  name="consent"
+                  required
+                  value="Agreed: Authorized contact via Call, SMS, WhatsApp, and Email overriding DND/NDNC"
+                  className="mt-0.5 h-4 w-4 shrink-0 rounded border-white/20 bg-white/5 text-gold focus:ring-1 focus:ring-gold accent-[#D4AF37] cursor-pointer"
+                />
+                <div className="space-y-1">
+                  <span className="block text-xs text-white/75 leading-relaxed group-hover:text-white transition-colors">
+                    I authorize <strong className="text-white font-medium">JameenWale</strong> and its representatives to contact me via Call, SMS, WhatsApp, or Email regarding plots, project details, and site visits. I understand and confirm that this consent overrides my registration on the <strong className="text-gold font-medium">National Do Not Call (DND / NDNC)</strong> registry.
+                  </span>
+                  <div className="flex items-center gap-1.5 text-[11px] text-white/45">
+                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                    <span>Required under Digital Personal Data Protection (DPDP) &amp; TRAI regulations</span>
+                  </div>
+                </div>
+              </label>
+            </div>
+
             <div className="flex flex-col sm:flex-row justify-center items-center gap-8 pt-6">
               <button
                 type="button"
@@ -155,7 +190,7 @@ export default function ContactForm() {
               <button
                 type="submit"
                 disabled={status === 'submitting' || status === 'success'}
-                className="w-full sm:w-auto bg-gold text-black px-10 py-4 rounded-sm font-bold uppercase tracking-wider text-sm transition-transform hover:scale-105 shadow-xl disabled:opacity-75 disabled:hover:scale-100 disabled:cursor-not-allowed"
+                className="w-full sm:w-auto bg-gold text-black px-10 py-4 rounded-sm font-bold uppercase tracking-wider text-sm transition-transform hover:scale-105 shadow-xl disabled:opacity-75 disabled:hover:scale-100 disabled:cursor-not-allowed cursor-pointer"
               >
                 {status === 'submitting' ? 'Submitting...' : status === 'success' ? 'Details Sent!' : status === 'error' ? 'Error. Try Again' : 'Submit Details'}
               </button>

@@ -75,6 +75,12 @@ const faqData: FAQItem[] = [
     category: 'investment',
     question: "How do I book a free site visit to inspect the plots in Patna?",
     answer: "We offer complimentary, guided physical site visits 7 days a week with pick-and-drop vehicle assistance. Click 'Book Site Visit', submit the quick inquiry form, or call our direct helpline at +91 6287220163 to schedule your visit."
+  },
+  {
+    id: 11,
+    category: 'location',
+    question: "Do you offer or assist with a plot for sale in Patna Bypass Ramkrishna Nagar?",
+    answer: "Yes, alongside our primary gated communities in Bihta and Shivala, our advisory desk assists buyers seeking a verified plot for sale in Patna Bypass Ramkrishna Nagar and nearby bypass corridors, ensuring clear title deeds, mutation records, and hassle-free registry."
   }
 ];
 

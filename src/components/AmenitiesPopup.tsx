@@ -70,7 +70,7 @@ export default function AmenitiesPopup() {
         name: formData.name,
         phone: formData.phone,
         _subject: "New Lead from Amenities Section - Jameenwale",
-        _cc: "sumitibc333@gmail.com",
+        _cc: "siddhantsinha999@gmail.com",
         _captcha: false
       };
 

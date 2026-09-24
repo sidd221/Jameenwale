@@ -118,6 +118,7 @@ export default function Footer() {
             <span className="px-2.5 py-1 rounded bg-white/5 border border-white/5 hover:border-gold/30 transition-colors">Shivala More Gated Plots</span>
             <span className="px-2.5 py-1 rounded bg-white/5 border border-white/5 hover:border-gold/30 transition-colors">AIIMS Patna Corridor Land</span>
             <span className="px-2.5 py-1 rounded bg-white/5 border border-white/5 hover:border-gold/30 transition-colors">Residential Plots with Boundary Wall</span>
+            <span className="px-2.5 py-1 rounded bg-white/5 border border-white/5 hover:border-gold/30 transition-colors">Plot for Sale in Patna Bypass Ramkrishna Nagar</span>
             <span className="px-2.5 py-1 rounded bg-white/5 border border-white/5 hover:border-gold/30 transition-colors">Freehold Gated Townships</span>
           </div>
         </div>
@@ -127,7 +128,17 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-center md:text-left">
             <p>&copy; {currentYear} jameenwale. All Rights Reserved.</p>
             <span className="hidden md:inline">|</span>
-            <p>Designed By: Siddhant Sinha</p>
+            <p>
+              Designed By:{' '}
+              <a
+                href="https://siddhantsinha.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/60 hover:text-gold transition-colors font-medium hover:underline underline-offset-4"
+              >
+                Siddhant Sinha
+              </a>
+            </p>
           </div>
           <div className="flex space-x-6">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
