@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Home } from 'lucide-react';
@@ -5,6 +6,10 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 
 export default function NotFound() {
+  useEffect(() => {
+    document.title = "404 - Page Not Found | JameenWale";
+  }, []);
+
   return (
     <div className="font-sans antialiased text-white select-none min-h-screen flex flex-col">
       <Navbar />
