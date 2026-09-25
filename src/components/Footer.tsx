@@ -80,6 +80,7 @@ export default function Footer() {
               <li><a href="#properties" onClick={(e) => handleNavClick(e, '#properties')} className="text-white/60 hover:text-white hover:accent-gold transition-colors">Featured Projects</a></li>
               <li><a href="#amenities" onClick={(e) => handleNavClick(e, '#amenities')} className="text-white/60 hover:text-white hover:accent-gold transition-colors">Luxury Amenities</a></li>
               <li><a href="#gallery" onClick={(e) => handleNavClick(e, '#gallery')} className="text-white/60 hover:text-white hover:accent-gold transition-colors">Digital Gallery</a></li>
+              <li><a href="#legal" onClick={(e) => handleNavClick(e, '#legal')} className="text-white/60 hover:text-white hover:accent-gold transition-colors">Legal Documents</a></li>
               <li><a href="#faq" onClick={(e) => handleNavClick(e, '#faq')} className="text-white/60 hover:text-white hover:accent-gold transition-colors">Frequently Asked Questions</a></li>
               <li><a href="/govt.pdf" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white hover:accent-gold transition-colors">Govt. Master Map (PDF)</a></li>
               <li><a href="https://assets99homes.com/" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white hover:accent-gold transition-colors">Assets99</a></li>

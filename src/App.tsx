@@ -4,24 +4,27 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import FeaturedProperties from './components/FeaturedProperties';
-import Amenities from './components/Amenities';
 import WhyChooseUs from './components/WhyChooseUs';
+import Amenities from './components/Amenities';
 import LocationAdvantage from './components/LocationAdvantage';
-import Testimonials from './components/Testimonials';
-import Gallery from './components/Gallery';
-import FAQ from './components/FAQ';
-import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
-import FloatingCTAs from './components/FloatingCTAs';
-import AmenitiesPopup from './components/AmenitiesPopup';
-import LLM from './components/llm';
 
+// Code-split below-the-fold & interactive components for near-instant FCP/LCP
+const Gallery = lazy(() => import('./components/Gallery'));
+const LegalDocuments = lazy(() => import('./components/LegalDocuments'));
+const FAQ = lazy(() => import('./components/FAQ'));
+const ContactForm = lazy(() => import('./components/ContactForm'));
+const FloatingCTAs = lazy(() => import('./components/FloatingCTAs'));
+const AmenitiesPopup = lazy(() => import('./components/AmenitiesPopup'));
+const LLM = lazy(() => import('./components/llm'));
 const NotFound = lazy(() => import('./components/NotFound'));
 
 function Home() {
   return (
     <div className="font-sans antialiased text-white select-none overflow-x-hidden w-full max-w-full relative min-h-screen">
-      <LLM />
+      <Suspense fallback={null}>
+        <LLM />
+      </Suspense>
       <Navbar />
       <main className="overflow-x-hidden w-full max-w-full">
         <Hero />
@@ -30,15 +33,25 @@ function Home() {
         <WhyChooseUs />
         <Amenities />
         <LocationAdvantage />
-        <Gallery />
-        <Testimonials />
-        <FAQ />
-        <ContactForm />
+        <Suspense fallback={<div id="gallery" className="min-h-[400px] flex items-center justify-center py-24" />}>
+          <Gallery />
+        </Suspense>
+        <Suspense fallback={<div id="legal" className="min-h-[400px] flex items-center justify-center py-24" />}>
+          <LegalDocuments />
+        </Suspense>
+        <Suspense fallback={<div id="faq" className="min-h-[400px] flex items-center justify-center py-24" />}>
+          <FAQ />
+        </Suspense>
+        <Suspense fallback={<div id="contact" className="min-h-[400px] flex items-center justify-center py-24" />}>
+          <ContactForm />
+        </Suspense>
       </main>
       
       <Footer />
-      <FloatingCTAs />
-      <AmenitiesPopup />
+      <Suspense fallback={null}>
+        <FloatingCTAs />
+        <AmenitiesPopup />
+      </Suspense>
       
       <div className="fixed inset-0 bg-[#0f172a] -z-10 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-slate-900 via-[#0f172a] to-[#0f172a] pointer-events-none transform-gpu"></div>
     </div>

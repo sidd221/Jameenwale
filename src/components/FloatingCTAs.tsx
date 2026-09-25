@@ -48,18 +48,18 @@ export default function FloatingCTAs() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 flex flex-col gap-4 z-50">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 flex flex-col gap-3 sm:gap-4 z-50">
 
       {/* Call Button */}
       <a 
         href="tel:+916287220163" 
-        className={`w-14 h-14 bg-blue-500 hover:bg-blue-600 outline outline-4 outline-blue-500/30 text-white rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 group relative ${
+        className={`w-12 h-12 sm:w-14 sm:h-14 bg-blue-500 hover:bg-blue-600 outline outline-4 outline-blue-500/30 text-white rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 group relative ${
           isWhatsAppVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-90 pointer-events-none'
-        } hover:scale-110`}
+        } hover:scale-110 active:scale-95`}
         aria-label="Call Us Now"
       >
-        <Phone className="w-6 h-6" />
-        <span className="absolute right-full mr-4 glass text-white text-xs px-3 py-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+        <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
+        <span className="absolute right-full mr-4 glass text-white text-xs px-3 py-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none hidden sm:inline-block">
           Call Now
         </span>
       </a>
@@ -68,14 +68,14 @@ export default function FloatingCTAs() {
       <a 
         href="https://wa.me/916287220163" 
         target="_blank" 
-        rel="noopener noreferrer"
-        className={`w-14 h-14 bg-green-500 hover:bg-green-600 outline outline-4 outline-green-500/30 text-white rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 group relative ${
+        rel="noopener noreferrer" 
+        className={`w-12 h-12 sm:w-14 sm:h-14 bg-green-500 hover:bg-green-600 outline outline-4 outline-green-500/30 text-white rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 group relative ${
           isWhatsAppVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-90 pointer-events-none'
-        } hover:scale-110`}
+        } hover:scale-110 active:scale-95`}
         aria-label="Chat on WhatsApp"
       >
-        <WhatsAppIcon className="w-8 h-8" />
-        <span className="absolute right-full mr-4 glass text-white text-xs px-3 py-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+        <WhatsAppIcon className="w-6 h-6 sm:w-8 sm:h-8" />
+        <span className="absolute right-full mr-4 glass text-white text-xs px-3 py-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none hidden sm:inline-block">
           Chat with us
         </span>
       </a>
@@ -83,12 +83,12 @@ export default function FloatingCTAs() {
       {/* Scroll to Top */}
       <button 
         onClick={scrollToTop}
-        className={`w-12 h-12 glass border border-white/20 text-white hover:text-gold hover:border-gold rounded-full flex items-center justify-center shadow-lg transition-all duration-300 ${
+        className={`w-10 h-10 sm:w-12 sm:h-12 glass border border-white/20 text-white hover:text-gold hover:border-gold rounded-full flex items-center justify-center shadow-lg transition-all duration-300 active:scale-95 ${
           isScrollTopVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
         }`}
         aria-label="Scroll to top"
       >
-        <ArrowUp className="w-5 h-5" />
+        <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5" />
       </button>
 
     </div>

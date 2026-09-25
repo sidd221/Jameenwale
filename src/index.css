@@ -58,10 +58,15 @@ body {
   backface-visibility: hidden;
 }
 
-/* Off-screen rendering optimization for deep sections */
-#gallery, #testimonials, #faq {
+/* Mobile tap and touch optimization */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Off-screen rendering optimization: skip DOM layout/paint until scrolled near */
+#amenities, #location, #gallery, #legal, #faq, #contact {
   content-visibility: auto;
-  contain-intrinsic-size: 1px 650px;
+  contain-intrinsic-size: 1px 700px;
 }
 
 .accent-gold {

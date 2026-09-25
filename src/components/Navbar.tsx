@@ -13,6 +13,7 @@ export default function Navbar() {
     { name: 'Properties', href: '#properties' },
     { name: 'Amenities', href: '#amenities' },
     { name: 'Gallery', href: '#gallery' },
+    { name: 'Legal Docs', href: '#legal' },
     { name: 'FAQ', href: '#faq' },
     { name: 'Get in Touch', href: '#contact' },
   ];
@@ -73,7 +74,7 @@ export default function Navbar() {
       amenities: 'amenities',
       location: 'amenities',
       gallery: 'gallery',
-      testimonials: 'gallery',
+      legal: 'legal',
       faq: 'faq',
       contact: 'contact',
     };
@@ -86,7 +87,7 @@ export default function Navbar() {
       'amenities',
       'location',
       'gallery',
-      'testimonials',
+      'legal',
       'faq',
       'contact'
     ];
@@ -135,7 +136,7 @@ export default function Navbar() {
           </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden lg:flex space-x-5 xl:space-x-7">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -153,14 +154,14 @@ export default function Navbar() {
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden md:flex items-center space-x-6">
-            <a href="tel:+916287220163" className="text-sm flex items-center font-bold text-white">
+          <div className="hidden lg:flex items-center space-x-5 xl:space-x-6">
+            <a href="tel:+916287220163" className="text-sm flex items-center font-bold text-white whitespace-nowrap">
               <Phone className="w-4 h-4 mr-2 accent-gold" />
               +91 6287220163
             </a>
             <a
               href="tel:+916287220163"
-              className="bg-gold hover:opacity-90 text-black px-6 py-2 rounded-sm text-xs font-bold tracking-wider uppercase transition-colors"
+              className="bg-gold hover:opacity-90 text-black px-5 py-2 rounded-sm text-xs font-bold tracking-wider uppercase transition-colors whitespace-nowrap"
             >
               Book Site Visit
             </a>
@@ -168,7 +169,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden"
+            className="lg:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -188,7 +189,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 bg-[#0f172a] shadow-2xl md:hidden border-t border-t-white/10"
+            className="absolute top-full left-0 right-0 bg-[#0f172a] shadow-2xl lg:hidden border-t border-t-white/10"
           >
             <div className="px-4 py-6 flex flex-col space-y-4">
               {navLinks.map((link) => (

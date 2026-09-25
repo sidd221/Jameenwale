@@ -71,13 +71,13 @@ export default function ContactForm() {
   return (
     <section id="contact" className="py-24 relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 relative z-10">
-        <div className="glass p-8 md:p-12 rounded-xl">
+        <div className="glass p-6 sm:p-8 md:p-12 rounded-xl">
           <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight">
               Get in Touch <br className="hidden md:block" />
               <span className="italic accent-gold">With Our Experts</span>
             </h2>
-            <p className="text-lg text-white/80 max-w-2xl mx-auto font-light">
+            <p className="text-base sm:text-lg text-white/80 max-w-2xl mx-auto font-light">
               Register your interest for a private viewing or request a call back from our sales team.
             </p>
           </div>
@@ -91,7 +91,7 @@ export default function ContactForm() {
                 autoComplete="name"
                 aria-required="true"
                 required
-                className="peer w-full bg-white/5 border border-white/10 rounded-sm px-4 pt-6 pb-2 text-white placeholder-transparent focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
+                className="peer w-full bg-white/5 border border-white/10 rounded-sm px-4 pt-6 pb-2 text-white text-base sm:text-sm placeholder-transparent focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
                 placeholder="Full Name"
               />
               <label htmlFor="name" className="absolute left-4 top-2 text-[10px] font-medium text-white/70 uppercase tracking-widest transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:text-white/30 peer-focus:top-2 peer-focus:text-[10px] peer-focus:text-gold pointer-events-none">
@@ -110,7 +110,7 @@ export default function ContactForm() {
                   required
                   pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
                   title="Please enter a valid email address (e.g. user@example.com)"
-                  className="peer w-full bg-white/5 border border-white/10 rounded-sm px-4 pt-6 pb-2 text-white placeholder-transparent focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
+                  className="peer w-full bg-white/5 border border-white/10 rounded-sm px-4 pt-6 pb-2 text-white text-base sm:text-sm placeholder-transparent focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
                   placeholder="Email Address"
                 />
                 <label htmlFor="email" className="absolute left-4 top-2 text-[10px] font-medium text-white/70 uppercase tracking-widest transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:text-white/30 peer-focus:top-2 peer-focus:text-[10px] peer-focus:text-gold pointer-events-none">
@@ -129,7 +129,7 @@ export default function ContactForm() {
                   pattern="[0-9]{10}"
                   maxLength={10}
                   title="Please enter exactly 10 digits"
-                  className="peer w-full bg-white/5 border border-white/10 rounded-sm px-4 pt-6 pb-2 text-white placeholder-transparent focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
+                  className="peer w-full bg-white/5 border border-white/10 rounded-sm px-4 pt-6 pb-2 text-white text-base sm:text-sm placeholder-transparent focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
                   placeholder="Mobile Number"
                 />
                 <label htmlFor="mobile" className="absolute left-4 top-2 text-[10px] font-medium text-white/70 uppercase tracking-widest transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:text-white/30 peer-focus:top-2 peer-focus:text-[10px] peer-focus:text-gold pointer-events-none">
@@ -145,7 +145,7 @@ export default function ContactForm() {
                 required
                 maxLength={200}
                 rows={3}
-                className="peer w-full bg-white/5 border border-white/10 rounded-sm px-4 pt-6 pb-2 text-white placeholder-transparent focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors resize-none"
+                className="peer w-full bg-white/5 border border-white/10 rounded-sm px-4 pt-6 pb-2 text-white text-base sm:text-sm placeholder-transparent focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors resize-none"
                 placeholder="Write your requirements here..."
               ></textarea>
               <label htmlFor="requirements" className="absolute left-4 top-2 text-[10px] font-medium text-white/70 uppercase tracking-widest transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:text-white/30 peer-focus:top-2 peer-focus:text-[10px] peer-focus:text-gold pointer-events-none">

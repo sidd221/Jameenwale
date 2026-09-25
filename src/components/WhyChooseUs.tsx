@@ -27,7 +27,7 @@ export default function WhyChooseUs() {
 
   return (
     <section id="why-us" className="py-24 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 p-12 glass">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 p-6 sm:p-8 md:p-12 glass">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           <div>

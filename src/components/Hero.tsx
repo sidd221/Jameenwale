@@ -185,7 +185,7 @@ export default function Hero() {
                     name="name"
                     placeholder=" "
                     required
-                    className="peer w-full bg-white/10 border border-white/10 px-3 pt-5 pb-2 flex rounded-sm text-sm outline-none focus:border-white/40 transition-all text-white"
+                    className="peer w-full bg-white/10 border border-white/10 px-3 pt-5 pb-2 flex rounded-sm text-base sm:text-sm outline-none focus:border-white/40 transition-all text-white"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                   />
@@ -202,7 +202,7 @@ export default function Hero() {
                     required
                     pattern="[0-9]{10}"
                     maxLength={10}
-                    className="peer w-full bg-white/10 border border-white/10 px-3 pt-5 pb-2 flex rounded-sm text-sm outline-none focus:border-white/40 transition-all text-white"
+                    className="peer w-full bg-white/10 border border-white/10 px-3 pt-5 pb-2 flex rounded-sm text-base sm:text-sm outline-none focus:border-white/40 transition-all text-white"
                     value={formData.phone}
                     onChange={(e) => setFormData({...formData, phone: e.target.value.replace(/\D/g, '')})}
                   />
@@ -218,7 +218,7 @@ export default function Hero() {
                   name="email"
                   placeholder=" "
                   required
-                  className="peer w-full bg-white/10 border border-white/10 px-3 pt-5 pb-2 flex rounded-sm text-sm outline-none focus:border-white/40 transition-all text-white"
+                  className="peer w-full bg-white/10 border border-white/10 px-3 pt-5 pb-2 flex rounded-sm text-base sm:text-sm outline-none focus:border-white/40 transition-all text-white"
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                 />

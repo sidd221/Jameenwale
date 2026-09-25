@@ -18,7 +18,7 @@ const amenities = [
 export default function Amenities() {
   return (
     <section id="amenities" className="py-24 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 glass p-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 glass p-6 sm:p-8 md:p-12">
         
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h4 className="accent-gold font-bold uppercase tracking-widest text-sm mb-3">Lifestyle Details</h4>

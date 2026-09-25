@@ -330,6 +330,10 @@ export default function GalleryModalAccordion({
                       src={filteredItems[activeSliderIndex].url}
                       alt=""
                       aria-hidden="true"
+                      loading="lazy"
+                      decoding="async"
+                      width="800"
+                      height="600"
                       className="absolute inset-0 w-full h-full object-cover blur-md opacity-20 scale-105 pointer-events-none transform-gpu"
                     />
 
@@ -337,6 +341,10 @@ export default function GalleryModalAccordion({
                     <img
                       src={filteredItems[activeSliderIndex].url}
                       alt={filteredItems[activeSliderIndex].title}
+                      loading="lazy"
+                      decoding="async"
+                      width="800"
+                      height="600"
                       className={`relative z-10 w-full h-full transition-transform duration-700 ease-out group-hover:scale-105 ${
                         filteredItems[activeSliderIndex].orientation === 'vertical'
                           ? 'object-contain py-2 drop-shadow-2xl max-h-[480px]'
@@ -541,6 +549,10 @@ export default function GalleryModalAccordion({
                 <img
                   src={currentModalItem.url}
                   alt={currentModalItem.title}
+                  loading="lazy"
+                  decoding="async"
+                  width="1200"
+                  height="900"
                   className="relative z-10 max-h-[80vh] w-auto max-w-full object-contain p-2 drop-shadow-2xl select-none"
                 />
 
