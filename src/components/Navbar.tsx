@@ -51,21 +51,6 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    // 1. Smooth, low-overhead scroll detection for sticky navbar style
-    let rafId: number | null = null;
-    const handleScroll = () => {
-      if (rafId !== null) return;
-      rafId = window.requestAnimationFrame(() => {
-        const scrolled = window.scrollY > 20;
-        setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
-        rafId = null;
-      });
-    };
-
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    // 2. High-performance IntersectionObserver for Active Section indicator (0 layout reflows on scroll)
     const navMap: Record<string, string> = {
       home: 'home',
       about: 'about',
@@ -79,44 +64,71 @@ export default function Navbar() {
       contact: 'contact',
     };
 
-    const sectionIds = [
-      'home',
-      'about',
-      'properties',
-      'why-us',
-      'amenities',
-      'location',
-      'gallery',
-      'legal',
+    // Ordered from bottom of page to top of page for instant matching
+    const orderedSectionIds = [
+      'contact',
       'faq',
-      'contact'
+      'legal',
+      'gallery',
+      'location',
+      'amenities',
+      'why-us',
+      'properties',
+      'about',
+      'home',
     ];
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // Find the visible section with highest intersection ratio or top priority
-        const visibleEntry = entries.find((entry) => entry.isIntersecting);
-        if (visibleEntry) {
-          const id = visibleEntry.target.id;
-          const mapped = navMap[id] || id;
-          setActiveSection((prev) => (prev !== mapped ? mapped : prev));
-        }
-      },
-      {
-        rootMargin: '-20% 0px -50% 0px',
-        threshold: [0, 0.25, 0.5]
-      }
-    );
+    let rafId: number | null = null;
+    const handleScroll = () => {
+      if (rafId !== null) return;
+      rafId = window.requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        const scrolled = scrollY > 20;
+        setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
 
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
+        const windowHeight = window.innerHeight;
+        const docHeight = document.documentElement.scrollHeight;
+
+        // 1. If user is scrolled near bottom of page -> activate contact
+        if (scrollY + windowHeight >= docHeight - 90) {
+          setActiveSection('contact');
+          rafId = null;
+          return;
+        }
+
+        // 2. If at very top of page -> activate home
+        if (scrollY < 120) {
+          setActiveSection('home');
+          rafId = null;
+          return;
+        }
+
+        // 3. Trigger line: check from bottom-most section upwards
+        const triggerLine = 200;
+        for (const id of orderedSectionIds) {
+          const el = document.getElementById(id);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= triggerLine) {
+              const mapped = navMap[id] || id;
+              setActiveSection((prev) => (prev !== mapped ? mapped : prev));
+              break;
+            }
+          }
+        }
+
+        rafId = null;
+      });
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
 
     return () => {
       if (rafId !== null) cancelAnimationFrame(rafId);
       window.removeEventListener('scroll', handleScroll);
-      observer.disconnect();
+      window.removeEventListener('resize', handleScroll);
     };
   }, []);
 

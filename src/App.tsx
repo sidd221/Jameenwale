@@ -33,16 +33,16 @@ function Home() {
         <WhyChooseUs />
         <Amenities />
         <LocationAdvantage />
-        <Suspense fallback={<div id="gallery" className="min-h-[400px] flex items-center justify-center py-24" />}>
+        <Suspense fallback={<div className="min-h-[300px] flex items-center justify-center py-24" />}>
           <Gallery />
         </Suspense>
-        <Suspense fallback={<div id="legal" className="min-h-[400px] flex items-center justify-center py-24" />}>
+        <Suspense fallback={<div className="min-h-[300px] flex items-center justify-center py-24" />}>
           <LegalDocuments />
         </Suspense>
-        <Suspense fallback={<div id="faq" className="min-h-[400px] flex items-center justify-center py-24" />}>
+        <Suspense fallback={<div className="min-h-[300px] flex items-center justify-center py-24" />}>
           <FAQ />
         </Suspense>
-        <Suspense fallback={<div id="contact" className="min-h-[400px] flex items-center justify-center py-24" />}>
+        <Suspense fallback={<div className="min-h-[300px] flex items-center justify-center py-24" />}>
           <ContactForm />
         </Suspense>
       </main>
