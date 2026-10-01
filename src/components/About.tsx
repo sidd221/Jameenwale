@@ -108,7 +108,7 @@ export default function About() {
             <div className="relative z-10 w-4/5 ml-auto">
               {/* Main Image */}
               <AboutImage 
-                src="/h2.jpeg" 
+                src="/h2.webp" 
                 alt="JameenWale Verified Gated Community Plots in Patna Bihar" 
                 className="rounded-sm shadow-xl aspect-[4/3]"
               />
@@ -116,7 +116,7 @@ export default function About() {
             <div className="absolute bottom-[-10%] left-0 w-3/5 z-20">
               {/* Secondary Overlapping Image */}
               <AboutImage 
-                src="/h1.jpeg" 
+                src="/h1.webp" 
                 alt="Premium Residential Land Development by JameenWale in Patna"
                 className="border-8 border-[#0f172a] rounded-sm shadow-2xl aspect-[4/3]"
               />

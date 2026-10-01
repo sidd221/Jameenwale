@@ -70,7 +70,7 @@ export default function WhyChooseUs() {
             className="relative h-[600px] rounded-sm overflow-hidden shadow-2xl border border-white/10 bg-slate-800/80"
           >
             <img 
-              src="/t.jpeg" 
+              src="/t.webp" 
               alt="JameenWale Gated Township Real Estate Corporate Office in Patna Bihar" 
               width="600"
               height="600"

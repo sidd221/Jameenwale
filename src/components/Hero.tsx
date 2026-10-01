@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Phone, CheckCircle2, ShieldCheck, Lock, FileCheck } from 'lucide-react';
+import { trackLeadSubmission, trackPhoneClick, trackBrochureDownload } from '../utils/analytics';
 
 export default function Hero() {
   const [formData, setFormData] = useState({
@@ -39,6 +40,11 @@ export default function Hero() {
 
       if (response.ok && jsonResponse && jsonResponse.success) {
         setStatus('success');
+        trackLeadSubmission('Hero Quick Inquiry Form', {
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email
+        });
         setFormData({ name: '', phone: '', email: '' });
         setTimeout(() => setStatus('idle'), 5000);
       } else {
@@ -64,12 +70,8 @@ export default function Hero() {
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0 bg-[#0F172A] overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format,compress&fit=crop&q=60&w=1280&fm=webp"
-          srcSet="
-            https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format,compress&fit=crop&q=60&w=640&fm=webp 640w,
-            https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format,compress&fit=crop&q=60&w=1280&fm=webp 1280w,
-            https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format,compress&fit=crop&q=60&w=1920&fm=webp 1920w
-          "
+          src="/hero-1280.webp"
+          srcSet="/hero-640.webp 640w, /hero-1280.webp 1280w"
           sizes="100vw"
           alt="RERA Approved Gated Community Plots in Patna and Rajgir Bihar - JameenWale"
           width="1280"
@@ -84,19 +86,14 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col md:flex-row items-center justify-between gap-12 pt-12 pb-24">
         
         {/* Left Column: Text & Badges */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="w-full md:w-3/5 text-white overflow-visible"
-        >
+        <div className="w-full md:w-3/5 text-white overflow-visible animate-fade-in-up">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 glass rounded-full text-xs font-semibold mb-6">
             <span className="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
             EXCLUSIVE LAUNCH
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.15] mb-6 overflow-visible flex flex-col gap-1 sm:gap-2">
-            <span className="block text-white">Gated Community Plots</span>
-            <span className="block accent-gold italic font-medium">in Patna &amp; Rajgir</span>
+            <span className="block text-white">Plots for Sale in Patna</span>
+            <span className="block accent-gold italic font-medium">&amp; Gated Community Land</span>
           </h1>
           <p className="text-base sm:text-lg text-white/80 mb-8 max-w-lg font-light leading-relaxed">
             Secure, freehold residential plots with perimeter boundary walls, wide concrete roads, and clear legal titles across Patna’s top growth corridors.
@@ -128,6 +125,7 @@ export default function Hero() {
               href="brochure.pdf" 
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackBrochureDownload('Hero Overview Brochure')}
               className="px-8 py-4 bg-gold text-black font-bold flex items-center justify-center rounded-sm text-sm tracking-widest uppercase shadow-lg hover:opacity-90 transition-all active:scale-95"
             >
               Get Brochure <ArrowRight className="ml-2 w-5 h-5" />
@@ -135,6 +133,7 @@ export default function Hero() {
             
             <a 
               href="tel:+916287220163"
+              onClick={() => trackPhoneClick('Hero Book Site Visit')}
               className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-bold flex items-center justify-center rounded-sm text-sm tracking-widest uppercase border border-white/20 backdrop-blur-md shadow-lg transition-all active:scale-95 gap-2"
             >
               <Phone className="w-4 h-4 text-gold" /> Book Site Visit
@@ -163,15 +162,10 @@ export default function Hero() {
               Zero Legal Disputes
             </span>
           </div>
-        </motion.div>
+        </div>
 
         {/* Right Column: Inquiry Form Card */}
-        <motion.div 
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="w-full md:w-2/5 max-w-md"
-        >
+        <div className="w-full md:w-2/5 max-w-md animate-fade-in-up-delay">
           <div className="glass p-8 space-y-6 shadow-2xl relative overflow-hidden">
             <h3 className="text-xl font-semibold text-white">Priority Inquiry</h3>
             <p className="text-white/60 text-sm mb-6">Book a customized site visit & view pricing.</p>
@@ -231,7 +225,7 @@ export default function Hero() {
               <button 
                 type="submit" 
                 disabled={status === 'submitting' || status === 'success'}
-                className="w-full py-4 mt-4 bg-white text-black font-bold rounded-sm text-sm uppercase tracking-widest hover:bg-gray-100 transition-colors disabled:opacity-75 disabled:hover:bg-white disabled:cursor-not-allowed"
+                className="w-full py-4 mt-4 bg-white text-black font-bold rounded-sm text-sm uppercase tracking-widest hover:bg-gray-100 transition-colors disabled:opacity-75 disabled:hover:bg-white disabled:cursor-not-allowed cursor-pointer"
               >
                 {status === 'submitting' ? 'Submitting...' : status === 'success' ? 'Details Sent!' : status === 'error' ? 'Error. Try Again' : 'Submit Interest'}
               </button>
@@ -242,11 +236,23 @@ export default function Hero() {
               )}
             </form>
             
-            <p className="text-[10px] text-center text-white/40">
-              *Our property consultant will call you within 20 min.
-            </p>
+            <div className="space-y-1 pt-1 text-center">
+              <p className="text-[10px] text-white/50">
+                *Our property consultant will call you within 20 min.
+              </p>
+              <p className="text-[10px] text-white/40">
+                By submitting, you agree to our{' '}
+                <Link to="/privacy-policy" className="text-gold underline hover:text-white">
+                  Privacy Policy
+                </Link>{' '}
+                and{' '}
+                <Link to="/terms" className="text-gold underline hover:text-white">
+                  Terms
+                </Link>.
+              </p>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

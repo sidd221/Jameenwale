@@ -7,31 +7,153 @@
         http://www.google.com/schemas/sitemap-image/1.1
         http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
 
+  <!-- Homepage: Core Transactional Patna Real Estate Hub -->
   <url>
     <loc>https://jameenwale.vercel.app/</loc>
-    <lastmod>2026-09-15T10:00:00+05:30</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-09-29T15:45:00+05:30</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://jameenwale.vercel.app/embassy.jpeg</image:loc>
-      <image:title>Embassy Capital Gated Community Plots in Patna Shivala More</image:title>
-      <image:caption>RERA-approved gated township residential plots with boundary wall at Shivala More Patna.</image:caption>
+      <image:loc>https://jameenwale.vercel.app/embassy.webp</image:loc>
+      <image:title>Plots for Sale in Patna Shivala More - Embassy Capital</image:title>
+      <image:caption>RERA-compliant gated township residential plots with boundary wall at Shivala More Patna.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://jameenwale.vercel.app/it.jpeg</image:loc>
-      <image:title>IT Park Gated Community Plots in Bihta Patna</image:title>
+      <image:loc>https://jameenwale.vercel.app/it.webp</image:loc>
+      <image:title>Plots for Sale in Bihta Patna - IT Park</image:title>
       <image:caption>Verified residential and commercial land opposite NIT Bihta corridor Patna.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://jameenwale.vercel.app/rajgir.jpeg</image:loc>
-      <image:title>Seven Crown Residential Plots in Rajgir Bihar</image:title>
+      <image:loc>https://jameenwale.vercel.app/rajgir.webp</image:loc>
+      <image:title>Plots for Sale in Rajgir Bihar - Seven Crown</image:title>
       <image:caption>Scenic gated society plots for sale in Silao Rajgir Nalanda tourism corridor.</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://jameenwale.vercel.app/og-image.jpg</image:loc>
       <image:title>JameenWale Gated Township Real Estate Patna</image:title>
-      <image:caption>Verified RERA-approved plots in Patna, Bihta, and Rajgir Bihar.</image:caption>
+      <image:caption>Verified plots in Patna, Bihta, Danapur, Naubatpur, and Rajgir Bihar.</image:caption>
     </image:image>
+  </url>
+
+  <!-- Patna Metropolitan Primary Hub (Keywords 1-5) -->
+  <url>
+    <loc>https://jameenwale.vercel.app/plots-for-sale-in-patna</loc>
+    <lastmod>2026-09-29T15:45:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://jameenwale.vercel.app/embassy.webp</image:loc>
+      <image:title>Residential Plots for Sale in Patna - JameenWale</image:title>
+      <image:caption>Freehold residential plots &amp; land in Patna across Shivala More, Danapur &amp; Bihta.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Bihar Statewide Regional Hub (Keywords 6-9) -->
+  <url>
+    <loc>https://jameenwale.vercel.app/plots-for-sale-in-bihar</loc>
+    <lastmod>2026-09-29T15:45:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://jameenwale.vercel.app/embassy.webp</image:loc>
+      <image:title>Plots for Sale in Bihar - Statewide Land &amp; Plotted Townships</image:title>
+      <image:caption>Verified residential plots in Bihar with 100% legal title clearance and mutation support.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Bihta Corridor (Keywords 10-11) -->
+  <url>
+    <loc>https://jameenwale.vercel.app/plots-for-sale-in-bihta</loc>
+    <lastmod>2026-09-29T15:45:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://jameenwale.vercel.app/it.webp</image:loc>
+      <image:title>Plots for Sale in Bihta Patna - IT Park</image:title>
+      <image:caption>RERA-approved plots opposite NIT Patna in the Bihta Growth Corridor.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Danapur Corridor (Keywords 14-15) -->
+  <url>
+    <loc>https://jameenwale.vercel.app/plots-for-sale-in-danapur</loc>
+    <lastmod>2026-09-29T15:45:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://jameenwale.vercel.app/embassy.webp</image:loc>
+      <image:title>Plots for Sale in Danapur Patna - Embassy Capital</image:title>
+      <image:caption>Residential plots 7 mins from Saguna More &amp; Danapur Station with boundary walls.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Naubatpur Corridor (Keywords 12-13) -->
+  <url>
+    <loc>https://jameenwale.vercel.app/plots-for-sale-in-naubatpur</loc>
+    <lastmod>2026-09-29T15:45:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://jameenwale.vercel.app/embassy.webp</image:loc>
+      <image:title>Plots for Sale in Naubatpur Patna - AIIMS Outer Ring Road</image:title>
+      <image:caption>Clear-title residential land in Naubatpur near AIIMS Patna and Bihta-Sarmera expressway.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Rajgir / Nalanda Corridor (Keywords 16-17) -->
+  <url>
+    <loc>https://jameenwale.vercel.app/plots-for-sale-in-rajgir</loc>
+    <lastmod>2026-09-29T15:45:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://jameenwale.vercel.app/rajgir.webp</image:loc>
+      <image:title>Plots for Sale in Rajgir Bihar - Seven Crown</image:title>
+      <image:caption>Residential plots for sale in Silao, Rajgir, Nalanda tourism highway.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Shivala More Project Landing -->
+  <url>
+    <loc>https://jameenwale.vercel.app/plots-in-shivala-patna</loc>
+    <lastmod>2026-09-29T15:45:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://jameenwale.vercel.app/embassy.webp</image:loc>
+      <image:title>Embassy Capital Residential Plots in Shivala More Patna</image:title>
+      <image:caption>Gated society plots at Shivala More Bodhgawa, 7-10 mins from Saguna More Patna.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Informational / E-E-A-T Authority Resource -->
+  <url>
+    <loc>https://jameenwale.vercel.app/land-buying-checklist-bihar</loc>
+    <lastmod>2026-09-29T15:45:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Trust & Policy Pages -->
+  <url>
+    <loc>https://jameenwale.vercel.app/privacy-policy</loc>
+    <lastmod>2026-09-29T15:45:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://jameenwale.vercel.app/terms</loc>
+    <lastmod>2026-09-29T15:45:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://jameenwale.vercel.app/disclaimer</loc>
+    <lastmod>2026-09-29T15:45:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
   </url>
 
 </urlset>

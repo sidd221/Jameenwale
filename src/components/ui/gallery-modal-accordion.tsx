@@ -27,7 +27,7 @@ export interface GalleryItem {
 export const defaultGalleryItems: GalleryItem[] = [
   {
     id: 1,
-    url: '/g1.jpeg',
+    url: '/g1.webp',
     title: 'Bihta Green City Plots',
     location: 'Bihta, Patna',
     category: 'brochure',
@@ -38,7 +38,7 @@ export const defaultGalleryItems: GalleryItem[] = [
   },
   {
     id: 2,
-    url: '/g2.jpeg',
+    url: '/g2.webp',
     title: 'Danapur High-Tech Enclave',
     location: 'Danapur, Patna',
     category: 'brochure',
@@ -49,7 +49,7 @@ export const defaultGalleryItems: GalleryItem[] = [
   },
   {
     id: 3,
-    url: '/g3.jpeg',
+    url: '/g3.webp',
     title: 'Bailey Road Luxury Plots',
     location: 'Bailey Road, Patna',
     category: 'brochure',
@@ -60,7 +60,7 @@ export const defaultGalleryItems: GalleryItem[] = [
   },
   {
     id: 4,
-    url: '/g4.jpeg',
+    url: '/g4.webp',
     title: 'Patliputra Sovereign Land',
     location: 'Patliputra Colony, Patna',
     category: 'brochure',
@@ -71,7 +71,7 @@ export const defaultGalleryItems: GalleryItem[] = [
   },
   {
     id: 5,
-    url: '/g5.jpeg',
+    url: '/g5.webp',
     title: 'Airport Corridor Township',
     location: 'Bihta Airport Zone, Patna',
     category: 'brochure',
@@ -82,7 +82,7 @@ export const defaultGalleryItems: GalleryItem[] = [
   },
   {
     id: 6,
-    url: '/g6.jpeg',
+    url: '/g6.webp',
     title: 'Naubatpur Eco-Park Plots',
     location: 'Naubatpur, Patna',
     category: 'brochure',
@@ -93,7 +93,7 @@ export const defaultGalleryItems: GalleryItem[] = [
   },
   {
     id: 7,
-    url: '/g7.jpeg',
+    url: '/g7.webp',
     title: 'Shivala Smart City Land',
     location: 'Shivala Chowk, Patna',
     category: 'brochure',
@@ -104,7 +104,7 @@ export const defaultGalleryItems: GalleryItem[] = [
   },
   {
     id: 8,
-    url: '/g8.jpeg',
+    url: '/g8.webp',
     title: 'Kanhauli Expressway County',
     location: 'Kanhauli, Bihta Road, Patna',
     category: 'site',
@@ -115,7 +115,7 @@ export const defaultGalleryItems: GalleryItem[] = [
   },
   {
     id: 9,
-    url: '/g9.jpeg',
+    url: '/g9.webp',
     title: 'Rajgir Heritage Valley',
     location: 'Silao, Rajgir, Nalanda',
     category: 'site',
@@ -126,7 +126,7 @@ export const defaultGalleryItems: GalleryItem[] = [
   },
   {
     id: 10,
-    url: '/g10.jpeg',
+    url: '/g10.webp',
     title: 'AIIMS Corridor Greens',
     location: 'Phulwari Sharif - AIIMS Road, Patna',
     category: 'site',
@@ -137,7 +137,7 @@ export const defaultGalleryItems: GalleryItem[] = [
   },
   {
     id: 11,
-    url: '/g11.jpeg',
+    url: '/g11.webp',
     title: 'NIT IT-Park Enclave',
     location: 'Opposite to NIT, Bihta, Patna',
     category: 'site',
@@ -148,7 +148,7 @@ export const defaultGalleryItems: GalleryItem[] = [
   },
   {
     id: 12,
-    url: '/g12.jpeg',
+    url: '/g12.webp',
     title: 'Saguna More Signature Lands',
     location: 'Saguna More, Danapur, Patna',
     category: 'site',
@@ -159,7 +159,7 @@ export const defaultGalleryItems: GalleryItem[] = [
   },
   {
     id: 13,
-    url: '/g13.jpeg',
+    url: '/g13.webp',
     title: 'Khagaul Boulevard Plots',
     location: 'Khagaul Road, Danapur, Patna',
     category: 'site',
@@ -170,7 +170,7 @@ export const defaultGalleryItems: GalleryItem[] = [
   },
   {
     id: 14,
-    url: '/g14.jpeg',
+    url: '/g14.webp',
     title: 'Bodhgaya Roadway Estates',
     location: 'Shivala More, Bodhgawa, Patna',
     category: 'site',
@@ -181,7 +181,7 @@ export const defaultGalleryItems: GalleryItem[] = [
   },
   {
     id: 15,
-    url: '/g15.jpeg',
+    url: '/g15.webp',
     title: 'Ganga View Promenade Land',
     location: 'Digha - Marine Drive Corridor, Patna',
     category: 'site',
@@ -189,6 +189,28 @@ export const defaultGalleryItems: GalleryItem[] = [
     region: 'patna',
     description: 'On-site actual view: Ultra-exclusive luxury plots near Ganga Pathway with scenic riverside views and rapid appreciation.',
     tags: ['Marine Drive', 'Digha', 'Site Photo', 'Ganga Pathway']
+  },
+  {
+    id: 16,
+    url: '/g16.webp',
+    title: 'Shivala Green Meadows Land',
+    location: 'Shivala More - Bodhgawa Corridor, Patna',
+    category: 'site',
+    orientation: 'vertical',
+    region: 'danapur',
+    description: 'On-site actual view: Fertile green acreage earmarked for gated plotted community development near Shivala More with rich natural surroundings and direct elevated corridor connectivity.',
+    tags: ['Shivala More', 'Bodhgawa', 'Site Photo', 'Green Township']
+  },
+  {
+    id: 17,
+    url: '/g17.webp',
+    title: 'Bihta Expressway Horizon Lands',
+    location: 'Bihta High-Growth Corridor, Patna',
+    category: 'site',
+    orientation: 'horizontal',
+    region: 'bihta',
+    description: 'On-site actual view: Expansive open plotted township parcel in the Bihta investment corridor offering panoramic green views, clear legal titles, and high capital growth potential.',
+    tags: ['Bihta Corridor', 'Site Photo', 'High ROI', 'Open Horizon']
   }
 ];
 

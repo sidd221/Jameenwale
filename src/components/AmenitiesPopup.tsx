@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Sparkles, Phone, User, CheckCircle2, ShieldCheck, ArrowRight, Loader2 } from 'lucide-react';
+import { trackLeadSubmission } from '../utils/analytics';
 
 export default function AmenitiesPopup() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +15,12 @@ export default function AmenitiesPopup() {
   useEffect(() => {
     if (hasTriggered) return;
 
+    try {
+      if (sessionStorage.getItem('amenities_popup_dismissed') === 'true') {
+        return;
+      }
+    } catch {}
+
     const amenitiesElem = document.getElementById('amenities');
     if (!amenitiesElem) return;
 
@@ -20,6 +28,11 @@ export default function AmenitiesPopup() {
       (entries) => {
         const [entry] = entries;
         if (entry.isIntersecting) {
+          try {
+            if (sessionStorage.getItem('amenities_popup_dismissed') === 'true') {
+              return;
+            }
+          } catch {}
           setIsOpen(true);
           setHasTriggered(true);
           observer.disconnect();
@@ -57,6 +70,9 @@ export default function AmenitiesPopup() {
   }, [isOpen]);
 
   const handleClose = () => {
+    try {
+      sessionStorage.setItem('amenities_popup_dismissed', 'true');
+    } catch {}
     setIsOpen(false);
   };
 
@@ -87,6 +103,10 @@ export default function AmenitiesPopup() {
 
       if (response.ok && data && (data.success === "true" || data.success === true || response.status === 200)) {
         setStatus('success');
+        trackLeadSubmission('Amenities Section Popup Form', {
+          name: formData.name,
+          phone: formData.phone
+        });
         sessionStorage.setItem('amenities_popup_submitted_or_closed', 'true');
         setTimeout(() => {
           setIsOpen(false);
@@ -246,8 +266,15 @@ export default function AmenitiesPopup() {
                     )}
                   </button>
 
-                  <p className="text-[10px] text-center text-white/40 pt-1">
-                    🔒 100% Privacy Guaranteed. No spam. Direct advisor consultation.
+                  <p className="text-[10px] text-center text-white/50 pt-1">
+                    🔒 Direct advisor consultation. By submitting, you agree to our{' '}
+                    <Link to="/privacy-policy" onClick={handleClose} className="text-gold underline hover:text-white">
+                      Privacy Policy
+                    </Link>{' '}
+                    and{' '}
+                    <Link to="/terms" onClick={handleClose} className="text-gold underline hover:text-white">
+                      Terms
+                    </Link>.
                   </p>
                 </form>
               </div>

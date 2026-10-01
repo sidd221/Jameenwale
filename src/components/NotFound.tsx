@@ -1,54 +1,100 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Home } from 'lucide-react';
+import { Home, Compass, MapPin, FileCheck } from 'lucide-react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import SEOHead from './SEOHead';
 
 export default function NotFound() {
-  useEffect(() => {
-    document.title = "404 - Page Not Found | JameenWale";
-  }, []);
-
   return (
     <div className="font-sans antialiased text-white select-none min-h-screen flex flex-col">
+      <SEOHead
+        title="404 - Page Not Found | JameenWale"
+        description="The requested real estate page could not be found. Explore verified plots in Patna, Bihta, and Rajgir."
+        canonicalUrl="https://jameenwale.vercel.app/404"
+        noindex={true}
+      />
       <Navbar />
       
-      <main className="flex-grow flex items-center justify-center relative overflow-hidden pt-20 pb-12">
+      <main className="flex-grow flex items-center justify-center relative overflow-hidden pt-28 pb-16">
         {/* Background Gradients */}
         <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
           <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#d4af37] to-[#f9a8d4] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"></div>
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-9xl md:text-[150px] font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-gold via-white to-white/50 mb-4 opacity-80">
+            <h1 className="text-8xl md:text-9xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-gold via-white to-white/50 mb-2 opacity-90">
               404
             </h1>
             
-            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6">
+            <h2 className="text-2xl md:text-4xl font-bold text-white tracking-tight mb-4">
               Page Not Found
             </h2>
             
-            <p className="text-lg text-white/60 mb-10 max-w-lg mx-auto font-light">
-              We couldn't find the page you're looking for. It might have been moved, deleted, or perhaps it never existed in our premium properties list.
+            <p className="text-base text-white/60 mb-8 max-w-md mx-auto font-light">
+              The property page you are looking for has been moved or does not exist. Explore our active verified gated townships below:
             </p>
+
+            {/* Quick links to active corridors */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl mx-auto mb-8 text-left">
+              <Link 
+                to="/plots-for-sale-in-patna" 
+                className="p-4 rounded bg-white/5 hover:bg-white/10 border border-white/10 transition-colors block"
+              >
+                <div className="flex items-center text-gold text-xs font-bold uppercase tracking-wider mb-1">
+                  <MapPin className="w-3.5 h-3.5 mr-1" /> Patna Corridors
+                </div>
+                <div className="text-white font-bold text-sm">Plots in Patna</div>
+                <div className="text-white/50 text-xs">Shivala &amp; Danapur • ₹21L+</div>
+              </Link>
+
+              <Link 
+                to="/plots-for-sale-in-bihta" 
+                className="p-4 rounded bg-white/5 hover:bg-white/10 border border-white/10 transition-colors block"
+              >
+                <div className="flex items-center text-gold text-xs font-bold uppercase tracking-wider mb-1">
+                  <MapPin className="w-3.5 h-3.5 mr-1" /> Bihta IT Hub
+                </div>
+                <div className="text-white font-bold text-sm">IT Park Plots</div>
+                <div className="text-white/50 text-xs">Opposite NIT Patna • ₹28L</div>
+              </Link>
+
+              <Link 
+                to="/plots-for-sale-in-rajgir" 
+                className="p-4 rounded bg-white/5 hover:bg-white/10 border border-white/10 transition-colors block"
+              >
+                <div className="flex items-center text-gold text-xs font-bold uppercase tracking-wider mb-1">
+                  <MapPin className="w-3.5 h-3.5 mr-1" /> Rajgir / Nalanda
+                </div>
+                <div className="text-white font-bold text-sm">Seven Crown</div>
+                <div className="text-white/50 text-xs">Eco-Living Plots • ₹22L</div>
+              </Link>
+            </div>
             
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex justify-center gap-4"
             >
               <Link 
                 to="/" 
-                className="inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold/90 text-slate-900 px-8 py-4 text-sm font-bold uppercase tracking-widest transition-all duration-300 transform hover:-translate-y-1 rounded-sm shadow-[0_0_20px_rgba(212,175,55,0.3)]"
+                className="inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold/90 text-slate-900 px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-sm shadow-[0_0_20px_rgba(212,175,55,0.3)]"
               >
-                <Home className="w-5 h-5" />
-                Return Home
+                <Home className="w-4 h-4" />
+                Return to Homepage
+              </Link>
+              <Link 
+                to="/land-buying-checklist-bihar" 
+                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all rounded-sm"
+              >
+                <FileCheck className="w-4 h-4 text-gold" />
+                Land Buying Checklist
               </Link>
             </motion.div>
           </motion.div>

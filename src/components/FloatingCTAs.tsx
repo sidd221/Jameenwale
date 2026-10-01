@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
-import { ArrowUp, Phone } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ArrowUp, Phone, CalendarCheck, Sparkles } from 'lucide-react';
+import { trackPhoneClick, trackWhatsAppClick } from '../utils/analytics';
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -9,7 +10,7 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 
 export default function FloatingCTAs() {
   const [isScrollTopVisible, setIsScrollTopVisible] = useState(false);
-  const [isWhatsAppVisible, setIsWhatsAppVisible] = useState(false);
+  const [isBarVisible, setIsBarVisible] = useState(false);
 
   useEffect(() => {
     let rafId: number | null = null;
@@ -23,10 +24,11 @@ export default function FloatingCTAs() {
         const threshold = (scrollHeight - windowHeight) * 0.8;
 
         const showTop = scrollPosition > threshold;
-        const showWhatsApp = scrollPosition > windowHeight * 0.5;
+        // Show after scrolling past 150px
+        const showBar = scrollPosition > 150;
 
         setIsScrollTopVisible((prev) => (prev !== showTop ? showTop : prev));
-        setIsWhatsAppVisible((prev) => (prev !== showWhatsApp ? showWhatsApp : prev));
+        setIsBarVisible((prev) => (prev !== showBar ? showBar : prev));
         rafId = null;
       });
     };
@@ -47,50 +49,116 @@ export default function FloatingCTAs() {
     });
   };
 
+  const handleBookVisitClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const elem = document.getElementById('contact');
+    if (elem) {
+      elem.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 flex flex-col gap-3 sm:gap-4 z-50">
-
-      {/* Call Button */}
-      <a 
-        href="tel:+916287220163" 
-        className={`w-12 h-12 sm:w-14 sm:h-14 bg-blue-500 hover:bg-blue-600 outline outline-4 outline-blue-500/30 text-white rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 group relative ${
-          isWhatsAppVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-90 pointer-events-none'
-        } hover:scale-110 active:scale-95`}
-        aria-label="Call Us Now"
-      >
-        <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
-        <span className="absolute right-full mr-4 glass text-white text-xs px-3 py-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none hidden sm:inline-block">
-          Call Now
-        </span>
-      </a>
-
-      {/* WhatsApp Button */}
-      <a 
-        href="https://wa.me/916287220163" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className={`w-12 h-12 sm:w-14 sm:h-14 bg-green-500 hover:bg-green-600 outline outline-4 outline-green-500/30 text-white rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 group relative ${
-          isWhatsAppVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-90 pointer-events-none'
-        } hover:scale-110 active:scale-95`}
-        aria-label="Chat on WhatsApp"
-      >
-        <WhatsAppIcon className="w-6 h-6 sm:w-8 sm:h-8" />
-        <span className="absolute right-full mr-4 glass text-white text-xs px-3 py-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none hidden sm:inline-block">
-          Chat with us
-        </span>
-      </a>
-
-      {/* Scroll to Top */}
-      <button 
-        onClick={scrollToTop}
-        className={`w-10 h-10 sm:w-12 sm:h-12 glass border border-white/20 text-white hover:text-gold hover:border-gold rounded-full flex items-center justify-center shadow-lg transition-all duration-300 active:scale-95 ${
-          isScrollTopVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
+    <>
+      {/* ============================================================== */}
+      {/* MOBILE VIEW: Premium Bottom Action Bar (Fixed Dock Style)     */}
+      {/* ============================================================== */}
+      <nav
+        aria-label="Mobile quick actions"
+        className={`fixed bottom-0 left-0 right-0 z-40 sm:hidden transition-transform duration-300 ${
+          isBarVisible ? 'translate-y-0' : 'translate-y-full pointer-events-none'
         }`}
-        aria-label="Scroll to top"
       >
-        <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5" />
-      </button>
+        <div className="bg-[#0A101F]/95 backdrop-blur-xl border-t border-white/15 px-3 pt-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] shadow-[0_-10px_35px_rgba(0,0,0,0.7)]">
+          <div className="flex items-center gap-2 max-w-md mx-auto">
+            {/* Quick Call Button */}
+            <a
+              href="tel:+916287220163"
+              onClick={() => trackPhoneClick('Mobile Bottom Bar Phone')}
+              className="flex-1 flex items-center justify-center gap-2 py-3 px-3 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-xs uppercase tracking-wider shadow-lg active:scale-95 transition-all border border-blue-400/30"
+              aria-label="Call property consultant"
+            >
+              <Phone className="w-4 h-4 text-white shrink-0 animate-pulse" />
+              <span>Call Now</span>
+            </a>
 
-    </div>
+            {/* Quick WhatsApp Button */}
+            <a
+              href="https://wa.me/916287220163"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick('Mobile Bottom Bar WhatsApp')}
+              className="flex-1 flex items-center justify-center gap-2 py-3 px-3 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg active:scale-95 transition-all border border-emerald-400/30"
+              aria-label="Chat on WhatsApp"
+            >
+              <WhatsAppIcon className="w-4 h-4 text-white shrink-0" />
+              <span className="relative flex h-2 w-2 mr-0.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+              </span>
+              <span>WhatsApp</span>
+            </a>
+
+            {/* Quick Site Visit Anchor */}
+            <a
+              href="#contact"
+              onClick={handleBookVisitClick}
+              className="px-3.5 py-3 rounded-lg bg-gold text-black font-bold text-xs uppercase tracking-wider shadow-lg active:scale-95 transition-all shrink-0 flex items-center gap-1.5"
+              aria-label="Book a site visit"
+            >
+              <CalendarCheck className="w-4 h-4 text-black shrink-0" />
+              <span className="hidden xs:inline">Visit</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      {/* ============================================================== */}
+      {/* DESKTOP VIEW: Sleek Floating CTA Badges (sm and up)           */}
+      {/* ============================================================== */}
+      <div className="hidden sm:flex fixed bottom-6 right-6 flex-col gap-4 z-50">
+        {/* Desktop Call Button */}
+        <a
+          href="tel:+916287220163"
+          onClick={() => trackPhoneClick('Floating CTA Phone')}
+          className={`w-14 h-14 bg-blue-500 hover:bg-blue-600 outline outline-4 outline-blue-500/30 text-white rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 group relative ${
+            isBarVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-90 pointer-events-none'
+          } hover:scale-110 active:scale-95`}
+          aria-label="Call Us Now"
+        >
+          <Phone className="w-6 h-6" />
+          <span className="absolute right-full mr-4 glass text-white text-xs px-3 py-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            Call Now
+          </span>
+        </a>
+
+        {/* Desktop WhatsApp Button */}
+        <a
+          href="https://wa.me/916287220163"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => trackWhatsAppClick('Floating CTA WhatsApp')}
+          className={`w-14 h-14 bg-green-500 hover:bg-green-600 outline outline-4 outline-green-500/30 text-white rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 group relative ${
+            isBarVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-90 pointer-events-none'
+          } hover:scale-110 active:scale-95`}
+          aria-label="Chat on WhatsApp"
+        >
+          <WhatsAppIcon className="w-8 h-8" />
+          <span className="absolute right-full mr-4 glass text-white text-xs px-3 py-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            Chat with us
+          </span>
+        </a>
+
+        {/* Desktop Scroll to Top */}
+        <button
+          onClick={scrollToTop}
+          className={`w-12 h-12 glass border border-white/20 text-white hover:text-gold hover:border-gold rounded-full flex items-center justify-center shadow-lg transition-all duration-300 active:scale-95 ${
+            isScrollTopVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
+          }`}
+          aria-label="Scroll to top"
+        >
+          <ArrowUp className="w-5 h-5" />
+        </button>
+      </div>
+    </>
   );
 }

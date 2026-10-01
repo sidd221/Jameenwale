@@ -1,4 +1,6 @@
 import React, { useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { trackLeadSubmission } from '../utils/analytics';
 
 export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -42,6 +44,11 @@ export default function ContactForm() {
 
       if (response.ok && data && data.success) {
         setStatus('success');
+        trackLeadSubmission('Main Contact Form', {
+          name: String(dataObj.name || ''),
+          email: String(dataObj.email || ''),
+          mobile: String(dataObj.mobile || '')
+        });
         formRef.current.reset();
         setTimeout(() => setStatus('idle'), 5000);
       } else {
@@ -164,16 +171,24 @@ export default function ContactForm() {
                   id="consent"
                   name="consent"
                   required
-                  value="Agreed: Authorized contact via Call, SMS, WhatsApp, and Email overriding DND/NDNC"
+                  value="Agreed: Authorized contact via Call, SMS, WhatsApp, and Email overriding DND/NDNC and agreed to Privacy Policy"
                   className="mt-0.5 h-4 w-4 shrink-0 rounded border-white/20 bg-white/5 text-gold focus:ring-1 focus:ring-gold accent-[#D4AF37] cursor-pointer"
                 />
                 <div className="space-y-1">
                   <span className="block text-xs text-white/75 leading-relaxed group-hover:text-white transition-colors">
-                    I authorize <strong className="text-white font-medium">JameenWale</strong> and its representatives to contact me via Call, SMS, WhatsApp, or Email regarding plots, project details, and site visits. I understand and confirm that this consent overrides my registration on the <strong className="text-gold font-medium">National Do Not Call (DND / NDNC)</strong> registry.
+                    I authorize <strong className="text-white font-medium">JameenWale</strong> to contact me via Call, SMS, WhatsApp, or Email regarding plots and site visits. I agree to the{' '}
+                    <Link to="/privacy-policy" className="text-gold underline hover:text-white" onClick={(e) => e.stopPropagation()}>
+                      Privacy Policy
+                    </Link>{' '}
+                    and{' '}
+                    <Link to="/terms" className="text-gold underline hover:text-white" onClick={(e) => e.stopPropagation()}>
+                      Terms of Service
+                    </Link>
+                    , and confirm this consent overrides my registration on the <strong className="text-gold font-medium">National Do Not Call (DND)</strong> registry.
                   </span>
                   <div className="flex items-center gap-1.5 text-[11px] text-white/45">
                     <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                    <span>Required under Digital Personal Data Protection (DPDP) &amp; TRAI regulations</span>
+                    <span>Compliant with Google Ads Policies, DPDP Act 2023 &amp; TRAI guidelines</span>
                   </div>
                 </div>
               </label>
@@ -195,6 +210,13 @@ export default function ContactForm() {
                 {status === 'submitting' ? 'Submitting...' : status === 'success' ? 'Details Sent!' : status === 'error' ? 'Error. Try Again' : 'Submit Details'}
               </button>
             </div>
+
+            <p className="text-[11px] text-center text-white/50 pt-2">
+              🔒 Your information is confidential and never shared with third-party advertisers. By submitting, you consent to our{' '}
+              <Link to="/privacy-policy" className="text-gold underline hover:text-white">
+                Privacy Policy
+              </Link>.
+            </p>
             {errorMessage && (
               <div className="text-red-400 text-sm mt-4 p-3 bg-red-950/50 rounded-sm border border-red-500/20 text-center">
                 {errorMessage}
