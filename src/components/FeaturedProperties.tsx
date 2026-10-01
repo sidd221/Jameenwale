@@ -53,7 +53,7 @@ export default function FeaturedProperties() {
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-16">
           <div className="max-w-2xl">
-            <h4 className="accent-gold font-bold uppercase tracking-widest text-sm mb-3">Verified Portfolio</h4>
+            <p className="accent-gold font-bold uppercase tracking-widest text-sm mb-3">Verified Portfolio</p>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight tracking-tight">
               Featured <span className="italic opacity-80">Plotted Townships</span>
             </h2>

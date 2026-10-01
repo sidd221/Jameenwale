@@ -167,15 +167,15 @@ export default function Hero() {
         {/* Right Column: Inquiry Form Card */}
         <div className="w-full md:w-2/5 max-w-md animate-fade-in-up-delay">
           <div className="glass p-8 space-y-6 shadow-2xl relative overflow-hidden">
-            <h3 className="text-xl font-semibold text-white">Priority Inquiry</h3>
-            <p className="text-white/60 text-sm mb-6">Book a customized site visit & view pricing.</p>
+            <h2 className="text-xl font-semibold text-white">Priority Inquiry</h2>
+            <p className="text-white/70 text-sm mb-6">Book a customized site visit &amp; view pricing.</p>
             
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="relative">
                   <input 
                     type="text" 
-                    id="name"
+                    id="hero-name"
                     name="name"
                     placeholder=" "
                     required
@@ -183,14 +183,14 @@ export default function Hero() {
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                   />
-                  <label htmlFor="name" className="absolute left-3 top-2 text-[9px] uppercase tracking-[1px] text-white/40 transition-all duration-200 origin-left peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-[10px] peer-placeholder-shown:text-white/60 peer-focus:top-2 peer-focus:-translate-y-0 peer-focus:text-[9px] peer-focus:text-white/40 pointer-events-none">
+                  <label htmlFor="hero-name" className="absolute left-3 top-2 text-[9px] uppercase tracking-[1px] text-white/70 transition-all duration-200 origin-left peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-[10px] peer-placeholder-shown:text-white/70 peer-focus:top-2 peer-focus:-translate-y-0 peer-focus:text-[9px] peer-focus:text-gold pointer-events-none">
                     Full Name
                   </label>
                 </div>
                 <div className="relative">
                   <input 
                     type="tel" 
-                    id="phone"
+                    id="hero-phone"
                     name="phone"
                     placeholder=" "
                     required
@@ -200,7 +200,7 @@ export default function Hero() {
                     value={formData.phone}
                     onChange={(e) => setFormData({...formData, phone: e.target.value.replace(/\D/g, '')})}
                   />
-                  <label htmlFor="phone" className="absolute left-3 top-2 text-[9px] uppercase tracking-[1px] text-white/40 transition-all duration-200 origin-left peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-[10px] peer-placeholder-shown:text-white/60 peer-focus:top-2 peer-focus:-translate-y-0 peer-focus:text-[9px] peer-focus:text-white/40 pointer-events-none">
+                  <label htmlFor="hero-phone" className="absolute left-3 top-2 text-[9px] uppercase tracking-[1px] text-white/70 transition-all duration-200 origin-left peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-[10px] peer-placeholder-shown:text-white/70 peer-focus:top-2 peer-focus:-translate-y-0 peer-focus:text-[9px] peer-focus:text-gold pointer-events-none">
                     Phone Number
                   </label>
                 </div>
@@ -208,7 +208,7 @@ export default function Hero() {
               <div className="relative">
                 <input 
                   type="email" 
-                  id="email"
+                  id="hero-email"
                   name="email"
                   placeholder=" "
                   required
@@ -216,7 +216,7 @@ export default function Hero() {
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                 />
-                <label htmlFor="email" className="absolute left-3 top-2 text-[9px] uppercase tracking-[1px] text-white/40 transition-all duration-200 origin-left peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-[10px] peer-placeholder-shown:text-white/60 peer-focus:top-2 peer-focus:-translate-y-0 peer-focus:text-[9px] peer-focus:text-white/40 pointer-events-none">
+                <label htmlFor="hero-email" className="absolute left-3 top-2 text-[9px] uppercase tracking-[1px] text-white/70 transition-all duration-200 origin-left peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-[10px] peer-placeholder-shown:text-white/70 peer-focus:top-2 peer-focus:-translate-y-0 peer-focus:text-[9px] peer-focus:text-gold pointer-events-none">
                   Email Address
                 </label>
               </div>

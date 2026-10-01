@@ -82,7 +82,7 @@ export default function Footer() {
 
           {/* Quick Links & Core Hubs */}
           <div className="lg:justify-self-center">
-            <h4 className="text-white font-bold text-lg mb-6 tracking-tight">Prime Corridors &amp; Hubs</h4>
+            <h3 className="text-white font-bold text-lg mb-6 tracking-tight">Prime Corridors &amp; Hubs</h3>
             <ul className="space-y-3.5 text-sm font-medium">
               <li><Link to="/plots-for-sale-in-patna" className="text-white/70 hover:text-gold transition-colors flex items-center gap-1.5"><span className="text-gold">›</span> Plots for Sale in Patna</Link></li>
               <li><Link to="/plots-for-sale-in-bihar" className="text-white/70 hover:text-gold transition-colors flex items-center gap-1.5"><span className="text-gold">›</span> Plots for Sale in Bihar</Link></li>
@@ -96,7 +96,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-white font-bold text-lg mb-6 tracking-tight">Contact Us</h4>
+            <h3 className="text-white font-bold text-lg mb-6 tracking-tight">Contact Us</h3>
             <ul className="space-y-4 text-sm font-medium text-white/60">
               <li className="flex items-start">
                 <MapPin className="w-4 h-4 accent-gold mr-3 shrink-0 mt-0.5" />

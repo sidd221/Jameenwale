@@ -98,10 +98,10 @@ export default function ContactForm() {
                 autoComplete="name"
                 aria-required="true"
                 required
-                className="peer w-full bg-white/5 border border-white/10 rounded-sm px-4 pt-6 pb-2 text-white text-base sm:text-sm placeholder-transparent focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
+                className="peer w-full bg-white/[0.08] border border-white/20 rounded-sm px-4 pt-6 pb-2 text-white text-base sm:text-sm placeholder-transparent focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
                 placeholder="Full Name"
               />
-              <label htmlFor="name" className="absolute left-4 top-2 text-[10px] font-medium text-white/70 uppercase tracking-widest transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:text-white/30 peer-focus:top-2 peer-focus:text-[10px] peer-focus:text-gold pointer-events-none">
+              <label htmlFor="name" className="absolute left-4 top-2 text-[10px] font-semibold text-white/90 uppercase tracking-widest transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:text-white/60 peer-focus:top-2 peer-focus:text-[10px] peer-focus:text-gold pointer-events-none">
                 Full Name
               </label>
             </div>
@@ -117,10 +117,10 @@ export default function ContactForm() {
                   required
                   pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
                   title="Please enter a valid email address (e.g. user@example.com)"
-                  className="peer w-full bg-white/5 border border-white/10 rounded-sm px-4 pt-6 pb-2 text-white text-base sm:text-sm placeholder-transparent focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
+                  className="peer w-full bg-white/[0.08] border border-white/20 rounded-sm px-4 pt-6 pb-2 text-white text-base sm:text-sm placeholder-transparent focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
                   placeholder="Email Address"
                 />
-                <label htmlFor="email" className="absolute left-4 top-2 text-[10px] font-medium text-white/70 uppercase tracking-widest transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:text-white/30 peer-focus:top-2 peer-focus:text-[10px] peer-focus:text-gold pointer-events-none">
+                <label htmlFor="email" className="absolute left-4 top-2 text-[10px] font-semibold text-white/90 uppercase tracking-widest transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:text-white/60 peer-focus:top-2 peer-focus:text-[10px] peer-focus:text-gold pointer-events-none">
                   Email Address
                 </label>
               </div>
@@ -136,10 +136,10 @@ export default function ContactForm() {
                   pattern="[0-9]{10}"
                   maxLength={10}
                   title="Please enter exactly 10 digits"
-                  className="peer w-full bg-white/5 border border-white/10 rounded-sm px-4 pt-6 pb-2 text-white text-base sm:text-sm placeholder-transparent focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
+                  className="peer w-full bg-white/[0.08] border border-white/20 rounded-sm px-4 pt-6 pb-2 text-white text-base sm:text-sm placeholder-transparent focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
                   placeholder="Mobile Number"
                 />
-                <label htmlFor="mobile" className="absolute left-4 top-2 text-[10px] font-medium text-white/70 uppercase tracking-widest transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:text-white/30 peer-focus:top-2 peer-focus:text-[10px] peer-focus:text-gold pointer-events-none">
+                <label htmlFor="mobile" className="absolute left-4 top-2 text-[10px] font-semibold text-white/90 uppercase tracking-widest transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:text-white/60 peer-focus:top-2 peer-focus:text-[10px] peer-focus:text-gold pointer-events-none">
                   Mobile Number
                 </label>
               </div>
@@ -152,10 +152,10 @@ export default function ContactForm() {
                 required
                 maxLength={200}
                 rows={3}
-                className="peer w-full bg-white/5 border border-white/10 rounded-sm px-4 pt-6 pb-2 text-white text-base sm:text-sm placeholder-transparent focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors resize-none"
+                className="peer w-full bg-white/[0.08] border border-white/20 rounded-sm px-4 pt-6 pb-2 text-white text-base sm:text-sm placeholder-transparent focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors resize-none"
                 placeholder="Write your requirements here..."
               ></textarea>
-              <label htmlFor="requirements" className="absolute left-4 top-2 text-[10px] font-medium text-white/70 uppercase tracking-widest transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:text-white/30 peer-focus:top-2 peer-focus:text-[10px] peer-focus:text-gold pointer-events-none">
+              <label htmlFor="requirements" className="absolute left-4 top-2 text-[10px] font-semibold text-white/90 uppercase tracking-widest transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:text-white/60 peer-focus:top-2 peer-focus:text-[10px] peer-focus:text-gold pointer-events-none">
                 Requirements (Max 200 Chars)
               </label>
             </div>
