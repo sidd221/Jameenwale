@@ -46,24 +46,37 @@ export default function AmenitiesPopup() {
           const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
           const scrollPercentage = scrollHeight > 0 ? (scrollY / scrollHeight) * 100 : 0;
 
-          // Trigger when user scrolls down 350px or 15% down the page
-          if (scrollY >= 350 || scrollPercentage >= 15) {
+          // Check if user has scrolled after the gallery section
+          const galleryElem = document.getElementById('gallery');
+          const legalElem = document.getElementById('legal');
+
+          let isAfterGallery = false;
+
+          if (galleryElem) {
+            const galleryRect = galleryElem.getBoundingClientRect();
+            // Gallery bottom is near or above the viewport top/middle (meaning scrolled through/past gallery)
+            if (galleryRect.bottom <= window.innerHeight * 0.6) {
+              isAfterGallery = true;
+            }
+          }
+
+          if (legalElem) {
+            const legalRect = legalElem.getBoundingClientRect();
+            // Legal section (immediately following gallery) has scrolled into view
+            if (legalRect.top <= window.innerHeight * 0.75) {
+              isAfterGallery = true;
+            }
+          }
+
+          // Fallback scroll percentage check (Gallery is located at ~55-60% of homepage height)
+          if (!isAfterGallery && scrollPercentage >= 55 && scrollY > 1800) {
+            isAfterGallery = true;
+          }
+
+          if (isAfterGallery) {
             triggerPopup();
             window.removeEventListener('scroll', handleScroll);
             return;
-          }
-
-          // Or if about / properties / amenities sections are in view
-          const targetSection = document.getElementById('amenities') || 
-                                document.getElementById('properties') || 
-                                document.getElementById('about');
-          if (targetSection) {
-            const rect = targetSection.getBoundingClientRect();
-            if (rect.top <= window.innerHeight * 0.8) {
-              triggerPopup();
-              window.removeEventListener('scroll', handleScroll);
-              return;
-            }
           }
 
           ticking = false;
@@ -74,19 +87,11 @@ export default function AmenitiesPopup() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     
-    // Check immediately in case page is reloaded midway down
+    // Check in case page is loaded/reloaded already past gallery
     handleScroll();
-
-    // Fallback timer: trigger after 12 seconds if not scrolled
-    const timer = setTimeout(() => {
-      if (!hasTriggered) {
-        triggerPopup();
-      }
-    }, 12000);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      clearTimeout(timer);
     };
   }, [hasTriggered]);
 
