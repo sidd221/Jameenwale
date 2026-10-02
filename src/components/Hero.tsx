@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Phone, CheckCircle2, ShieldCheck, Lock, FileCheck } from 'lucide-react';
 import { trackLeadSubmission, trackPhoneClick, trackBrochureDownload } from '../utils/analytics';
+import { submitLeadToWhatsApp, WHATSAPP_LEAD_DISPLAY } from '../utils/whatsapp';
+import WhatsAppIcon from './WhatsAppIcon';
 
 export default function Hero() {
   const [formData, setFormData] = useState({
@@ -11,55 +13,36 @@ export default function Hero() {
   });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [whatsappUrl, setWhatsappUrl] = useState('');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('submitting');
     setErrorMessage('');
     
     try {
-      const submitData = {
+      const url = submitLeadToWhatsApp({
+        formName: 'Hero Quick Priority Form',
         name: formData.name,
         phone: formData.phone,
         email: formData.email,
-        _subject: "New Hero Form Submission",
-        _cc: "siddhantsinha999@gmail.com",
-        _captcha: false,
-      };
+        project: 'Patna Regional Plots & Land',
+      });
+      setWhatsappUrl(url);
 
-      const response = await fetch("https://formsubmit.co/ajax/anish248patel@gmail.com", {
-        method: "POST",
-        headers: { 
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        },
-        body: JSON.stringify(submitData)
+      trackLeadSubmission('Hero Quick Inquiry Form', {
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        destination: `WhatsApp (${WHATSAPP_LEAD_DISPLAY})`
       });
 
-      const jsonResponse = await response.json().catch(() => null);
-
-      if (response.ok && jsonResponse && jsonResponse.success) {
-        setStatus('success');
-        trackLeadSubmission('Hero Quick Inquiry Form', {
-          name: formData.name,
-          phone: formData.phone,
-          email: formData.email
-        });
-        setFormData({ name: '', phone: '', email: '' });
-        setTimeout(() => setStatus('idle'), 5000);
-      } else {
-        console.error("Submission Error:", jsonResponse);
-        if (jsonResponse && jsonResponse.message && typeof jsonResponse.message === 'string') {
-          setErrorMessage("Error: " + jsonResponse.message);
-        } else {
-           setErrorMessage("Submission failed. Status: " + response.status + ".");
-        }
-        setStatus('error');
-        setTimeout(() => setStatus('idle'), 8000);
-      }
+      setStatus('success');
+      setFormData({ name: '', phone: '', email: '' });
+      setTimeout(() => setStatus('idle'), 8000);
     } catch (error: any) {
       console.error("Submission error:", error);
-      setErrorMessage("Network error: " + error.message);
+      setErrorMessage("Could not connect to WhatsApp. Please call directly.");
       setStatus('error');
       setTimeout(() => setStatus('idle'), 8000);
     }
@@ -224,11 +207,30 @@ export default function Hero() {
               
               <button 
                 type="submit" 
-                disabled={status === 'submitting' || status === 'success'}
-                className="w-full py-4 mt-4 bg-white text-black font-bold rounded-sm text-sm uppercase tracking-widest hover:bg-gray-100 transition-colors disabled:opacity-75 disabled:hover:bg-white disabled:cursor-not-allowed cursor-pointer"
+                disabled={status === 'submitting'}
+                className="w-full py-4 mt-4 bg-white text-black font-bold rounded-sm text-sm uppercase tracking-widest hover:bg-gray-100 transition-colors disabled:opacity-75 disabled:hover:bg-white disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2"
               >
-                {status === 'submitting' ? 'Submitting...' : status === 'success' ? 'Details Sent!' : status === 'error' ? 'Error. Try Again' : 'Submit Interest'}
+                <WhatsAppIcon className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>{status === 'submitting' ? 'Opening WhatsApp...' : status === 'success' ? 'Opening WhatsApp...' : status === 'error' ? 'Retry via WhatsApp' : 'Get Details on WhatsApp'}</span>
               </button>
+
+              {status === 'success' && (
+                <div className="p-3 bg-emerald-950/60 border border-emerald-500/40 rounded-sm text-center space-y-1">
+                  <p className="text-xs text-emerald-300 font-semibold flex items-center justify-center gap-1.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    Inquiry prepared! Opening WhatsApp...
+                  </p>
+                  <a
+                    href={whatsappUrl || "https://wa.me/917979098902"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block text-[11px] text-gold underline hover:text-white"
+                  >
+                    Click here if WhatsApp didn't open automatically
+                  </a>
+                </div>
+              )}
+
               {errorMessage && (
                 <div className="text-red-400 text-xs mt-2 p-2 bg-red-950/50 rounded-sm">
                   {errorMessage}

@@ -1,13 +1,17 @@
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { CheckCircle2 } from 'lucide-react';
 import { trackLeadSubmission } from '../utils/analytics';
+import { submitLeadToWhatsApp, WHATSAPP_LEAD_DISPLAY } from '../utils/whatsapp';
+import WhatsAppIcon from './WhatsAppIcon';
 
 export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [whatsappUrl, setWhatsappUrl] = useState('');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formRef.current) return;
 
@@ -23,47 +27,35 @@ export default function ContactForm() {
     }
 
     const dataObj = Object.fromEntries(formData.entries());
-    const requestData = {
-      ...dataObj,
-      _subject: "New Contact Form Submission",
-      _cc: "siddhantsinha999@gmail.com",
-      _captcha: false,
-    };
+    const name = String(dataObj.name || '').trim();
+    const email = String(dataObj.email || '').trim();
+    const mobile = String(dataObj.mobile || '').trim();
+    const requirements = String(dataObj.requirements || '').trim();
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/anish248patel@gmail.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify(requestData)
+      const url = submitLeadToWhatsApp({
+        formName: 'Main Contact Form',
+        name,
+        phone: mobile,
+        email,
+        requirements,
+      });
+      setWhatsappUrl(url);
+
+      trackLeadSubmission('Main Contact Form', {
+        name,
+        email,
+        mobile,
+        requirements,
+        destination: `WhatsApp (${WHATSAPP_LEAD_DISPLAY})`
       });
 
-      const data = await response.json().catch(() => null);
-
-      if (response.ok && data && data.success) {
-        setStatus('success');
-        trackLeadSubmission('Main Contact Form', {
-          name: String(dataObj.name || ''),
-          email: String(dataObj.email || ''),
-          mobile: String(dataObj.mobile || '')
-        });
-        formRef.current.reset();
-        setTimeout(() => setStatus('idle'), 5000);
-      } else {
-        console.error("Submission Error:", data);
-        if (data && data.message && typeof data.message === 'string') {
-          setErrorMessage("Error: " + data.message);
-        } else {
-          setErrorMessage("Submission failed. Status: " + response.status + ".");
-        }
-        setStatus('error');
-        setTimeout(() => setStatus('idle'), 8000);
-      }
+      setStatus('success');
+      formRef.current.reset();
+      setTimeout(() => setStatus('idle'), 8000);
     } catch (error: any) {
-      console.error("Fetch error:", error);
-      setErrorMessage("Network error: " + error.message);
+      console.error("Submission error:", error);
+      setErrorMessage("Could not connect to WhatsApp. Please contact +91 6287220163 directly.");
       setStatus('error');
       setTimeout(() => setStatus('idle'), 8000);
     }
@@ -73,6 +65,7 @@ export default function ContactForm() {
     formRef.current?.reset();
     setStatus('idle');
     setErrorMessage('');
+    setWhatsappUrl('');
   };
 
   return (
@@ -204,12 +197,31 @@ export default function ContactForm() {
               </button>
               <button
                 type="submit"
-                disabled={status === 'submitting' || status === 'success'}
-                className="w-full sm:w-auto bg-gold text-black px-10 py-4 rounded-sm font-bold uppercase tracking-wider text-sm transition-transform hover:scale-105 shadow-xl disabled:opacity-75 disabled:hover:scale-100 disabled:cursor-not-allowed cursor-pointer"
+                disabled={status === 'submitting'}
+                className="w-full sm:w-auto bg-gold text-black px-10 py-4 rounded-sm font-bold uppercase tracking-wider text-sm transition-transform hover:scale-105 shadow-xl disabled:opacity-75 disabled:hover:scale-100 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2"
               >
-                {status === 'submitting' ? 'Submitting...' : status === 'success' ? 'Details Sent!' : status === 'error' ? 'Error. Try Again' : 'Submit Details'}
+                <WhatsAppIcon className="w-4 h-4 text-black shrink-0" />
+                <span>{status === 'submitting' ? 'Opening WhatsApp...' : status === 'success' ? 'Opening WhatsApp...' : status === 'error' ? 'Retry via WhatsApp' : 'Submit Details via WhatsApp'}</span>
               </button>
             </div>
+
+            {status === 'success' && (
+              <div className="p-4 bg-emerald-950/60 border border-emerald-500/40 rounded-sm text-center space-y-1.5 animate-fade-in">
+                <p className="text-sm text-emerald-300 font-semibold flex items-center justify-center gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+                  Inquiry prepared! Opening WhatsApp (+91 7979098902)...
+                </p>
+                <a
+                  href={whatsappUrl || "https://wa.me/917979098902"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs text-gold underline hover:text-white"
+                >
+                  <WhatsAppIcon className="w-3.5 h-3.5" />
+                  Click here if WhatsApp didn't open automatically
+                </a>
+              </div>
+            )}
 
             <p className="text-[11px] text-center text-white/50 pt-2">
               🔒 Your information is confidential and never shared with third-party advertisers. By submitting, you consent to our{' '}

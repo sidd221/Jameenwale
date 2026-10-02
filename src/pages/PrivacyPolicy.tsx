@@ -134,7 +134,7 @@ export default function PrivacyPolicy() {
             </p>
             <ul className="list-disc pl-5 space-y-1.5 text-sm text-white/70">
               <li>Direct in-house sales executives and legal consultants assigned to your property search.</li>
-              <li>Secure form processing infrastructure (FormSubmit.co) solely to transmit your inquiry to our encrypted email address.</li>
+              <li>Direct WhatsApp communication routing and encrypted messaging solely to transmit your inquiry to our verified WhatsApp advisor (+91 7979098902).</li>
               <li>Partner banks (such as SBI, HDFC, ICICI, or Axis Bank) solely upon your written or verbal request for home loan sanction assistance.</li>
             </ul>
           </section>

@@ -9,56 +9,43 @@ import Footer from '../components/Footer';
 import FloatingCTAs from '../components/FloatingCTAs';
 import SEOHead from '../components/SEOHead';
 import { trackLeadSubmission, trackPhoneClick, trackBrochureDownload } from '../utils/analytics';
+import { submitLeadToWhatsApp, WHATSAPP_LEAD_DISPLAY } from '../utils/whatsapp';
+import WhatsAppIcon from '../components/WhatsAppIcon';
 
 export default function BihtaPlots() {
   const [formData, setFormData] = useState({ name: '', phone: '', email: '' });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [whatsappUrl, setWhatsappUrl] = useState('');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('submitting');
     setErrorMessage('');
 
     try {
-      const submitData = {
+      const url = submitLeadToWhatsApp({
+        formName: 'IT Park Bihta Form',
         name: formData.name,
         phone: formData.phone,
         email: formData.email,
         project: 'IT Park - Opposite NIT Bihta, Patna',
-        _subject: "New Inquiry: IT Park Bihta Plots",
-        _cc: "siddhantsinha999@gmail.com",
-        _captcha: false,
-      };
+      });
+      setWhatsappUrl(url);
 
-      const response = await fetch("https://formsubmit.co/ajax/anish248patel@gmail.com", {
-        method: "POST",
-        headers: { 
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify(submitData)
+      trackLeadSubmission('IT Park Bihta Form', {
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        project: 'IT Park Bihta',
+        destination: `WhatsApp (${WHATSAPP_LEAD_DISPLAY})`
       });
 
-      const jsonResponse = await response.json().catch(() => null);
-
-      if (response.ok && jsonResponse && jsonResponse.success) {
-        setStatus('success');
-        trackLeadSubmission('IT Park Bihta Form', {
-          name: formData.name,
-          phone: formData.phone,
-          email: formData.email,
-          project: 'IT Park Bihta'
-        });
-        setFormData({ name: '', phone: '', email: '' });
-        setTimeout(() => setStatus('idle'), 5000);
-      } else {
-        setErrorMessage("Submission failed. Please try again or call us directly.");
-        setStatus('error');
-        setTimeout(() => setStatus('idle'), 6000);
-      }
+      setStatus('success');
+      setFormData({ name: '', phone: '', email: '' });
+      setTimeout(() => setStatus('idle'), 8000);
     } catch (err: any) {
-      setErrorMessage("Network error occurred. Please try again.");
+      setErrorMessage("Could not connect to WhatsApp. Please call directly.");
       setStatus('error');
       setTimeout(() => setStatus('idle'), 6000);
     }
@@ -253,11 +240,29 @@ export default function BihtaPlots() {
 
                     <button
                       type="submit"
-                      disabled={status === 'submitting' || status === 'success'}
-                      className="w-full py-3.5 bg-gold text-black font-bold uppercase tracking-wider text-xs rounded-sm hover:opacity-90 transition-all disabled:opacity-50 mt-2 cursor-pointer"
+                      disabled={status === 'submitting'}
+                      className="w-full py-3.5 bg-gold text-black font-bold uppercase tracking-wider text-xs rounded-sm hover:opacity-90 transition-all disabled:opacity-50 mt-2 cursor-pointer flex items-center justify-center gap-2"
                     >
-                      {status === 'submitting' ? 'Submitting...' : status === 'success' ? 'Request Received!' : 'Request Site Visit'}
+                      <WhatsAppIcon className="w-4 h-4 text-black shrink-0" />
+                      <span>{status === 'submitting' ? 'Opening WhatsApp...' : status === 'success' ? 'Opening WhatsApp...' : 'Request Details via WhatsApp'}</span>
                     </button>
+
+                    {status === 'success' && (
+                      <div className="p-3 bg-emerald-950/60 border border-emerald-500/40 rounded-sm text-center space-y-1">
+                        <p className="text-xs text-emerald-300 font-semibold flex items-center justify-center gap-1.5">
+                          <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                          Inquiry prepared! Opening WhatsApp...
+                        </p>
+                        <a
+                          href={whatsappUrl || "https://wa.me/917979098902"}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-block text-[11px] text-gold underline hover:text-white"
+                        >
+                          Click here if WhatsApp didn't open automatically
+                        </a>
+                      </div>
+                    )}
 
                     <p className="text-[10px] text-white/50 text-center pt-2">
                       By submitting, you agree to our{' '}

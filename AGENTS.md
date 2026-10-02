@@ -1,6 +1,7 @@
 # Global Project Rules
 
 ## Form Submission Configuration
-When working with contact forms or any forms using FormSubmit:
-- **Primary Recipient**: Always submit form data to `https://formsubmit.co/ajax/anish248patel@gmail.com`.
-- **CC Recipient**: Always ensure a CC email is sent to `siddhantsinha999@gmail.com` by including `{ _cc: 'siddhantsinha999@gmail.com' }` in the JSON body or `formData.append('_cc', 'siddhantsinha999@gmail.com')` for FormData.
+All customer inquiry and lead generation forms on the website submit directly to WhatsApp:
+- **Primary WhatsApp Destination**: `+91 7979098902` (URL formatted as `917979098902`).
+- **Submission Utility**: Always use `submitLeadToWhatsApp` in `src/utils/whatsapp.ts`.
+- **General Helpline / Phone**: Direct helpline calls and general contact continue at `+91 6287220163`.

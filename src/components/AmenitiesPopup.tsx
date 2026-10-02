@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Sparkles, Phone, User, CheckCircle2, ShieldCheck, ArrowRight, Loader2 } from 'lucide-react';
 import { trackLeadSubmission } from '../utils/analytics';
+import { submitLeadToWhatsApp, WHATSAPP_LEAD_DISPLAY } from '../utils/whatsapp';
+import WhatsAppIcon from './WhatsAppIcon';
 
 export default function AmenitiesPopup() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +12,7 @@ export default function AmenitiesPopup() {
   const [formData, setFormData] = useState({ name: '', phone: '' });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [whatsappUrl, setWhatsappUrl] = useState('');
   const popupRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -76,53 +79,34 @@ export default function AmenitiesPopup() {
     setIsOpen(false);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('submitting');
     setErrorMessage('');
 
     try {
-      const payload = {
+      const url = submitLeadToWhatsApp({
+        formName: 'Amenities Popup Priority Callback',
         name: formData.name,
         phone: formData.phone,
-        _subject: "New Lead from Amenities Section - Jameenwale",
-        _cc: "siddhantsinha999@gmail.com",
-        _captcha: false
-      };
+        project: 'Gated Plots & Amenities Inquiry',
+      });
+      setWhatsappUrl(url);
 
-      const response = await fetch("https://formsubmit.co/ajax/anish248patel@gmail.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify(payload)
+      trackLeadSubmission('Amenities Section Popup Form', {
+        name: formData.name,
+        phone: formData.phone,
+        destination: `WhatsApp (${WHATSAPP_LEAD_DISPLAY})`
       });
 
-      const data = await response.json().catch(() => null);
-
-      if (response.ok && data && (data.success === "true" || data.success === true || response.status === 200)) {
-        setStatus('success');
-        trackLeadSubmission('Amenities Section Popup Form', {
-          name: formData.name,
-          phone: formData.phone
-        });
-        sessionStorage.setItem('amenities_popup_submitted_or_closed', 'true');
-        setTimeout(() => {
-          setIsOpen(false);
-        }, 3500);
-      } else {
-        console.error("Submission error:", data);
-        if (data && data.message && typeof data.message === 'string') {
-          setErrorMessage(data.message);
-        } else {
-          setErrorMessage("Failed to submit details. Please try again or call us directly.");
-        }
-        setStatus('error');
-      }
+      setStatus('success');
+      sessionStorage.setItem('amenities_popup_submitted_or_closed', 'true');
+      setTimeout(() => {
+        setIsOpen(false);
+      }, 5500);
     } catch (error: any) {
       console.error("Popup form error:", error);
-      setErrorMessage("Network error occurred. Please check your connection.");
+      setErrorMessage("Could not connect to WhatsApp. Please call directly.");
       setStatus('error');
     }
   };
@@ -163,17 +147,26 @@ export default function AmenitiesPopup() {
             {status === 'success' ? (
               /* Success State */
               <div className="py-8 text-center flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-gold/20 border border-gold text-gold flex items-center justify-center mb-4 shadow-[0_0_20px_rgba(197,168,128,0.4)]">
+                <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500 text-emerald-400 flex items-center justify-center mb-4 shadow-[0_0_20px_rgba(16,185,129,0.4)]">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
                 <h3 className="text-2xl font-extrabold text-white tracking-tight mb-2">
-                  Request Received!
+                  Inquiry Sent via WhatsApp!
                 </h3>
                 <p className="text-sm text-white/80 max-w-sm mx-auto leading-relaxed">
-                  Thank you, <span className="text-gold font-bold">{formData.name}</span>. Our senior real estate advisor will call you shortly on <span className="text-gold font-bold">{formData.phone}</span> with exclusive plot pricing & details.
+                  Thank you, <span className="text-gold font-bold">{formData.name}</span>. We've routed your inquiry directly to our WhatsApp advisor (<span className="text-gold font-bold">{WHATSAPP_LEAD_DISPLAY}</span>).
                 </p>
-                <div className="mt-6 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white/60">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400" /> Details sent securely to advisors
+                <a
+                  href={whatsappUrl || "https://wa.me/917979098902"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-lg"
+                >
+                  <WhatsAppIcon className="w-4 h-4 text-white" />
+                  Continue Chat on WhatsApp
+                </a>
+                <div className="mt-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white/60">
+                  <ShieldCheck className="w-4 h-4 text-emerald-400" /> Direct WhatsApp advisor routing
                 </div>
               </div>
             ) : (
@@ -256,11 +249,12 @@ export default function AmenitiesPopup() {
                     {status === 'submitting' ? (
                       <>
                         <Loader2 className="w-4 h-4 animate-spin" />
-                        <span>Submitting Details...</span>
+                        <span>Opening WhatsApp...</span>
                       </>
                     ) : (
                       <>
-                        <span>Get Instant Pricing & Brochure</span>
+                        <WhatsAppIcon className="w-4 h-4 text-black shrink-0" />
+                        <span>Get Pricing via WhatsApp</span>
                         <ArrowRight className="w-4 h-4" />
                       </>
                     )}
