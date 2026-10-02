@@ -75,7 +75,7 @@ export default function Hero() {
             EXCLUSIVE LAUNCH
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.15] mb-6 overflow-visible flex flex-col gap-1 sm:gap-2">
-            <span className="block text-white">Plots for Sale in Patna</span>
+            <span className="block text-white">Plot for Sale in Patna</span>
             <span className="block accent-gold italic font-medium">&amp; Gated Community Land</span>
           </h1>
           <p className="text-base sm:text-lg text-white/80 mb-8 max-w-lg font-light leading-relaxed">
