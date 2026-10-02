@@ -16,39 +16,78 @@ export default function AmenitiesPopup() {
   const popupRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Clear any legacy dismissal blocker so testing & scrolling works cleanly
+    try {
+      sessionStorage.removeItem('amenities_popup_dismissed');
+      sessionStorage.removeItem('amenities_popup_submitted_or_closed');
+    } catch {}
+
     if (hasTriggered) return;
 
+    // If user already successfully submitted lead, don't show again
     try {
-      if (sessionStorage.getItem('amenities_popup_dismissed') === 'true') {
+      if (sessionStorage.getItem('amenities_popup_submitted') === 'true') {
         return;
       }
     } catch {}
 
-    const amenitiesElem = document.getElementById('amenities');
-    if (!amenitiesElem) return;
+    const triggerPopup = () => {
+      setIsOpen(true);
+      setHasTriggered(true);
+    };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        if (entry.isIntersecting) {
-          try {
-            if (sessionStorage.getItem('amenities_popup_dismissed') === 'true') {
+    let ticking = false;
+    const handleScroll = () => {
+      if (hasTriggered) return;
+
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY || document.documentElement.scrollTop;
+          const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const scrollPercentage = scrollHeight > 0 ? (scrollY / scrollHeight) * 100 : 0;
+
+          // Trigger when user scrolls down 350px or 15% down the page
+          if (scrollY >= 350 || scrollPercentage >= 15) {
+            triggerPopup();
+            window.removeEventListener('scroll', handleScroll);
+            return;
+          }
+
+          // Or if about / properties / amenities sections are in view
+          const targetSection = document.getElementById('amenities') || 
+                                document.getElementById('properties') || 
+                                document.getElementById('about');
+          if (targetSection) {
+            const rect = targetSection.getBoundingClientRect();
+            if (rect.top <= window.innerHeight * 0.8) {
+              triggerPopup();
+              window.removeEventListener('scroll', handleScroll);
               return;
             }
-          } catch {}
-          setIsOpen(true);
-          setHasTriggered(true);
-          observer.disconnect();
-        }
-      },
-      {
-        threshold: 0.3
+          }
+
+          ticking = false;
+        });
+        ticking = true;
       }
-    );
+    };
 
-    observer.observe(amenitiesElem);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Check immediately in case page is reloaded midway down
+    handleScroll();
 
-    return () => observer.disconnect();
+    // Fallback timer: trigger after 12 seconds if not scrolled
+    const timer = setTimeout(() => {
+      if (!hasTriggered) {
+        triggerPopup();
+      }
+    }, 12000);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timer);
+    };
   }, [hasTriggered]);
 
   // Handle ESC key and scroll locking
@@ -73,9 +112,6 @@ export default function AmenitiesPopup() {
   }, [isOpen]);
 
   const handleClose = () => {
-    try {
-      sessionStorage.setItem('amenities_popup_dismissed', 'true');
-    } catch {}
     setIsOpen(false);
   };
 
@@ -100,7 +136,9 @@ export default function AmenitiesPopup() {
       });
 
       setStatus('success');
-      sessionStorage.setItem('amenities_popup_submitted_or_closed', 'true');
+      try {
+        sessionStorage.setItem('amenities_popup_submitted', 'true');
+      } catch {}
       setTimeout(() => {
         setIsOpen(false);
       }, 5500);
