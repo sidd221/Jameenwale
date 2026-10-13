@@ -120,7 +120,7 @@ export default function Footer() {
 
         {/* Target Keyword Tags Grid - Natural Internal Linking */}
         <div className="border-t border-white/10 pt-8 pb-4">
-          <h5 className="text-xs uppercase tracking-widest text-gold font-bold mb-4">Strategic Location Portfolios</h5>
+          <p className="text-xs uppercase tracking-widest text-gold font-bold mb-4">Strategic Location Portfolios</p>
           <div className="flex flex-wrap gap-2 text-[11px] text-white/60">
             <Link to="/plots-for-sale-in-patna" className="px-2.5 py-1 rounded bg-white/5 border border-white/5 hover:border-gold/30 hover:text-gold transition-colors">Plots for Sale in Patna</Link>
             <Link to="/plots-for-sale-in-patna" className="px-2.5 py-1 rounded bg-white/5 border border-white/5 hover:border-gold/30 hover:text-gold transition-colors">Land for Sale in Patna</Link>
@@ -141,14 +141,14 @@ export default function Footer() {
         </div>
 
         {/* Statutory Advertising & RERA Real Estate Disclaimer */}
-        <div className="border-t border-white/10 pt-6 pb-2 text-[11px] text-white/50 leading-relaxed">
+        <div className="border-t border-white/10 pt-6 pb-2 text-[11px] text-slate-300 leading-relaxed">
           <p>
-            <strong className="text-white/70">Statutory Disclaimer &amp; RERA Advisory:</strong> JameenWale is an independent real estate advisory and consultancy firm marketing verified residential and commercial plotted developments in Patna, Bihta, Danapur, Shivala, and Rajgir, Bihar. All prices, plot sizes, amenities, and computer-generated 3D renders are indicative and subject to change without prior notice. Bank loan sanctions are subject to individual bank underwriting and borrower eligibility. Prospective buyers are advised to review certified revenue records and RERA approvals on the Bihar RERA portal (<a href="https://rera.bihar.gov.in" target="_blank" rel="noopener noreferrer" className="text-gold underline">rera.bihar.gov.in</a>) before executing any purchase agreement.
+            <strong className="text-white">Statutory Disclaimer &amp; RERA Advisory:</strong> JameenWale is an independent real estate advisory and consultancy firm marketing verified residential and commercial plotted developments in Patna, Bihta, Danapur, Shivala, and Rajgir, Bihar. All prices, plot sizes, amenities, and computer-generated 3D renders are indicative and subject to change without prior notice. Bank loan sanctions are subject to individual bank underwriting and borrower eligibility. Prospective buyers are advised to review certified revenue records and RERA approvals on the Bihar RERA portal (<a href="https://rera.bihar.gov.in" target="_blank" rel="noopener noreferrer" className="text-gold underline">rera.bihar.gov.in</a>) before executing any purchase agreement.
           </p>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-white/40 font-medium gap-4">
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-300 font-medium gap-4">
           <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-center md:text-left">
             <p>&copy; {currentYear} JameenWale. All Rights Reserved.</p>
             <span className="hidden md:inline">|</span>
@@ -158,16 +158,16 @@ export default function Footer() {
                 href="https://siddhantsinha.vercel.app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/60 hover:text-gold transition-colors font-medium hover:underline underline-offset-4"
+                className="text-slate-200 hover:text-gold transition-colors font-medium hover:underline underline-offset-4"
               >
                 Siddhant Sinha
               </a>
             </p>
           </div>
           <div className="flex flex-wrap gap-4 sm:gap-6">
-            <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
-            <Link to="/disclaimer" className="hover:text-white transition-colors">RERA Disclaimer</Link>
+            <Link to="/privacy-policy" className="text-slate-300 hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="text-slate-300 hover:text-white transition-colors">Terms of Service</Link>
+            <Link to="/disclaimer" className="text-slate-300 hover:text-white transition-colors">RERA Disclaimer</Link>
           </div>
         </div>
       </div>

@@ -179,7 +179,7 @@ export default function ContactForm() {
                     </Link>
                     , and confirm this consent overrides my registration on the <strong className="text-gold font-medium">National Do Not Call (DND)</strong> registry.
                   </span>
-                  <div className="flex items-center gap-1.5 text-[11px] text-white/45">
+                  <div className="flex items-center gap-1.5 text-[11px] text-slate-300">
                     <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                     <span>Compliant with Google Ads Policies, DPDP Act 2023 &amp; TRAI guidelines</span>
                   </div>
@@ -223,7 +223,7 @@ export default function ContactForm() {
               </div>
             )}
 
-            <p className="text-[11px] text-center text-white/50 pt-2">
+            <p className="text-[11px] text-center text-slate-300 pt-2">
               🔒 Your information is confidential and never shared with third-party advertisers. By submitting, you consent to our{' '}
               <Link to="/privacy-policy" className="text-gold underline hover:text-white">
                 Privacy Policy

@@ -53,9 +53,9 @@ export default function Hero() {
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0 bg-[#0F172A] overflow-hidden">
         <img
-          src="/hero-1280.webp"
-          srcSet="/hero-640.webp 640w, /hero-1280.webp 1280w"
-          sizes="100vw"
+          src="/hero-800.webp"
+          srcSet="/hero-480.webp 480w, /hero-640.webp 640w, /hero-800.webp 800w, /hero-1280.webp 1280w"
+          sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, 100vw"
           alt="RERA Approved Gated Community Plots in Patna and Rajgir Bihar - JameenWale"
           width="1280"
           height="853"
@@ -69,7 +69,7 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col md:flex-row items-center justify-between gap-12 pt-12 pb-24">
         
         {/* Left Column: Text & Badges */}
-        <div className="w-full md:w-3/5 text-white overflow-visible animate-fade-in-up">
+        <div className="w-full md:w-3/5 text-white overflow-visible">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 glass rounded-full text-xs font-semibold mb-6">
             <span className="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
             EXCLUSIVE LAUNCH

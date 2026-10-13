@@ -133,7 +133,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="w-full lg:w-1/2"
           >
-            <h4 className="accent-gold font-bold uppercase tracking-widest text-sm mb-3">About Us</h4>
+            <p className="accent-gold font-bold uppercase tracking-widest text-sm mb-3">About Us</p>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6 tracking-tight">
               Crafting Legacy Through <br/> <span className="italic opacity-80">Exceptional Living</span>
             </h2>
