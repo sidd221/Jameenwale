@@ -658,7 +658,23 @@ export default function GalleryModalAccordion({
                 <div className="pt-4 border-t border-white/10 flex flex-col gap-2.5">
                   <a
                     href="#contact"
-                    onClick={() => setModalIndex(null)}
+                    onClick={() => {
+                      setModalIndex(null);
+                      if (window.location.hash !== '#contact') {
+                        window.history.pushState(null, '', '#contact');
+                      }
+                      setTimeout(() => {
+                        const elem = document.getElementById('contact');
+                        if (elem) {
+                          const navHeight = 75;
+                          const targetPosition = elem.getBoundingClientRect().top + window.scrollY - navHeight;
+                          window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                          });
+                        }
+                      }, 50);
+                    }}
                     className="w-full py-3.5 px-4 bg-gold hover:opacity-90 text-black font-bold text-xs uppercase tracking-widest rounded-lg text-center transition-all flex items-center justify-center gap-2 shadow-lg shadow-gold/20"
                   >
                     <PhoneCall className="w-4 h-4" /> Book Free Site Visit

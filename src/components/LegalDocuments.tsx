@@ -196,9 +196,17 @@ export default function LegalDocuments() {
               href="#contact"
               onClick={(e) => {
                 e.preventDefault();
+                if (window.location.hash !== '#contact') {
+                  window.history.pushState(null, '', '#contact');
+                }
                 const elem = document.getElementById('contact');
                 if (elem) {
-                  elem.scrollIntoView({ behavior: 'smooth' });
+                  const navHeight = 75;
+                  const targetPosition = elem.getBoundingClientRect().top + window.scrollY - navHeight;
+                  window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                  });
                 }
               }}
               className="py-3 px-6 bg-gold hover:opacity-90 text-black font-bold uppercase tracking-wider text-xs rounded-sm text-center transition-all cursor-pointer"

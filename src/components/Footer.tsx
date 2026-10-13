@@ -38,15 +38,23 @@ export default function Footer() {
         return;
       }
       const targetId = href.substring(1);
-      const elem = document.getElementById(targetId);
-      if (elem) {
-        const navHeight = 80;
-        const targetPosition = elem.getBoundingClientRect().top + window.scrollY - navHeight;
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-      } else if (targetId === '') {
+      if (targetId && targetId !== 'home') {
+        if (window.location.hash !== `#${targetId}`) {
+          window.history.pushState(null, '', `#${targetId}`);
+        }
+        const elem = document.getElementById(targetId);
+        if (elem) {
+          const navHeight = 75;
+          const targetPosition = elem.getBoundingClientRect().top + window.scrollY - navHeight;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      } else {
+        if (window.location.hash) {
+          window.history.pushState(null, '', window.location.pathname + window.location.search);
+        }
         window.scrollTo({
           top: 0,
           behavior: 'smooth'

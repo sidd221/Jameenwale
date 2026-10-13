@@ -43,6 +43,9 @@ export default function FloatingCTAs() {
   }, []);
 
   const scrollToTop = () => {
+    if (window.location.hash) {
+      window.history.pushState(null, '', window.location.pathname + window.location.search);
+    }
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
@@ -51,9 +54,17 @@ export default function FloatingCTAs() {
 
   const handleBookVisitClick = (e: React.MouseEvent) => {
     e.preventDefault();
+    if (window.location.hash !== '#contact') {
+      window.history.pushState(null, '', '#contact');
+    }
     const elem = document.getElementById('contact');
     if (elem) {
-      elem.scrollIntoView({ behavior: 'smooth' });
+      const navHeight = 75;
+      const targetPosition = elem.getBoundingClientRect().top + window.scrollY - navHeight;
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 

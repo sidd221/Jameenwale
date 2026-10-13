@@ -21,14 +21,35 @@ export default function Navbar() {
     { name: 'Get In Touch', href: '#contact' },
   ];
 
-  const scrollToSection = (targetId: string) => {
+  const isProgrammaticScroll = React.useRef(false);
+  const scrollTimeoutRef = React.useRef<any>(null);
+
+  const scrollToSection = (targetId: string, updateUrl: boolean = true) => {
     if (!targetId || targetId === 'home') {
       setActiveSection('home');
+      if (updateUrl && window.location.hash) {
+        window.history.pushState(null, '', window.location.pathname + window.location.search);
+      }
+      isProgrammaticScroll.current = true;
+      clearTimeout(scrollTimeoutRef.current);
+      scrollTimeoutRef.current = setTimeout(() => {
+        isProgrammaticScroll.current = false;
+      }, 1000);
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
 
     setActiveSection(targetId);
+    if (updateUrl && window.location.hash !== `#${targetId}`) {
+      window.history.pushState(null, '', `#${targetId}`);
+    }
+
+    isProgrammaticScroll.current = true;
+    clearTimeout(scrollTimeoutRef.current);
+    scrollTimeoutRef.current = setTimeout(() => {
+      isProgrammaticScroll.current = false;
+    }, 1000);
+
     const attemptScroll = () => {
       const elem = document.getElementById(targetId);
       if (elem) {
@@ -47,7 +68,7 @@ export default function Navbar() {
       let count = 0;
       const interval = setInterval(() => {
         count++;
-        if (attemptScroll() || count > 20) {
+        if (attemptScroll() || count > 60) {
           clearInterval(interval);
         }
       }, 50);
@@ -67,19 +88,35 @@ export default function Navbar() {
         return;
       }
 
-      scrollToSection(targetId);
+      scrollToSection(targetId, true);
     }
   };
 
+  // Scroll to anchor on initial mount or when location.hash changes
   useEffect(() => {
     if (location.hash) {
       const targetId = location.hash.substring(1);
       const timer = setTimeout(() => {
-        scrollToSection(targetId);
-      }, 100);
+        scrollToSection(targetId, false);
+      }, 80);
       return () => clearTimeout(timer);
     }
   }, [location.pathname, location.hash]);
+
+  // Handle browser Back / Forward history buttons
+  useEffect(() => {
+    const handlePopState = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        scrollToSection(hash.substring(1), false);
+      } else if (location.pathname === '/') {
+        scrollToSection('home', false);
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [location.pathname]);
 
   useEffect(() => {
     const navMap: Record<string, string> = {
@@ -123,6 +160,9 @@ export default function Navbar() {
         // 1. If user is scrolled near bottom of page -> activate contact
         if (scrollY + windowHeight >= docHeight - 90) {
           setActiveSection('contact');
+          if (!isProgrammaticScroll.current && location.pathname === '/' && window.location.hash !== '#contact') {
+            window.history.replaceState(null, '', '#contact');
+          }
           rafId = null;
           return;
         }
@@ -130,6 +170,9 @@ export default function Navbar() {
         // 2. If at very top of page -> activate home
         if (scrollY < 120) {
           setActiveSection('home');
+          if (!isProgrammaticScroll.current && location.pathname === '/' && window.location.hash) {
+            window.history.replaceState(null, '', window.location.pathname + window.location.search);
+          }
           rafId = null;
           return;
         }
@@ -143,6 +186,14 @@ export default function Navbar() {
             if (rect.top <= triggerLine) {
               const mapped = navMap[id] || id;
               setActiveSection((prev) => (prev !== mapped ? mapped : prev));
+              if (!isProgrammaticScroll.current && location.pathname === '/') {
+                const newHash = mapped === 'home' ? '' : `#${mapped}`;
+                if (newHash && window.location.hash !== newHash) {
+                  window.history.replaceState(null, '', newHash);
+                } else if (!newHash && window.location.hash) {
+                  window.history.replaceState(null, '', window.location.pathname + window.location.search);
+                }
+              }
               break;
             }
           }
@@ -161,7 +212,7 @@ export default function Navbar() {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
     };
-  }, []);
+  }, [location.pathname]);
 
   return (
     <header
@@ -174,7 +225,14 @@ export default function Navbar() {
           {/* Logo */}
           <Link 
             to="/" 
-            onClick={() => { if (location.pathname === '/') window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            onClick={() => {
+              if (location.pathname === '/') {
+                if (window.location.hash) {
+                  window.history.pushState(null, '', window.location.pathname + window.location.search);
+                }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}
             className="flex items-center gap-2"
           >
             <span className="text-xl font-bold tracking-tight uppercase text-white">
