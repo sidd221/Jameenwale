@@ -94,7 +94,7 @@ export default function FloatingCTAs() {
 
             {/* Quick WhatsApp Button */}
             <a
-              href="https://wa.me/916287220163"
+              href="https://wa.me/917979098902"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackWhatsAppClick('Mobile Bottom Bar WhatsApp')}
@@ -144,7 +144,7 @@ export default function FloatingCTAs() {
 
         {/* Desktop WhatsApp Button */}
         <a
-          href="https://wa.me/916287220163"
+          href="https://wa.me/917979098902"
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackWhatsAppClick('Floating CTA WhatsApp')}

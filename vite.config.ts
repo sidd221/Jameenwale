@@ -1,9 +1,9 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-import {defineConfig, loadEnv} from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 
-export default defineConfig(({mode}) => {
+export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
   return {
     plugins: [react(), tailwindcss()],
@@ -20,6 +20,20 @@ export default defineConfig(({mode}) => {
     esbuild: {
       drop: mode === 'production' ? ['console', 'debugger'] : [],
       legalComments: 'none',
+    },
+    optimizeDeps: {
+      include: [
+        'react',
+        'react-dom',
+        'react-dom/client',
+        'react-router',
+        'react-router-dom',
+        'motion/react',
+        'lucide-react',
+      ],
+      esbuildOptions: {
+        target: 'esnext',
+      },
     },
     build: {
       target: 'esnext',
@@ -49,9 +63,18 @@ export default defineConfig(({mode}) => {
       }
     },
     server: {
-      // HMR is disabled in AI Studio via DISABLE_HMR env var.
-      // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
+      port: 3000,
+      host: true,
       hmr: process.env.DISABLE_HMR !== 'true',
+      warmup: {
+        clientFiles: [
+          './src/main.tsx',
+          './src/App.tsx',
+          './src/components/Navbar.tsx',
+          './src/components/Hero.tsx',
+          './src/index.css',
+        ],
+      },
     },
   };
 });

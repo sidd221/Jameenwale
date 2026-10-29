@@ -56,7 +56,7 @@ export default function Hero() {
           src="/hero-800.webp"
           srcSet="/hero-480.webp 480w, /hero-640.webp 640w, /hero-800.webp 800w, /hero-1280.webp 1280w"
           sizes="(max-width: 480px) 480px, (max-width: 768px) 768px, 100vw"
-          alt="RERA Approved Gated Community Plots in Patna and Rajgir Bihar - JameenWale"
+          alt="Residential plots and planned gated land in Patna - JameenWale"
           width="1280"
           height="853"
           fetchPriority="high"
@@ -72,14 +72,14 @@ export default function Hero() {
         <div className="w-full md:w-3/5 text-white overflow-visible">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 glass rounded-full text-xs font-semibold mb-6">
             <span className="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
-            EXCLUSIVE LAUNCH
+            PATNA RESIDENTIAL LAND
           </div>
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.15] mb-6 overflow-visible flex flex-col gap-1 sm:gap-2">
-            <span className="block text-white">Plot for Sale in Patna</span>
-            <span className="block accent-gold italic font-medium">&amp; Gated Community Land</span>
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.15] mb-6 overflow-visible">
+            <span className="block text-white">Residential Plots for Sale in Patna</span>
+            <span className="block accent-gold italic font-medium text-xl sm:text-2xl md:text-3xl mt-2 font-serif">Planned Gated Community Land &amp; Residential Plots</span>
           </h1>
           <p className="text-base sm:text-lg text-white/80 mb-8 max-w-lg font-light leading-relaxed">
-            Secure, freehold residential plots with perimeter boundary walls, wide concrete roads, and clear legal titles across Patna’s top growth corridors.
+            Explore residential plots in Patna, including Danapur, Shivala More and Bihta. View available plot details, review revenue documentation, and enquire to arrange a site visit with JameenWale.
           </p>
 
           {/* Highlights Badges */}
@@ -127,22 +127,22 @@ export default function Hero() {
           <div className="pt-6 mt-8 border-t border-white/10 flex flex-wrap items-center gap-y-2.5 gap-x-3 text-xs sm:text-sm text-white/90">
             <span className="flex items-center gap-1.5 font-medium">
               <CheckCircle2 className="w-4 h-4 text-gold shrink-0" />
-              100% Mutation Ready
+              Mutation Assistance
             </span>
             <span className="text-gold/60 font-bold hidden sm:inline">•</span>
             <span className="flex items-center gap-1.5 font-medium">
               <ShieldCheck className="w-4 h-4 text-gold shrink-0" />
-              Immediate Registry
+              Sale Deed Registry Support
             </span>
             <span className="text-gold/60 font-bold hidden sm:inline">•</span>
             <span className="flex items-center gap-1.5 font-medium">
               <Lock className="w-4 h-4 text-gold shrink-0" />
-              24/7 Gated Security
+              Gated Society Security
             </span>
             <span className="text-gold/60 font-bold hidden sm:inline">•</span>
             <span className="flex items-center gap-1.5 font-medium">
               <FileCheck className="w-4 h-4 text-gold shrink-0" />
-              Zero Legal Disputes
+              Title Due Diligence
             </span>
           </div>
         </div>

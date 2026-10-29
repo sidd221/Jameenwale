@@ -8,6 +8,9 @@ import SEOHead from './SEOHead';
 export default function NotFound() {
   return (
     <div className="font-sans antialiased text-white select-none min-h-screen flex flex-col">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <SEOHead
         title="404 - Page Not Found | JameenWale"
         description="The requested real estate page could not be found. Explore verified plots in Patna, Bihta, and Rajgir."
@@ -16,7 +19,7 @@ export default function NotFound() {
       />
       <Navbar />
       
-      <main className="flex-grow flex items-center justify-center relative overflow-hidden pt-28 pb-16">
+      <main id="main-content" className="flex-grow flex items-center justify-center relative overflow-hidden pt-28 pb-16">
         {/* Background Gradients */}
         <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
           <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#d4af37] to-[#f9a8d4] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"></div>

@@ -78,12 +78,12 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm text-white/60 leading-relaxed font-light">
-              Curating verified gated township plots across Patna, Bihta, Danapur, Naubatpur, and Rajgir for families and investors seeking legal transparency, perimeter security, and sustained capital appreciation.
+              Real estate consultancy helping homebuilders and investors explore residential plots and planned gated land developments across Patna, Bihta, Danapur, Naubatpur, and Rajgir with legal document guidance and perimeter demarcation.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.facebook.com/share/1F8qBA6e1R/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-sm bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold hover:border-gold hover:text-black transition-colors" aria-label="Facebook"><Facebook className="w-4 h-4" /></a>
               <a href="https://www.instagram.com/jamee_nwale/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-sm bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold hover:border-gold hover:text-black transition-colors" aria-label="Instagram"><Instagram className="w-4 h-4" /></a>
-              <a href="https://wa.me/916287220163" target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick('Footer WhatsApp Icon')} className="w-8 h-8 rounded-sm bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold hover:border-gold hover:text-black transition-colors" aria-label="WhatsApp"><WhatsAppIcon className="w-4 h-4" /></a>
+              <a href="https://wa.me/917979098902" target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick('Footer WhatsApp Icon')} className="w-8 h-8 rounded-sm bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold hover:border-gold hover:text-black transition-colors" aria-label="WhatsApp"><WhatsAppIcon className="w-4 h-4" /></a>
               <a href="https://pin.it/3un7n9UNy" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-sm bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gold hover:border-gold hover:text-black transition-colors" aria-label="Pinterest"><PinterestIcon className="w-4 h-4" /></a>
             </div>
           </div>

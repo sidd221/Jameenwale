@@ -87,9 +87,9 @@ function AboutImage({ src, alt, className }: { src: string, alt: string, classNa
 
 export default function About() {
   const stats = [
-    { icon: Building, value: 25, suffix: '+', label: 'Projects Completed' },
-    { icon: Users, value: 5000, suffix: '+', label: 'Happy Families' },
-    { icon: Award, value: 15, suffix: '', label: 'Years Experience' },
+    { icon: Building, value: 3, suffix: ' Key Townships', label: 'Patna, Bihta & Rajgir' },
+    { icon: Users, value: 7, suffix: ' Days / Week', label: 'Guided Site Visits' },
+    { icon: Award, value: 100, suffix: '%', label: 'Boundary Demarcated Plots' },
   ];
 
   return (
@@ -109,7 +109,7 @@ export default function About() {
               {/* Main Image */}
               <AboutImage 
                 src="/h2.webp" 
-                alt="JameenWale Verified Gated Community Plots in Patna Bihar" 
+                alt="JameenWale planned residential plots and gated layout in Patna Bihar" 
                 className="rounded-sm shadow-xl aspect-[4/3]"
               />
             </div>
@@ -117,7 +117,7 @@ export default function About() {
               {/* Secondary Overlapping Image */}
               <AboutImage 
                 src="/h1.webp" 
-                alt="Premium Residential Land Development by JameenWale in Patna"
+                alt="Residential plot development and boundary road infrastructure by JameenWale in Patna"
                 className="border-8 border-[#0f172a] rounded-sm shadow-2xl aspect-[4/3]"
               />
             </div>
@@ -133,15 +133,15 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="w-full lg:w-1/2"
           >
-            <p className="accent-gold font-bold uppercase tracking-widest text-sm mb-3">About Us</p>
+            <p className="accent-gold font-bold uppercase tracking-widest text-sm mb-3">About JameenWale</p>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6 tracking-tight">
-              Crafting Legacy Through <br/> <span className="italic opacity-80">Exceptional Living</span>
+              Planned Land Ownership with <br/> <span className="italic opacity-80">Legal Transparency</span>
             </h2>
             <p className="text-white/80 mb-6 leading-relaxed">
-              For over 15 years, Jameenwale has been redefining modern land ownership across Bihar’s premier growth corridors. We specialize in verified, RERA-approved gated township plots in Patna, Bihta, and scenic residential plots in Rajgir. From registry-ready parcels to immediate mutation support, we deliver complete transparency and sustained capital appreciation.
+              JameenWale is an independent real estate consultancy focused on residential plots and planned gated land developments across Patna and Bihar. We assist homebuilders and investors in discovering title-checked residential land in key growth corridors, including Shivala More, Danapur, Bihta, and Rajgir.
             </p>
-            <p className="text-white/80 mb-10 leading-relaxed">
-              Whether you are planning to build your family home or seeking a high-return land investment, our developments offer secure residential plots with perimeter boundary walls, 24/7 CCTV surveillance, wide internal roads, and hassle-free bank financing.
+            <p className="text-white/80 mb-8 leading-relaxed">
+              Our advisory practice prioritizes clear property diligence. We guide buyers through registered sale deeds (Kewala), Bihar Bhumi Jamabandi records, and Circle Office mutation procedures, while ensuring projects feature physical boundary walls, planned internal roads, and access to bank financing.
             </p>
 
             {/* Stats Row */}
@@ -149,7 +149,7 @@ export default function About() {
               {stats.map((stat, idx) => {
                 return (
                   <div key={idx} className="flex flex-col items-start border-l border-white/10 pl-4 py-1">
-                    <span className="text-3xl font-extrabold text-white mb-1 tracking-tight">
+                    <span className="text-2xl font-extrabold text-white mb-1 tracking-tight">
                       <CountUp from={1} to={stat.value} suffix={stat.suffix} duration={2} />
                     </span>
                     <span className="text-[10px] tracking-widest text-white/60 uppercase">{stat.label}</span>

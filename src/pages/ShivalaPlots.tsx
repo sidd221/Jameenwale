@@ -116,6 +116,9 @@ export default function ShivalaPlots() {
 
   return (
     <div className="font-sans antialiased text-white select-none overflow-x-hidden w-full relative min-h-screen">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <SEOHead
         title="Plots in Shivala More Patna | Embassy Capital Gated Society | JameenWale"
         description="Buy verified gated community residential plots in Shivala More Bodhgawa Patna. 7 mins from Saguna More, boundary walls, 30-40ft roads, starting ₹21L. Free site visit!"
@@ -125,7 +128,7 @@ export default function ShivalaPlots() {
       />
       <Navbar />
 
-      <main className="pt-24 pb-20 overflow-x-hidden">
+      <main id="main-content" className="pt-24 pb-20 overflow-x-hidden">
         {/* Breadcrumb Bar */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 text-xs text-white/60">
           <nav aria-label="Breadcrumbs" className="flex items-center gap-2">

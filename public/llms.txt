@@ -1,11 +1,12 @@
 # JameenWale - Plots for Sale in Patna & Bihar Real Estate
 
-> JameenWale is Bihar's verified real estate advisory firm specializing in plots for sale in Patna, land for sale in Patna, residential plots in Bihar, gated community plots in Bihta, Danapur, Naubatpur, and Rajgir Nalanda.
+> JameenWale is an independent real estate advisory firm specializing in residential plots for sale in Patna, Danapur, Shivala More, Bihta, Naubatpur, and Rajgir Nalanda.
 
 ## Core Information
 - Website: https://jameenwale.vercel.app/
 - Headquarters: 5th floor, Leads Tower, Rupaspur, Digha Danapur Nahar Road, landmark: Kaali Mandir, Patna 801503, Bihar, India
 - Contact Phone: +91 6287220163
+- Official WhatsApp: +91 7979098902
 - Primary Lead Email: anish248patel@gmail.com
 - CC Lead Email: siddhantsinha999@gmail.com
 

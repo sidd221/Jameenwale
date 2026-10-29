@@ -4,23 +4,23 @@ import { motion } from 'motion/react';
 export default function WhyChooseUs() {
   const reasons = [
     {
-      title: 'RERA-Approved & Clear Titles',
-      description: '100% legally verified freehold land with immediate registration, clear Khatiyan records, and complete mutation support.',
+      title: 'Title Diligence & Registered Deeds',
+      description: 'Guidance through registered sale deeds (Kewala), Bihar Bhumi Khatiyan and Jamabandi records, and Circle Office mutation procedures.',
       icon: Shield
     },
     {
       title: 'Gated Township Infrastructure',
-      description: 'Secured gated communities featuring solid perimeter walls, 30–40ft wide roads, underground drainage, and 24/7 CCTV security.',
+      description: 'Plotted societies planned with perimeter boundary walls, 30–40ft wide internal concrete roads, drainage, and entry gatehouse security.',
       icon: Sparkles
     },
     {
-      title: 'High Capital Appreciation',
-      description: 'Strategically situated near expressways, educational hubs, and airport corridors for maximum return on investment.',
+      title: 'High-Growth Transit Corridors',
+      description: 'Strategic locations along the Danapur-Bihta elevated road, AIIMS Patna outer ring road, and Bihta educational zone.',
       icon: TrendingUp
     },
     {
-      title: 'Hassle-Free Bank Loans & EMI',
-      description: 'Direct tie-ups with leading banks (SBI, HDFC, ICICI) offering smooth loan approvals and flexible installment plans.',
+      title: 'Bank Loan Eligibility',
+      description: 'Support with legal document collation for plot purchase and construction loan applications through major nationalized and private banks.',
       icon: Handshake
     }
   ];
@@ -31,12 +31,12 @@ export default function WhyChooseUs() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           <div>
-            <h4 className="accent-gold font-bold uppercase tracking-widest text-sm mb-3">Our Advantage</h4>
+            <h4 className="accent-gold font-bold uppercase tracking-widest text-sm mb-3">Our Approach</h4>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6 tracking-tight">
-              Why Choose <br/> <span className="italic opacity-80">jameenwale?</span>
+              Why Consult <br/> <span className="italic opacity-80">JameenWale?</span>
             </h2>
             <p className="text-white/80 mb-8 leading-relaxed max-w-lg font-light">
-              We combine legal security, master-planned infrastructure, and strategic locations. Every Jameenwale project is designed with clear freehold titles, perimeter boundary walls, and modern amenities to protect and grow your wealth.
+              We bring transparency, structured layout planning, and location intelligence together. JameenWale helps buyers navigate revenue documentation, inspect on-site boundary demarcations, and select suitable residential plots in Patna and surrounding growth belts.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">

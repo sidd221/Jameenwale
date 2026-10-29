@@ -119,8 +119,11 @@ export default function PatnaPlots() {
 
   return (
     <div className="font-sans antialiased text-white select-none overflow-x-hidden w-full relative min-h-screen">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <SEOHead
-        title="Plots for Sale in Patna | Residential Plots & Land in Patna | JameenWale"
+        title="Plots for Sale in Patna | Residential Plots & Land | JameenWale"
         description="Find verified residential plots and land for sale in Patna starting ₹21L. Freehold gated townships with boundary walls, 30-40ft roads & bank loan at Shivala More & Bihta."
         canonicalUrl="https://jameenwale.vercel.app/plots-for-sale-in-patna"
         ogImage="https://jameenwale.vercel.app/embassy.webp"
@@ -128,7 +131,7 @@ export default function PatnaPlots() {
       />
       <Navbar />
 
-      <main className="pt-24 pb-20 overflow-x-hidden">
+      <main id="main-content" className="pt-24 pb-20 overflow-x-hidden">
         {/* Breadcrumb Bar */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 text-xs text-white/60">
           <nav aria-label="Breadcrumbs" className="flex items-center gap-2">

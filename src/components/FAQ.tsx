@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { 
   ChevronDown, 
   HelpCircle, 
@@ -12,75 +13,179 @@ interface FAQItem {
   id: number;
   category: 'all' | 'legal' | 'investment' | 'location' | 'financing';
   question: string;
-  answer: string;
+  answer: React.ReactNode;
 }
 
 const faqData: FAQItem[] = [
   {
     id: 1,
-    category: 'investment',
-    question: "What is the process to buy a plot in a gated community in Patna, and what is the expected ROI?",
-    answer: "To purchase a plot in a gated community in Patna through JameenWale, you can schedule a guided on-site visit, review verified title deeds, and complete registry. Patna's infrastructure boom—including the Bihta elevated corridor, Patna Metro, and AIIMS connectivity—delivers strong annual capital appreciation for early land buyers."
+    category: 'legal',
+    question: "What should I check before buying a residential plot in Patna?",
+    answer: (
+      <div className="space-y-2">
+        <p>
+          Before buying a residential plot in Patna, verify the seller’s registered sale deed (Kewala), check 30-year chain deeds, examine online Jamabandi revenue records on the Bihar Bhumi portal, confirm Circle Office mutation (Dakhil-Kharij), and obtain an encumbrance certificate. We also recommend independent legal review by a qualified property lawyer.
+        </p>
+        <p className="text-xs text-white/60">
+          Review our comprehensive{' '}
+          <Link to="/land-buying-checklist-bihar" className="text-gold underline hover:text-white">
+            Bihar Land Buying Checklist
+          </Link>{' '}
+          for a step-by-step walkthrough on Khatiyan and revenue ledger verification.
+        </p>
+      </div>
+    )
   },
   {
     id: 2,
-    category: 'location',
-    question: "What amenities are included in your gated community plots in Bihta, Patna?",
-    answer: "Our Bihta projects (including IT Park opposite NIT Patna) feature 30–40ft wide internal concrete roads, underground drainage, electricity transformers, dedicated parks, society temple, and 24/7 security guards with CCTV."
+    category: 'investment',
+    question: "How can I arrange a site visit with JameenWale?",
+    answer: (
+      <div className="space-y-2">
+        <p>
+          You can arrange a guided site visit by calling our direct helpline at +91 6287220163, submitting any inquiry form on this website, or messaging us on WhatsApp. Our field team arranges physical site inspections across Patna, Danapur, and Bihta seven days a week.
+        </p>
+        <p className="text-xs text-white/60">
+          We offer vehicle assistance and on-site coordinate inspection so you can evaluate access roads, surrounding developments, and physical boundary demarcations in person.
+        </p>
+      </div>
+    )
   },
   {
     id: 3,
-    category: 'legal',
-    question: "Are your plots 100% verified and RERA approved?",
-    answer: "Yes, all our projects are 100% verified and RERA-compliant. We guarantee crystal-clear freehold titles, immediate registered sale deeds (Kewala), certified Khatiyan & Jamabandi records, and fast Dakhil-Kharij (mutation) support with zero legal disputes."
+    category: 'location',
+    question: "What plot sizes are available in Danapur and Bihta?",
+    answer: (
+      <div className="space-y-2">
+        <p>
+          In the Danapur and Shivala More corridor, residential plots typically start from 800 sq.ft up to 2,400 sq.ft at Embassy Capital. In Bihta opposite NIT, plots range from 1,000 sq.ft to 3,200 sq.ft, suitable for both independent residential homes and commercial setups.
+        </p>
+        <p className="text-xs text-white/60">
+          Explore specific layout dimensions on our{' '}
+          <Link to="/plots-for-sale-in-danapur" className="text-gold underline hover:text-white">
+            Plots in Danapur
+          </Link>{' '}
+          and{' '}
+          <Link to="/plots-for-sale-in-bihta" className="text-gold underline hover:text-white">
+            Plots in Bihta
+          </Link>{' '}
+          project pages.
+        </p>
+      </div>
+    )
   },
   {
     id: 4,
-    category: 'location',
-    question: "Do you offer residential plots for sale in Rajgir (Nalanda)?",
-    answer: "Yes, our Seven Crown project in Silao, Rajgir offers scenic, eco-living residential plots. Situated along the Nalanda-Rajgir tourism corridor, it offers great connectivity, peaceful surroundings, and strong long-term appreciation."
+    category: 'financing',
+    question: "What costs should I consider when purchasing a plot in Patna?",
+    answer: (
+      <div className="space-y-2">
+        <p>
+          Beyond the base plot purchase price, buyers must account for Bihar state registration charges and stamp duty (typically 6% stamp duty plus 2% registration fee), legal verification fees, mutation charges, boundary demarcation expenses, and eventual utility connection charges for electricity and municipal or society services.
+        </p>
+        <p className="text-xs text-white/60">
+          For customized cost estimates, reach out via our enquiry forms or call our helpline directly.
+        </p>
+      </div>
+    )
   },
   {
     id: 5,
     category: 'legal',
-    question: "Do your gated township plots in Patna come with perimeter boundary walls?",
-    answer: "Absolutely. Every gated society plot developed by JameenWale comes with complete perimeter boundary walls, a dedicated security gatehouse, 24/7 CCTV surveillance, and clearly demarcated plot cornerstones ready for immediate construction."
+    question: "What documents should I ask to review before buying land in Bihar?",
+    answer: (
+      <div className="space-y-2">
+        <p>
+          Always ask for the certified Registered Sale Deed (Kewala), Khatiyan (cadastral survey extract), current revenue receipt (Lagaan Rasid), online Jamabandi printout from biharbhumi.bihar.gov.in, Land Possession Certificate (LPC), non-encumbrance certificate, and approved layout drawings.
+        </p>
+        <p className="text-xs text-white/60">
+          Read our guide on{' '}
+          <Link to="/land-buying-checklist-bihar" className="text-gold underline hover:text-white">
+            essential property documents in Bihar
+          </Link>{' '}
+          to understand the legal role of each record before executing an agreement.
+        </p>
+      </div>
+    )
   },
   {
     id: 6,
-    category: 'location',
-    question: "What are the location advantages of buying plots near Shivala More and Saguna More?",
-    answer: "Our Embassy Capital project at Shivala More is just 7–10 minutes from Saguna More via the Danapur-Bihta elevated highway. It combines competitive land rates with fast access to AIIMS Patna, leading schools, and commercial shopping centers."
+    category: 'investment',
+    question: "How can I enquire about an available residential plot?",
+    answer: (
+      <div className="space-y-2">
+        <p>
+          To enquire about pricing, layout plans, or current plot availability, fill out our quick enquiry form, call our customer helpline at +91 6287220163, or connect via WhatsApp at +91 7979098902. Our property advisors will share current brochures, site photos, and layout maps.
+        </p>
+        <p className="text-xs text-white/60">
+          Inquiries are handled directly by our Patna office with transparent communication and no broker intermediaries.
+        </p>
+      </div>
+    )
   },
   {
     id: 7,
-    category: 'financing',
-    question: "Can I get a home loan to buy a plot in Patna?",
-    answer: "Yes, you can easily obtain a plot purchase and composite home construction loan for our properties in Patna. JameenWale is partnered with leading nationalized and private banks (including SBI, HDFC, ICICI, and Axis Bank) to provide seamless loan processing, legal title verification support, and quick disbursement with flexible EMI repayment plans."
+    category: 'legal',
+    question: "What information should I confirm before visiting a property?",
+    answer: (
+      <div className="space-y-2">
+        <p>
+          Before visiting, confirm the exact Mauza, Thana number, and Khesra/plot numbers, the road approach width (such as 30ft or 40ft internal roads), whether the plot has clear boundary cornerstones, local flood and drainage conditions, and proximity to key transit routes like the Danapur-Bihta elevated expressway.
+        </p>
+        <p className="text-xs text-white/60">
+          Our advisors provide pre-visit location maps and road access details so you can prepare your questions beforehand.
+        </p>
+      </div>
+    )
   },
   {
     id: 8,
-    category: 'investment',
-    question: "Why should investors consider buying gated society plots in Rajgir?",
-    answer: "Rajgir is Bihar’s premier eco-tourism and education hub with the international Nalanda University and nature safari. Investing in residential land in Rajgir offers high future resale value and strong long-term appreciation."
+    category: 'location',
+    question: "What connectivity does Shivala More offer to Saguna More and Danapur?",
+    answer: (
+      <div className="space-y-2">
+        <p>
+          Shivala More is located approximately 7 to 10 minutes from Saguna More via the Danapur-Bihta elevated highway corridor. This arterial route provides rapid connectivity between Danapur Railway Station, AIIMS Patna, Patna Airport, and the educational hub at Bihta (IIT and NIT campuses).
+        </p>
+        <p className="text-xs text-white/60">
+          Learn more about projects in this corridor on our{' '}
+          <Link to="/plots-in-shivala-patna" className="text-gold underline hover:text-white">
+            Embassy Capital Shivala More
+          </Link>{' '}
+          overview.
+        </p>
+      </div>
+    )
   },
   {
     id: 9,
-    category: 'legal',
-    question: "What legal documentation will I receive upon booking and registry?",
-    answer: "You will receive a complete legal documentation kit: Registered Sale Deed (Kewala), certified Khatiyan & Jamabandi extracts, Land Possession Certificate (LPC) guidance, Dakhil-Kharij mutation receipt, and approved layout drawings."
+    category: 'financing',
+    question: "Are bank loans available for purchasing residential plots in Patna?",
+    answer: (
+      <div className="space-y-2">
+        <p>
+          Yes, residential plot purchase and composite land-plus-construction loans are available for title-verified properties through major public and private banks. Approval depends on clear title documentation, mutation records, and individual borrower creditworthiness and income verification under the lending bank’s underwriting criteria.
+        </p>
+        <p className="text-xs text-white/60">
+          We assist prospective buyers by assembling required title paperwork for submission to lending institutions.
+        </p>
+      </div>
+    )
   },
   {
     id: 10,
-    category: 'investment',
-    question: "How do I book a free site visit to inspect the plots in Patna?",
-    answer: "We offer complimentary, guided physical site visits 7 days a week with pick-and-drop vehicle assistance. Click 'Book Site Visit', submit the quick inquiry form, or call our direct helpline at +91 6287220163 to schedule your visit."
-  },
-  {
-    id: 11,
     category: 'location',
-    question: "Do you offer or assist with a plot for sale in Patna Bypass Ramkrishna Nagar?",
-    answer: "Yes, alongside our primary gated communities in Bihta and Shivala, our advisory desk assists buyers seeking a verified plot for sale in Patna Bypass Ramkrishna Nagar and nearby bypass corridors, ensuring clear title deeds, mutation records, and hassle-free registry."
+    question: "What amenities are included in gated plotted developments in Bihta and Patna?",
+    answer: (
+      <div className="space-y-2">
+        <p>
+          Plotted developments in our portfolio feature secure perimeter boundary walls, 30ft to 40ft wide internal concrete roads, underground drainage systems, dedicated electricity transformer connections, street lighting provisions, entry gatehouse security, and demarcated open spaces for community parks and plantation.
+        </p>
+        <p className="text-xs text-white/60">
+          Specific amenity details vary by project; layout drawings and specifications are available in our downloadable project brochures.
+        </p>
+      </div>
+    )
   }
 ];
 
@@ -200,7 +305,7 @@ export default function FAQ() {
                         transition={{ duration: 0.3, ease: 'easeInOut' }}
                       >
                         <div className="px-5 pb-6 sm:px-6 sm:pb-6 text-sm text-white/80 leading-relaxed font-light border-t border-white/5 pt-4">
-                          <p>{faq.answer}</p>
+                          {faq.answer}
                         </div>
                       </motion.div>
                     )}

@@ -115,6 +115,9 @@ export default function BihtaPlots() {
 
   return (
     <div className="font-sans antialiased text-white select-none overflow-x-hidden w-full relative min-h-screen">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <SEOHead
         title="Plots for Sale in Bihta | Residential Plots & Land | JameenWale"
         description="Buy verified residential plots & land for sale in Bihta Patna opposite NIT campus. Close to IIT & Bihta Airport corridor. Starting ₹28L. Book free site visit!"
@@ -124,7 +127,7 @@ export default function BihtaPlots() {
       />
       <Navbar />
 
-      <main className="pt-24 pb-20 overflow-x-hidden">
+      <main id="main-content" className="pt-24 pb-20 overflow-x-hidden">
         {/* Breadcrumb Bar */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 text-xs text-white/60">
           <nav aria-label="Breadcrumbs" className="flex items-center gap-2">

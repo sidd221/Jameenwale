@@ -9,6 +9,9 @@ import SEOHead from '../components/SEOHead';
 export default function PrivacyPolicy() {
   return (
     <div className="font-sans antialiased text-white select-none overflow-x-hidden w-full relative min-h-screen">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <SEOHead
         title="Privacy Policy | JameenWale Real Estate Patna"
         description="Privacy Policy of JameenWale. Explains data protection practices, Google Ads compliance, DPDP Act 2023 compliance, and communication consent for real estate inquiries in Bihar."
@@ -16,7 +19,7 @@ export default function PrivacyPolicy() {
       />
       <Navbar />
 
-      <main className="pt-24 pb-20 overflow-x-hidden">
+      <main id="main-content" className="pt-24 pb-20 overflow-x-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-3 text-xs text-white/60">
           <nav aria-label="Breadcrumbs" className="flex items-center gap-2">
             <Link to="/" className="hover:text-gold transition-colors">Home</Link>

@@ -174,6 +174,9 @@ export default function BiharPlots() {
 
   return (
     <div className="font-sans antialiased text-white select-none overflow-x-hidden w-full relative min-h-screen">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <SEOHead
         title="Plots for Sale in Bihar | Residential Land & Plotted Townships | JameenWale"
         description="Explore verified residential plots for sale in Bihar. Transparent freehold land in Patna, Bihta, Danapur, Naubatpur & Rajgir. 100% mutation & bank loan ready."
@@ -183,7 +186,7 @@ export default function BiharPlots() {
       />
       <Navbar />
 
-      <main className="pt-24 pb-20 overflow-x-hidden">
+      <main id="main-content" className="pt-24 pb-20 overflow-x-hidden">
         {/* Breadcrumb Bar */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 text-xs text-white/60">
           <nav aria-label="Breadcrumbs" className="flex items-center gap-2">
@@ -503,7 +506,7 @@ export default function BiharPlots() {
                     <Phone className="w-4 h-4" /> Speak with Advisor
                   </a>
                   <a
-                    href="https://wa.me/916287220163?text=Hello%20JameenWale,%20I%20am%20looking%20for%20verified%20land%20in%20Bihar."
+                    href="https://wa.me/917979098902?text=Hello%20JameenWale,%20I%20am%20looking%20for%20verified%20land%20in%20Bihar."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-xs uppercase tracking-widest text-center rounded-sm transition-all"

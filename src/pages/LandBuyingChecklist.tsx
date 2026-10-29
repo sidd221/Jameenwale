@@ -76,6 +76,9 @@ export default function LandBuyingChecklist() {
 
   return (
     <div className="font-sans antialiased text-white select-none overflow-x-hidden w-full relative min-h-screen">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <SEOHead
         title="Land Buying Checklist Bihar | Documents to Check Before Buying Plot in Patna | JameenWale"
         description="Comprehensive guide on documents to check before buying land in Bihar. Step-by-step verification of Kewala, Khatiyan, Jamabandi, Mutation & RERA approvals."
@@ -85,7 +88,7 @@ export default function LandBuyingChecklist() {
       />
       <Navbar />
 
-      <main className="pt-24 pb-20 overflow-x-hidden">
+      <main id="main-content" className="pt-24 pb-20 overflow-x-hidden">
         {/* Breadcrumb Bar */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-3 text-xs text-white/60">
           <nav aria-label="Breadcrumbs" className="flex items-center gap-2">

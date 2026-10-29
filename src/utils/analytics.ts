@@ -29,7 +29,7 @@ export function trackLeadSubmission(formName: string, additionalData: Record<str
 export function trackWhatsAppClick(locationOrContext: string) {
   trackEvent('whatsapp_click', {
     click_location: locationOrContext,
-    destination: 'https://wa.me/916287220163',
+    destination: 'https://wa.me/917979098902',
   });
 }
 

@@ -10,13 +10,13 @@
   <!-- Homepage: Core Transactional Patna Real Estate Hub -->
   <url>
     <loc>https://jameenwale.vercel.app/</loc>
-    <lastmod>2026-09-29T15:45:00+05:30</lastmod>
+    <lastmod>2026-10-29T08:00:00+05:30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://jameenwale.vercel.app/embassy.webp</image:loc>
       <image:title>Plots for Sale in Patna Shivala More - Embassy Capital</image:title>
-      <image:caption>RERA-compliant gated township residential plots with boundary wall at Shivala More Patna.</image:caption>
+      <image:caption>Gated township residential plots with boundary wall at Shivala More Patna.</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://jameenwale.vercel.app/it.webp</image:loc>
@@ -38,7 +38,7 @@
   <!-- Patna Metropolitan Primary Hub (Keywords 1-5) -->
   <url>
     <loc>https://jameenwale.vercel.app/plots-for-sale-in-patna</loc>
-    <lastmod>2026-09-29T15:45:00+05:30</lastmod>
+    <lastmod>2026-10-29T08:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
@@ -51,33 +51,33 @@
   <!-- Bihar Statewide Regional Hub (Keywords 6-9) -->
   <url>
     <loc>https://jameenwale.vercel.app/plots-for-sale-in-bihar</loc>
-    <lastmod>2026-09-29T15:45:00+05:30</lastmod>
+    <lastmod>2026-10-29T08:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
       <image:loc>https://jameenwale.vercel.app/embassy.webp</image:loc>
       <image:title>Plots for Sale in Bihar - Statewide Land &amp; Plotted Townships</image:title>
-      <image:caption>Verified residential plots in Bihar with 100% legal title clearance and mutation support.</image:caption>
+      <image:caption>Residential plots in Bihar with title verification guidance and mutation support.</image:caption>
     </image:image>
   </url>
 
   <!-- Bihta Corridor (Keywords 10-11) -->
   <url>
     <loc>https://jameenwale.vercel.app/plots-for-sale-in-bihta</loc>
-    <lastmod>2026-09-29T15:45:00+05:30</lastmod>
+    <lastmod>2026-10-29T08:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://jameenwale.vercel.app/it.webp</image:loc>
       <image:title>Plots for Sale in Bihta Patna - IT Park</image:title>
-      <image:caption>RERA-approved plots opposite NIT Patna in the Bihta Growth Corridor.</image:caption>
+      <image:caption>Residential plots opposite NIT Patna in the Bihta Growth Corridor.</image:caption>
     </image:image>
   </url>
 
   <!-- Danapur Corridor (Keywords 14-15) -->
   <url>
     <loc>https://jameenwale.vercel.app/plots-for-sale-in-danapur</loc>
-    <lastmod>2026-09-29T15:45:00+05:30</lastmod>
+    <lastmod>2026-10-29T08:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -90,7 +90,7 @@
   <!-- Naubatpur Corridor (Keywords 12-13) -->
   <url>
     <loc>https://jameenwale.vercel.app/plots-for-sale-in-naubatpur</loc>
-    <lastmod>2026-09-29T15:45:00+05:30</lastmod>
+    <lastmod>2026-10-29T08:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -103,7 +103,7 @@
   <!-- Rajgir / Nalanda Corridor (Keywords 16-17) -->
   <url>
     <loc>https://jameenwale.vercel.app/plots-for-sale-in-rajgir</loc>
-    <lastmod>2026-09-29T15:45:00+05:30</lastmod>
+    <lastmod>2026-10-29T08:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -116,7 +116,7 @@
   <!-- Shivala More Project Landing -->
   <url>
     <loc>https://jameenwale.vercel.app/plots-in-shivala-patna</loc>
-    <lastmod>2026-09-29T15:45:00+05:30</lastmod>
+    <lastmod>2026-10-29T08:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
@@ -129,7 +129,7 @@
   <!-- Informational / E-E-A-T Authority Resource -->
   <url>
     <loc>https://jameenwale.vercel.app/land-buying-checklist-bihar</loc>
-    <lastmod>2026-09-29T15:45:00+05:30</lastmod>
+    <lastmod>2026-10-29T08:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -137,21 +137,21 @@
   <!-- Trust & Policy Pages -->
   <url>
     <loc>https://jameenwale.vercel.app/privacy-policy</loc>
-    <lastmod>2026-09-29T15:45:00+05:30</lastmod>
+    <lastmod>2026-10-29T08:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://jameenwale.vercel.app/terms</loc>
-    <lastmod>2026-09-29T15:45:00+05:30</lastmod>
+    <lastmod>2026-10-29T08:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://jameenwale.vercel.app/disclaimer</loc>
-    <lastmod>2026-09-29T15:45:00+05:30</lastmod>
+    <lastmod>2026-10-29T08:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>

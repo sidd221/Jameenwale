@@ -1,18 +1,23 @@
 <!doctype html>
 <html lang="en-IN">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18485978292"></script>
+    <!-- Google tag (gtag.js) - Loaded for production tracking -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'AW-18485978292');
+      if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+        const s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18485978292';
+        document.head.appendChild(s);
+        gtag('config', 'AW-18485978292');
+      }
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Plots for Sale in Patna | Residential Plots &amp; Land | JameenWale</title>
+    <title>Plots for Sale in Patna | Residential Plots | JameenWale</title>
     
     <!-- Preload Hero Image (Local High-Performance WebP) -->
     <link rel="preload" as="image" href="/hero-800.webp" imagesrcset="/hero-480.webp 480w, /hero-640.webp 640w, /hero-800.webp 800w, /hero-1280.webp 1280w" imagesizes="(max-width: 480px) 480px, (max-width: 768px) 768px, 100vw" type="image/webp" fetchpriority="high" />
@@ -21,7 +26,7 @@
     <link rel="apple-touch-icon" href="/logo.png" />
     <meta name="theme-color" content="#0F172A" />
     <meta name="keywords" content="plots for sale in patna, residential plots in patna, land for sale in patna, residential land in patna, plot for sale in patna, plots for sale in bihar, land for sale in bihar, residential plots in bihar, plots for sale in bihta, plots for sale in danapur, plots for sale in naubatpur, plots for sale in rajgir, gated community plots in patna, jameenwale patna real estate" />
-    <meta name="description" content="Looking for plots for sale in Patna? Explore verified residential plots &amp; land in gated townships at Shivala More, Danapur &amp; Bihta from ₹21L. Book a free site visit!" />
+    <meta name="description" content="Explore residential plots in Patna, including Danapur, Shivala More and Bihta. View available plot details and enquire to arrange a site visit with JameenWale." />
     
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="h_DfHWgmhD_TWA38n_UGBNEAVgi2axt2JwNl46dNY7M" />
@@ -34,9 +39,9 @@
     <link rel="alternate" type="text/plain" href="https://jameenwale.vercel.app/llms.txt" title="LLM Context" />
     
     <!-- Open Graph / LinkedIn / Facebook tags -->
-    <meta property="og:title" content="Plots for Sale in Patna | Residential Plots &amp; Land | JameenWale" />
+    <meta property="og:title" content="Plots for Sale in Patna | Residential Plots | JameenWale" />
     <meta property="og:site_name" content="JameenWale" />
-    <meta property="og:description" content="Looking for plots for sale in Patna? Explore verified residential plots &amp; land in gated townships at Shivala More, Danapur &amp; Bihta from ₹21L. Book a free site visit!" />
+    <meta property="og:description" content="Explore residential plots in Patna, including Danapur, Shivala More and Bihta. View available plot details and enquire to arrange a site visit with JameenWale." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_IN" />
     <meta property="og:url" content="https://jameenwale.vercel.app/" />
@@ -45,15 +50,15 @@
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="JameenWale - Plots for Sale in Patna and Bihar Real Estate" />
+    <meta property="og:image:alt" content="JameenWale - Residential Plots for Sale in Patna and Bihar" />
     
     <!-- Twitter Card tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://jameenwale.vercel.app/" />
-    <meta name="twitter:title" content="Plots for Sale in Patna | Residential Plots &amp; Land | JameenWale" />
-    <meta name="twitter:description" content="Looking for plots for sale in Patna? Explore verified residential plots &amp; land in gated townships at Shivala More, Danapur &amp; Bihta from ₹21L. Book a free site visit!" />
+    <meta name="twitter:title" content="Plots for Sale in Patna | Residential Plots | JameenWale" />
+    <meta name="twitter:description" content="Explore residential plots in Patna, including Danapur, Shivala More and Bihta. View available plot details and enquire to arrange a site visit with JameenWale." />
     <meta name="twitter:image" content="https://jameenwale.vercel.app/og-image.jpg" />
-    <meta name="twitter:image:alt" content="JameenWale - RERA Approved Gated Community Plots in Patna and Rajgir Bihar" />
+    <meta name="twitter:image:alt" content="JameenWale - Residential Plots and Planned Gated Land in Patna" />
     
     <!-- Geo Tags for Local SEO -->
     <meta name="geo.region" content="IN-BR" />
@@ -61,7 +66,7 @@
     <meta name="geo.position" content="25.5941;85.1376" />
     <meta name="ICBM" content="25.5941, 85.1376" />
     
-    <!-- Schema Markup: RealEstateAgent, RealEstateListings, FAQPage, BreadcrumbList, WebSite -->
+    <!-- Schema Markup: RealEstateAgent, RealEstateListings, FAQPage, WebSite -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -75,7 +80,7 @@
           "url": "https://jameenwale.vercel.app",
           "telephone": "+916287220163",
           "email": "Anish248patel@gmail.com",
-          "description": "Premier real estate consultancy offering 100% verified RERA-approved gated community residential and commercial plots in Patna, Bihta, Shivala More, and Rajgir Bihar.",
+          "description": "Independent real estate consultancy helping buyers explore residential plots and planned gated land developments in Patna, Bihta, Danapur, Shivala More, and Rajgir, Bihar.",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "5th Floor, Leads Tower, Rupaspur, Digha Danapur Nahar Road",
@@ -105,7 +110,7 @@
           "sameAs": [
             "https://www.facebook.com/share/18kmh97qDS/",
             "https://www.instagram.com/jameenwlae_?igsh=MTBtenllNGFkc2RuZQ==",
-            "https://wa.me/916287220163",
+            "https://wa.me/917979098902",
             "https://pin.it/3un7n9UNy"
           ]
         },
@@ -113,7 +118,7 @@
           "@type": "RealEstateListing",
           "@id": "https://jameenwale.vercel.app/#listing-embassy-capital",
           "name": "Embassy Capital - Gated Community Plots in Patna",
-          "description": "Secure, freehold residential plots with perimeter boundary walls, 30-40ft wide concrete roads, and clear legal titles at Shivala More, Patna (7-10 mins from Saguna More).",
+          "description": "Freehold residential plots with perimeter boundary walls, 30-40ft wide concrete roads, and clear legal title documentation at Shivala More, Patna (7-10 mins from Saguna More).",
           "url": "https://jameenwale.vercel.app/#properties",
           "datePosted": "2026-01-01",
           "validFrom": "2026-01-01",
@@ -122,7 +127,7 @@
           "mainEntity": {
             "@type": "Place",
             "name": "Embassy Capital Gated Township",
-            "description": "Freehold residential land with 100% boundary walls, 24/7 CCTV security, drainage, and instant mutation in Patna.",
+            "description": "Residential land development with boundary walls, drainage, and mutation assistance at Shivala More, Patna.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Shivala More Bodhgawa",
@@ -138,8 +143,8 @@
             },
             "amenityFeature": [
               { "@type": "LocationFeatureSpecification", "name": "Perimeter Boundary Wall", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "24/7 Gated Security & CCTV", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Wide Concrete Pitch Roads", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Gated Security & CCTV", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Wide Concrete Internal Roads", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Underground Drainage System", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Electricity & Transformer", "value": true }
             ]
@@ -158,7 +163,7 @@
           "@type": "RealEstateListing",
           "@id": "https://jameenwale.vercel.app/#listing-it-park",
           "name": "IT Park - Gated Community Plots in Bihta Patna",
-          "description": "RERA-approved residential & commercial land opposite to NIT Patna, Bihta Corridor. 100% mutation ready.",
+          "description": "Residential and commercial land opposite to NIT Patna in the Bihta Growth Corridor with boundary roads and mutation guidance.",
           "url": "https://jameenwale.vercel.app/#properties",
           "datePosted": "2026-01-01",
           "image": "https://jameenwale.vercel.app/it.webp",
@@ -166,7 +171,7 @@
           "mainEntity": {
             "@type": "Place",
             "name": "IT Park Bihta Gated Plots",
-            "description": "RERA-approved residential and commercial plots opposite to NIT Patna in Bihta.",
+            "description": "Residential and commercial plots opposite to NIT Patna in Bihta.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Opposite to NIT, Bihta",
@@ -193,7 +198,7 @@
           "@type": "RealEstateListing",
           "@id": "https://jameenwale.vercel.app/#listing-seven-crown",
           "name": "Seven Crown - Residential Plots in Rajgir Bihar",
-          "description": "Scenic eco-living residential plots in Silao, Rajgir, Nalanda tourism corridor. Gated society plots in Rajgir starting ₹22 Lakh.",
+          "description": "Scenic eco-living residential plots in Silao, Rajgir, Nalanda tourism corridor starting from ₹22 Lakh.",
           "url": "https://jameenwale.vercel.app/#properties",
           "datePosted": "2026-01-01",
           "image": "https://jameenwale.vercel.app/rajgir.webp",
@@ -201,7 +206,7 @@
           "mainEntity": {
             "@type": "Place",
             "name": "Seven Crown Rajgir Gated Township",
-            "description": "Eco-living plots for sale in Rajgir Nalanda with scenic green views and high appreciation.",
+            "description": "Eco-living plots for sale in Rajgir Nalanda with scenic green views.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Silao, Rajgir",
@@ -220,35 +225,11 @@
           }
         },
         {
-          "@type": "BreadcrumbList",
-          "@id": "https://jameenwale.vercel.app/#breadcrumbs",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://jameenwale.vercel.app/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Featured Properties",
-              "item": "https://jameenwale.vercel.app/#properties"
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": "Gated Community Plots in Patna & Rajgir",
-              "item": "https://jameenwale.vercel.app/"
-            }
-          ]
-        },
-        {
           "@type": "WebSite",
           "@id": "https://jameenwale.vercel.app/#website",
           "url": "https://jameenwale.vercel.app/",
           "name": "JameenWale",
-          "description": "Buy RERA-approved gated community plots in Patna & Rajgir. 100% verified freehold land with boundary walls, 30-40ft roads & bank loan.",
+          "description": "Explore residential plots and planned gated communities in Patna and Bihar with JameenWale. View plot details, verify documents, and book guided site visits.",
           "publisher": { "@id": "https://jameenwale.vercel.app/#agent" }
         },
         {
@@ -257,82 +238,82 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "What is the process to buy a plot in a gated community in Patna, and what is the expected ROI?",
+              "name": "What should I check before buying a residential plot in Patna?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "To purchase a plot in a gated community in Patna through JameenWale, you can schedule a guided on-site visit, review verified title deeds, and complete registry. Patna's infrastructure boom—including the Bihta elevated corridor, Patna Metro, and AIIMS connectivity—delivers strong annual capital appreciation for early land buyers."
+                "text": "Before buying a residential plot in Patna, verify the seller's registered sale deed (Kewala), check 30-year chain deeds, examine online Jamabandi revenue records on the Bihar Bhumi portal, confirm Circle Office mutation (Dakhil-Kharij), and obtain an encumbrance certificate. We also recommend independent legal review by a qualified property lawyer."
               }
             },
             {
               "@type": "Question",
-              "name": "What amenities are included in your gated community plots in Bihta, Patna?",
+              "name": "How can I arrange a site visit with JameenWale?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Our Bihta projects (including IT Park opposite NIT Patna) feature 30–40ft wide internal concrete roads, underground drainage, electricity transformers, dedicated parks, society temple, and 24/7 security guards with CCTV."
+                "text": "You can arrange a guided site visit by calling our direct helpline at +91 6287220163, submitting any inquiry form on this website, or messaging us on WhatsApp. Our field team arranges physical site inspections across Patna, Danapur, and Bihta seven days a week."
               }
             },
             {
               "@type": "Question",
-              "name": "Are your plots 100% verified and RERA approved?",
+              "name": "What plot sizes are available in Danapur and Bihta?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, all our projects are 100% verified and RERA-compliant. We guarantee crystal-clear freehold titles, immediate registered sale deeds (Kewala), certified Khatiyan & Jamabandi records, and fast Dakhil-Kharij (mutation) support with zero legal disputes."
+                "text": "In the Danapur and Shivala More corridor, residential plots typically start from 800 sq.ft up to 2,400 sq.ft at Embassy Capital. In Bihta opposite NIT, plots range from 1,000 sq.ft to 3,200 sq.ft, suitable for both independent residential homes and commercial setups."
               }
             },
             {
               "@type": "Question",
-              "name": "Do you offer residential plots for sale in Rajgir (Nalanda)?",
+              "name": "What costs should I consider when purchasing a plot in Patna?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, our Seven Crown project in Silao, Rajgir offers scenic, eco-living residential plots. Situated along the Nalanda-Rajgir tourism corridor, it offers great connectivity, peaceful surroundings, and strong long-term appreciation."
+                "text": "Beyond the base plot purchase price, buyers must account for Bihar state registration charges and stamp duty (typically 6% stamp duty plus 2% registration fee), legal verification fees, mutation charges, boundary demarcation expenses, and eventual utility connection charges for electricity and municipal or society services."
               }
             },
             {
               "@type": "Question",
-              "name": "Do your gated township plots in Patna come with perimeter boundary walls?",
+              "name": "What documents should I ask to review before buying land in Bihar?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Absolutely. Every gated society plot developed by JameenWale comes with complete perimeter boundary walls, a dedicated security gatehouse, 24/7 CCTV surveillance, and clearly demarcated plot cornerstones ready for immediate construction."
+                "text": "Always ask for the certified Registered Sale Deed (Kewala), Khatiyan (cadastral survey extract), current revenue receipt (Lagaan Rasid), online Jamabandi printout from biharbhumi.bihar.gov.in, Land Possession Certificate (LPC), non-encumbrance certificate, and approved layout drawings."
               }
             },
             {
               "@type": "Question",
-              "name": "What are the location advantages of buying plots near Shivala More and Saguna More?",
+              "name": "How can I enquire about an available residential plot?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Our Embassy Capital project at Shivala More is just 7–10 minutes from Saguna More via the Danapur-Bihta elevated highway. It combines competitive land rates with fast access to AIIMS Patna, leading schools, and commercial shopping centers."
+                "text": "To enquire about pricing, layout plans, or current plot availability, fill out our quick enquiry form, call our customer helpline at +91 6287220163, or connect via WhatsApp at +91 7979098902. Our property advisors will share current brochures, site photos, and layout maps."
               }
             },
             {
               "@type": "Question",
-              "name": "Can I get a home loan to buy a plot in Patna?",
+              "name": "What information should I confirm before visiting a property?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, you can easily obtain a plot purchase and composite home construction loan for our properties in Patna. JameenWale is partnered with leading nationalized and private banks (including SBI, HDFC, ICICI, and Axis Bank) to provide seamless loan processing, legal title verification support, and quick disbursement with flexible EMI repayment plans."
+                "text": "Before visiting, confirm the exact Mauza, Thana number, and Khesra/plot numbers, the road approach width (such as 30ft or 40ft internal roads), whether the plot has clear boundary cornerstones, local flood and drainage conditions, and proximity to key transit routes like the Danapur-Bihta elevated expressway."
               }
             },
             {
               "@type": "Question",
-              "name": "Why should investors consider buying gated society plots in Rajgir?",
+              "name": "What connectivity does Shivala More offer to Saguna More and Danapur?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Rajgir is Bihar’s premier eco-tourism and education hub with the international Nalanda University and nature safari. Investing in residential land in Rajgir offers high future resale value and strong long-term appreciation."
+                "text": "Shivala More is located approximately 7 to 10 minutes from Saguna More via the Danapur-Bihta elevated highway corridor. This arterial route provides rapid connectivity between Danapur Railway Station, AIIMS Patna, Patna Airport, and the educational hub at Bihta (IIT and NIT campuses)."
               }
             },
             {
               "@type": "Question",
-              "name": "What legal documentation will I receive upon booking and registry?",
+              "name": "Are bank loans available for purchasing residential plots in Patna?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "You will receive a complete legal documentation kit: Registered Sale Deed (Kewala), certified Khatiyan & Jamabandi extracts, Land Possession Certificate (LPC) guidance, Dakhil-Kharij mutation receipt, and approved layout drawings."
+                "text": "Yes, residential plot purchase and composite land-plus-construction loans are available for title-verified properties through major public and private banks. Approval depends on clear title documentation, mutation records, and individual borrower creditworthiness and income verification under the lending bank's underwriting criteria."
               }
             },
             {
               "@type": "Question",
-              "name": "How do I book a free site visit to inspect the plots in Patna?",
+              "name": "What amenities are included in gated plotted developments in Bihta and Patna?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "We offer complimentary, guided physical site visits 7 days a week with pick-and-drop vehicle assistance. Click 'Book Site Visit', submit the quick inquiry form, or call our direct helpline at +91 6287220163 to schedule your visit."
+                "text": "Plotted developments in our portfolio feature secure perimeter boundary walls, 30ft to 40ft wide internal concrete roads, underground drainage systems, dedicated electricity transformer connections, street lighting provisions, entry gatehouse security, and demarcated open spaces for community parks and plantation."
               }
             }
           ]
@@ -371,16 +352,18 @@
 
     <!-- Meta Pixel Code -->
     <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '3537517169747181');
-      fbq('track', 'PageView');
+      if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '3537517169747181');
+        fbq('track', 'PageView');
+      }
     </script>
     <!-- End Meta Pixel Code -->
   </head>
@@ -394,7 +377,92 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5C7V63LJ"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <div id="root"></div>
+    <div id="root">
+      <a class="skip-link" href="#main-content">Skip to main content</a>
+      <header style="padding: 1rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); background-color: #0F172A; display: flex; justify-content: space-between; align-items: center; max-width: 80rem; margin: 0 auto;">
+        <a href="/" style="font-weight: 800; font-size: 1.25rem; color: #FFFFFF; text-decoration: none; letter-spacing: 0.05em;">
+          JAMEEN<span style="color: #D4AF37;">WALE</span>
+        </a>
+        <nav aria-label="Quick navigation" style="display: flex; gap: 1rem; font-size: 0.875rem;">
+          <a href="/plots-for-sale-in-patna" style="color: #FFFFFF; text-decoration: none;">Patna</a>
+          <a href="/plots-for-sale-in-danapur" style="color: #FFFFFF; text-decoration: none;">Danapur</a>
+          <a href="/plots-for-sale-in-bihta" style="color: #FFFFFF; text-decoration: none;">Bihta</a>
+          <a href="/land-buying-checklist-bihar" style="color: #D4AF37; text-decoration: none;">Buyer Guide</a>
+          <a href="tel:+916287220163" style="color: #D4AF37; font-weight: 700; text-decoration: none;">Call +91 6287220163</a>
+        </nav>
+      </header>
+
+      <main id="main-content" style="max-width: 80rem; margin: 0 auto; padding: 2rem 1.5rem;">
+        <article>
+          <header style="margin-bottom: 2rem;">
+            <p style="color: #D4AF37; font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Patna Residential Land &amp; Plotted Townships</p>
+            <h1 style="font-size: 2.25rem; font-weight: 800; color: #FFFFFF; line-height: 1.2; margin: 0 0 1rem 0;">Residential Plots for Sale in Patna</h1>
+            <p style="font-size: 1.125rem; color: rgba(255,255,255,0.8); line-height: 1.6; max-width: 48rem;">
+              Explore residential plots in Patna, including Danapur, Shivala More and Bihta. View available plot details, review revenue documentation, and enquire to arrange a site visit with JameenWale.
+            </p>
+          </header>
+
+          <section style="margin-bottom: 3rem;">
+            <h2 style="font-size: 1.5rem; font-weight: 700; color: #FFFFFF; margin-bottom: 1rem;">Featured Plotted Developments</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+              <div style="border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 1.5rem; background: rgba(255,255,255,0.03);">
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: #D4AF37; margin: 0 0 0.5rem 0;">Embassy Capital (Shivala More)</h3>
+                <p style="font-size: 0.875rem; color: rgba(255,255,255,0.7); line-height: 1.5;">Gated residential society at Shivala More, 7–10 minutes from Saguna More via the Danapur-Bihta elevated expressway. Features perimeter boundary walls, 30–40ft wide concrete roads, and clear title documentation starting from ₹21 Lakh (800 sq.ft).</p>
+                <a href="/plots-in-shivala-patna" style="display: inline-block; margin-top: 1rem; color: #D4AF37; font-weight: 700; text-decoration: underline; font-size: 0.875rem;">View Embassy Capital Details &rarr;</a>
+              </div>
+
+              <div style="border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 1.5rem; background: rgba(255,255,255,0.03);">
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: #D4AF37; margin: 0 0 0.5rem 0;">IT Park (Bihta Growth Corridor)</h3>
+                <p style="font-size: 0.875rem; color: rgba(255,255,255,0.7); line-height: 1.5;">Residential and commercial land development opposite NIT Patna, close to IIT Patna and the upcoming Bihta Airport corridor. Features wide internal roads, underground drainage, and mutation assistance starting from ₹28 Lakh (1,000 sq.ft).</p>
+                <a href="/plots-for-sale-in-bihta" style="display: inline-block; margin-top: 1rem; color: #D4AF37; font-weight: 700; text-decoration: underline; font-size: 0.875rem;">View Bihta IT Park Details &rarr;</a>
+              </div>
+
+              <div style="border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 1.5rem; background: rgba(255,255,255,0.03);">
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: #D4AF37; margin: 0 0 0.5rem 0;">Seven Crown (Rajgir Eco-Living)</h3>
+                <p style="font-size: 0.875rem; color: rgba(255,255,255,0.7); line-height: 1.5;">Scenic eco-living residential plots in Silao along the Nalanda-Rajgir tourism corridor. Peaceful surroundings with high appreciation potential starting from ₹22 Lakh (900 sq.ft).</p>
+                <a href="/plots-for-sale-in-rajgir" style="display: inline-block; margin-top: 1rem; color: #D4AF37; font-weight: 700; text-decoration: underline; font-size: 0.875rem;">View Rajgir Plots Details &rarr;</a>
+              </div>
+            </div>
+          </section>
+
+          <section style="margin-bottom: 3rem;">
+            <h2 style="font-size: 1.5rem; font-weight: 700; color: #FFFFFF; margin-bottom: 1rem;">Explore Key Real Estate Corridors</h2>
+            <ul style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.75rem;">
+              <li><a href="/plots-for-sale-in-patna" style="padding: 0.5rem 1rem; border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; color: #FFFFFF; text-decoration: none; font-size: 0.875rem; background: rgba(255,255,255,0.05);">Plots for Sale in Patna</a></li>
+              <li><a href="/plots-for-sale-in-danapur" style="padding: 0.5rem 1rem; border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; color: #FFFFFF; text-decoration: none; font-size: 0.875rem; background: rgba(255,255,255,0.05);">Plots for Sale in Danapur</a></li>
+              <li><a href="/plots-for-sale-in-bihta" style="padding: 0.5rem 1rem; border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; color: #FFFFFF; text-decoration: none; font-size: 0.875rem; background: rgba(255,255,255,0.05);">Plots for Sale in Bihta</a></li>
+              <li><a href="/plots-for-sale-in-naubatpur" style="padding: 0.5rem 1rem; border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; color: #FFFFFF; text-decoration: none; font-size: 0.875rem; background: rgba(255,255,255,0.05);">Plots for Sale in Naubatpur</a></li>
+              <li><a href="/plots-for-sale-in-rajgir" style="padding: 0.5rem 1rem; border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; color: #FFFFFF; text-decoration: none; font-size: 0.875rem; background: rgba(255,255,255,0.05);">Plots for Sale in Rajgir</a></li>
+              <li><a href="/land-buying-checklist-bihar" style="padding: 0.5rem 1rem; border: 1px solid #D4AF37; border-radius: 4px; color: #D4AF37; text-decoration: none; font-size: 0.875rem; font-weight: 700; background: rgba(212,175,55,0.1);">Bihar Land Buying Checklist</a></li>
+            </ul>
+          </section>
+
+          <section style="margin-bottom: 3rem;">
+            <h2 style="font-size: 1.5rem; font-weight: 700; color: #FFFFFF; margin-bottom: 1rem;">Frequently Asked Questions</h2>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">
+                <h3 style="font-size: 1.125rem; font-weight: 700; color: #D4AF37; margin: 0 0 0.5rem 0;">What should I check before buying a residential plot in Patna?</h3>
+                <p style="font-size: 0.875rem; color: rgba(255,255,255,0.8); line-height: 1.6; margin: 0;">Before buying a residential plot in Patna, verify the seller's registered sale deed (Kewala), check 30-year chain deeds, examine online Jamabandi revenue records on the Bihar Bhumi portal, confirm Circle Office mutation (Dakhil-Kharij), and obtain an encumbrance certificate. We also recommend independent legal review by a qualified property lawyer.</p>
+              </div>
+              <div style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">
+                <h3 style="font-size: 1.125rem; font-weight: 700; color: #D4AF37; margin: 0 0 0.5rem 0;">How can I arrange a site visit with JameenWale?</h3>
+                <p style="font-size: 0.875rem; color: rgba(255,255,255,0.8); line-height: 1.6; margin: 0;">You can arrange a guided site visit by calling our direct helpline at +91 6287220163, submitting any inquiry form on this website, or messaging us on WhatsApp at +91 7979098902. Our field team arranges physical site inspections across Patna, Danapur, and Bihta seven days a week.</p>
+              </div>
+              <div style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">
+                <h3 style="font-size: 1.125rem; font-weight: 700; color: #D4AF37; margin: 0 0 0.5rem 0;">What plot sizes are available in Danapur and Bihta?</h3>
+                <p style="font-size: 0.875rem; color: rgba(255,255,255,0.8); line-height: 1.6; margin: 0;">In the Danapur and Shivala More corridor, residential plots typically start from 800 sq.ft up to 2,400 sq.ft at Embassy Capital. In Bihta opposite NIT, plots range from 1,000 sq.ft to 3,200 sq.ft, suitable for both independent residential homes and commercial setups.</p>
+              </div>
+            </div>
+          </section>
+
+          <footer style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; font-size: 0.875rem; color: rgba(255,255,255,0.6);">
+            <p><strong>JameenWale Office:</strong> 5th Floor, Leads Tower, Rupaspur, Digha Danapur Nahar Road, Landmark: Kaali Mandir, Patna 801503, Bihar, India.</p>
+            <p>General Helpline: <a href="tel:+916287220163" style="color: #D4AF37;">+91 6287220163</a> | WhatsApp Enquiries: <a href="https://wa.me/917979098902" style="color: #D4AF37;">+91 7979098902</a></p>
+            <p><a href="/privacy-policy" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> | <a href="/terms" style="color: rgba(255,255,255,0.7);">Terms of Service</a> | <a href="/disclaimer" style="color: rgba(255,255,255,0.7);">Statutory Disclaimer</a></p>
+          </footer>
+        </article>
+      </main>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

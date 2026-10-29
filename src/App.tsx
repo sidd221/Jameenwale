@@ -2,20 +2,20 @@ import { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import About from './components/About';
+import FeaturedProperties from './components/FeaturedProperties';
+import WhyChooseUs from './components/WhyChooseUs';
+import Amenities from './components/Amenities';
+import LocationAdvantage from './components/LocationAdvantage';
+import LegalDocuments from './components/LegalDocuments';
+import FAQ from './components/FAQ';
+import ContactForm from './components/ContactForm';
+import Footer from './components/Footer';
+import FloatingCTAs from './components/FloatingCTAs';
 import SEOHead from './components/SEOHead';
 
-// Code-split below-the-fold components for ultra-fast initial load
-const About = lazy(() => import('./components/About'));
-const FeaturedProperties = lazy(() => import('./components/FeaturedProperties'));
-const WhyChooseUs = lazy(() => import('./components/WhyChooseUs'));
-const Amenities = lazy(() => import('./components/Amenities'));
-const LocationAdvantage = lazy(() => import('./components/LocationAdvantage'));
+// Code-split heavy modals and subpages on demand
 const Gallery = lazy(() => import('./components/Gallery'));
-const LegalDocuments = lazy(() => import('./components/LegalDocuments'));
-const FAQ = lazy(() => import('./components/FAQ'));
-const ContactForm = lazy(() => import('./components/ContactForm'));
-const Footer = lazy(() => import('./components/Footer'));
-const FloatingCTAs = lazy(() => import('./components/FloatingCTAs'));
 const AmenitiesPopup = lazy(() => import('./components/AmenitiesPopup'));
 const CookieBanner = lazy(() => import('./components/CookieBanner'));
 const NotFound = lazy(() => import('./components/NotFound'));
@@ -50,48 +50,33 @@ function SectionSkeleton({ minHeight = '400px' }: { minHeight?: string }) {
 function Home() {
   return (
     <div className="font-sans antialiased text-white select-none overflow-x-hidden w-full max-w-full relative min-h-screen">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <SEOHead
-        title="Plots for Sale in Patna | Residential Plots & Land | JameenWale"
-        description="Looking for plots for sale in Patna? Explore verified residential plots & land in gated townships at Shivala More, Danapur & Bihta from ₹21L. Book a free site visit!"
+        title="Plots for Sale in Patna | Residential Plots | JameenWale"
+        description="Explore residential plots in Patna, including Danapur, Shivala More and Bihta. View available plot details and enquire to arrange a site visit with JameenWale."
         canonicalUrl="https://jameenwale.vercel.app/"
       />
       <Navbar />
-      <main className="overflow-x-hidden w-full max-w-full">
+      <main id="main-content" className="overflow-x-hidden w-full max-w-full">
         <Hero />
-        <Suspense fallback={<SectionSkeleton minHeight="500px" />}>
-          <About />
-        </Suspense>
-        <Suspense fallback={<SectionSkeleton minHeight="600px" />}>
-          <FeaturedProperties />
-        </Suspense>
-        <Suspense fallback={<SectionSkeleton minHeight="500px" />}>
-          <WhyChooseUs />
-        </Suspense>
-        <Suspense fallback={<SectionSkeleton minHeight="400px" />}>
-          <Amenities />
-        </Suspense>
-        <Suspense fallback={<SectionSkeleton minHeight="500px" />}>
-          <LocationAdvantage />
-        </Suspense>
+        <About />
+        <FeaturedProperties />
+        <WhyChooseUs />
+        <Amenities />
+        <LocationAdvantage />
         <Suspense fallback={<SectionSkeleton minHeight="400px" />}>
           <Gallery />
         </Suspense>
-        <Suspense fallback={<SectionSkeleton minHeight="400px" />}>
-          <LegalDocuments />
-        </Suspense>
-        <Suspense fallback={<SectionSkeleton minHeight="400px" />}>
-          <FAQ />
-        </Suspense>
-        <Suspense fallback={<SectionSkeleton minHeight="400px" />}>
-          <ContactForm />
-        </Suspense>
+        <LegalDocuments />
+        <FAQ />
+        <ContactForm />
       </main>
       
-      <Suspense fallback={<SectionSkeleton minHeight="200px" />}>
-        <Footer />
-      </Suspense>
+      <Footer />
+      <FloatingCTAs />
       <Suspense fallback={null}>
-        <FloatingCTAs />
         <AmenitiesPopup />
       </Suspense>
       

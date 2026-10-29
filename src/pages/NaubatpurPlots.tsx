@@ -118,6 +118,9 @@ export default function NaubatpurPlots() {
 
   return (
     <div className="font-sans antialiased text-white select-none overflow-x-hidden w-full relative min-h-screen">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <SEOHead
         title="Plots for Sale in Naubatpur | Land for Sale in Naubatpur Patna | JameenWale"
         description="Buy verified residential plots & land for sale in Naubatpur Patna near AIIMS & Bihta-Sarmera Expressway. 100% freehold clear title from ₹20L. Book site visit!"
@@ -127,7 +130,7 @@ export default function NaubatpurPlots() {
       />
       <Navbar />
 
-      <main className="pt-24 pb-20 overflow-x-hidden">
+      <main id="main-content" className="pt-24 pb-20 overflow-x-hidden">
         {/* Breadcrumb Bar */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 text-xs text-white/60">
           <nav aria-label="Breadcrumbs" className="flex items-center gap-2">
